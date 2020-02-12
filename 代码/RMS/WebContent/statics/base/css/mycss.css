@@ -1,0 +1,12 @@
+	.remen a:link{
+		color:#8a8a8a;
+		text-decoration:none;
+	}
+	.remen a:hover{
+		color:#1e71b1;
+		text-decoration:none;
+	}
+	.remen a:visited{
+		color:#000;
+		text-decoration:none;
+	}
