@@ -1,12 +1,12 @@
-	.remen a:link{
-		color:#8a8a8a;
-		text-decoration:none;
-	}
-	.remen a:hover{
-		color:#1e71b1;
-		text-decoration:none;
-	}
-	.remen a:visited{
+.remen1:link{
 		color:#000;
+		text-decoration:none;
+	}
+.remen1:visited{
+	color:#9a9a9a;
+		text-decoration:none;
+}
+.remen1:hover{
+		color:#1e71b1;
 		text-decoration:none;
 	}
