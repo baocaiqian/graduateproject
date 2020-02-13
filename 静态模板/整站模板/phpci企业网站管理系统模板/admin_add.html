@@ -24,13 +24,16 @@ $(document).ready(function(){
 
 	</div>
 	<div class="clear"></div>
-	<div class="stat_list">
-		<ul>
-			<li class="now"><a href="admin.html" title="用户管理">用户管理</a></li>
-			<li ><a href="role.html" title="角色管理">角色管理</a></li>
-		</ul>
-	</div>
+
 	<div style="clear:both;"></div>
+
+
+
+<p><font size="6"  color="#1e71b1"  style="margin-left:40px">密码修改</font></p>
+
+
+
+
 <form method="post" name="myform" action="index.php/admin/admin/add">	
 <div class="v52fmbx_tbmax">
 <div class="v52fmbx_tbbox">
@@ -41,41 +44,42 @@ $(document).ready(function(){
 			<dd><input name="adminuser" type="text" class="text nonull"><span class="red"></span></dd>
 		</dl>
 		</div>
+
+
 		
+	<div class="v52fmbx_dlbox">
+		<dl>
+			<dt>旧密码：</dt>
+			<dd>
+			<input name="adminpwd" type="password" class="text nonull" ><span id="pass1">
+			</dd>
+		</dl>
+		</div>
+
+
+
+
 		<div class="v52fmbx_dlbox">
 		<dl>
-			<dt>密　码：</dt>
+			<dt>新密码：</dt>
+			<dd>
+			<input name="adminpwd" type="password" class="text nonull" ><span id="pass1">
+			</dd>
+		</dl>
+		</div>
+
+
+		<div class="v52fmbx_dlbox">
+		<dl>
+			<dt>新密码：</dt>
 			<dd>
 			<input name="adminpwd" type="password" class="text nonull" ><span id="pass1">
 			</dd>
 		</dl>
 		</div>
 		
-		<div class="v52fmbx_dlbox">
-		<dl>
-			<dt>角　色：</dt>
-			<dd>
-			<select name="roleid">
-			   <option value="">请选择</option>
-			   <option value="0">超级管理员</option>
-			   			   <option value="4">普通用户</option>
-			               </select>
-			</dd>
-		</dl>
-		</div>
-		
-		 
-		
-		<div class="v52fmbx_dlbox">
-		<dl>
-			<dt>性　别：</dt>
-			<dd>
-			    <input name="sex" type="radio" class="radio" value="1" checked="checked">&nbsp;先生&nbsp;&nbsp;
-			    <input name="sex" type="radio" class="radio" value="2">&nbsp;女士
-			   
-			</dd>
-		</dl>
-		</div>
+
+	
 		
 		<div class="v52fmbx_dlbox">
 		<dl>

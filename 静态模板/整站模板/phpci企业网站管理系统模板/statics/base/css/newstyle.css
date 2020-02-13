@@ -154,3 +154,40 @@ div.page_list{ text-align:center;}
 .kuaijiedaohang .admin_poplistdiv label.ons,.kuaijiedaohang .admin_poplistdiv label.hoverons{ background:#1e71b1; color:#fff; border-radius: 3px; }
 .kuaijiedaohang .adpopcnkdiv{ overflow:auto; _zoom:1;}
 .kuaijiedaohang .adpopcnkdiv label{ float:left; padding:3px 10px;}
+
+
+
+.filemm {
+    position: relative;
+    display: inline-block;
+    background:#F5F5F5;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color:black;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.filemm input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.filemm:hover {
+    background: #DDDDDD;
+    border-color:#DDDDDD;
+    color:black;
+    text-decoration: none;
+}
+
+.buttona{
+	width: 100px;
+	height: 40px;
+	background-color: #1e71b1;
+	color: white;
+	font-size: 4;
+}
