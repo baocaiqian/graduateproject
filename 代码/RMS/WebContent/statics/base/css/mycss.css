@@ -10,3 +10,11 @@
 		color:#1e71b1;
 		text-decoration:none;
 	}
+.name:link{
+		color:#000;
+		text-decoration:none;
+	}
+.name:hover{
+		color:#1e71b1;
+		text-decoration:none;
+	}
