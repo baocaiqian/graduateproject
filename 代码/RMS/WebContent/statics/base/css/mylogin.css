@@ -41,16 +41,10 @@ body{
 	width: 26%;
 }
 .login-head {
-	padding: 2em 0;
 	/*background: #6D4A70;*/
-	background:#009FCC
+	background:#0080c0;
 	position:relative;
-}
-.login-head h1 {
-	color: #fff;
-	font-size: 1.5em;
-	text-align: left;
-	margin: 0 23px;
+	
 }
 form {
 	padding: 3em 2em;
