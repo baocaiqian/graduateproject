@@ -1828,10 +1828,13 @@ float:left; margin-top:5px; text-align:center; border:none;
 }
 .applist li {
 	overflow:hidden;
-	border-bottom:1px solid #ccc;
+	border-left: 10px solid #d0d0d0;
+	border-bottom:1px solid #d0d0d0;
+	border-right:10px solid #d0d0d0;
+	/*border-bottom:1px solid #ccc;*/
 	background:#fafafa;
 	height:102px;
-	width:100%;
+	width:60%;
 	float:left;
 	margin-right:5px;
 	padding-top:5px;
