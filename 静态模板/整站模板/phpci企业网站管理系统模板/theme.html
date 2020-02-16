@@ -62,59 +62,215 @@ $("html",parent.document).find('.returnover').remove();
 
 <div class="v52fmbx_tbmax v52fmbx_tbmaxmt">
 <div class="v52fmbx_tbbox">
-<h3 class="v52fmbx_hr">
-	
-			<span style="float:right;"><a href="http://www.phpci.com" title="更多模板" target="_blank">更多模板</a></span>
-			
 
-</h3>
-<table cellpadding="2" cellspacing="1" class="table skin_manager">
-        <tr>
-            <td width="30" class="list">启用</td>
-			<td width="40" class="list">预览</td>
-            <td width="40" class="list list_left">信息</td>
-            <td width="60" class="list">是否应用</td>
-			<td width="60" class="list" style="padding:0px; text-align:center;">操作</td>
+
+
+<table cellpadding="2" cellspacing="1" class="table skin_manager" style="width: 100%;">
+        <tr >
+            <td width="100" class="list">我管理的群组</td>
+			<td width="40" class="list">头像</td>
+            <td width="40" class="list">建立者</td>
+            <td width="30" class="list">更换群名</td>
+			<td width="60" class="list">更换头像</td>
+			<td width="60" class="list">查看小组人员</td>
+			<td width="60" class="list" style="padding:0px; text-align:center;">查看文件</td>
         </tr>
           
 		  
 		  
-        <tr>
-            <td class="list-text"><input name='id' id="sklist_cn" value='cn' type='radio'  onclick="fenggeok('cn','官方模板');" /></td>
-			<td class="list-text alignleft"><img src="data/themes/cn/view.jpg" width="120" height="100" style="margin:5px; border:1px solid #ddd; padding:3px;" /></td>
-            <td class="list-text alignleft" style="padding-left:10px;">
-			<span style="font-size:14px;">官方模板</span>
-						<p style="color:#666;">
-			模板名称：官方模板<br/>
-			模板作者：phpci CMS<br/>
-			</p>
+        <tr >
+            <td class="list-text " style="height: 40px;">
+			   <span style="font-size:20px;">第一小组复习资料</span>
 			</td>
-			<td class="list-text"><span>否</span></td>
-			<td class="list-text"><a href="theme_edit.html" title="模板设置">模板设置</a>
+            
+			<td class="list-text "><img src="statics/base/images/theme/1.jpg" width="70" height="70" 
+			      style="margin:5px; border:1px solid #ddd; padding:3px;" />
 			</td>
+
+            <td class="list-text " >
+			   <span style="font-size:14px;">啦啦草木之心</span>
+						<p style="color:#666;"></p>
+			</td>
+			
+            <td  class="list-text"   >
+			     <input   style="line-height:20px"  type="text"   name="name"  value="name" />
+			     <br>
+			     <br>
+                 <input style="width: 140px;height: 25px;" class="buttonb"   type="submit" name="submit"   value="确   定">
+            </td>
+
+            <td class="list-text">
+            	<p><h1>支持jpg、gif、png等格式图片</h1></p>
+            	<br> 
+                <a href="javascript:;" class="filemm"><h5>选择图像</h5>
+                <input type="file" name="" id="">
+                </a>
+               <br>
+               <br>
+               <input style="width: 150px;height: 25px; " class="buttonb"   type="submit" name="submit"   value="确   定">
+            </td>
+            <td class="list-text"><a href="theme_edit.html" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
         </tr>
+
+         <tr >
+            <td class="list-text " style="height: 40px;">
+			   <span style="font-size:20px;">第二小组复习资料</span>
+			</td>
+            
+			<td class="list-text "><img src="statics/base/images/theme/1.jpg" width="70" height="70" 
+			      style="margin:5px; border:1px solid #ddd; padding:3px;" />
+			</td>
+
+            <td class="list-text " >
+			   <span style="font-size:14px;">图南</span>
+						<p style="color:#666;"></p>
+			</td>
+			
+            <td  class="list-text"   >
+			     <input   style="line-height:20px"  type="text"   name="name"  value="name" />
+			     <br>
+			     <br>
+                 <input style="width: 140px;height: 25px;" class="buttonb"   type="submit" name="submit"   value="确   定">
+            </td>
+
+            <td class="list-text">
+            	<p><h1>支持jpg、gif、png等格式图片</h1></p>
+            	<br> 
+                <a href="javascript:;" class="filemm"><h5>选择图像</h5>
+                <input type="file" name="" id="">
+                </a>
+               <br>
+               <br>
+               <input style="width: 150px;height: 25px; " class="buttonb"   type="submit" name="submit"   value="确   定">
+            </td>
+            <td class="list-text"><a href="theme_edit.html" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
+        </tr>
+
+
           
-        <tr>
-            <td class="list-text"><input name='id' id="sklist_en" value='en' type='radio' checked onclick="fenggeok('en','官方模板');" /></td>
-			<td class="list-text alignleft"><img src="data/themes/en/view.jpg" width="120" height="100" style="margin:5px; border:1px solid #ddd; padding:3px;" /></td>
-            <td class="list-text alignleft" style="padding-left:10px;">
-			<span style="font-size:14px;">官方模板</span>
-						<img src='statics/base/images/greencheck.png' style='position:relative; top:5px;' />
-			<b class='color390'>已启用</b>
-						<p style="color:#666;">
-			模板名称：官方模板<br/>
-			模板作者：phpci CMS<br/>
-			</p>
-			</td>
-			<td class="list-text">已启用</td>
-			<td class="list-text"><a href="theme_edit.html" title="模板设置">模板设置</a>
-			</td>
-        </tr>
+       
            
 		
 </table>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="v52fmbx_tbmax v52fmbx_tbmaxmt">
+<div class="v52fmbx_tbbox">
+
+
+
+<table cellpadding="2" cellspacing="1" class="table skin_manager" style="width: 70%;">
+        <tr >
+            <td width="100" class="list">我加入的群组</td>
+			<td width="40" class="list">头像</td>
+            <td width="40" class="list">建立者</td>
+			<td width="60" class="list">查看小组人员</td>
+			<td width="60" class="list" style="padding:0px; text-align:center;">查看文件</td>
+        </tr>
+          
+		  
+		  
+        <tr >
+            <td class="list-text " style="height: 40px;">
+			   <span style="font-size:20px;">第一小组复习资料</span>
+			</td>
+            
+			<td class="list-text "><img src="statics/base/images/theme/1.jpg" width="70" height="70" 
+			      style="margin:5px; border:1px solid #ddd; padding:3px;" />
+			</td>
+
+            <td class="list-text " >
+			   <span style="font-size:14px;">啦啦草木之心</span>
+						<p style="color:#666;"></p>
+			</td>
+			
+            <td class="list-text"><a href="theme_edit.html" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
+        </tr>
+
+         <tr >
+            <td class="list-text " style="height: 40px;">
+			   <span style="font-size:20px;">第二小组复习资料</span>
+			</td>
+            
+			<td class="list-text "><img src="statics/base/images/theme/1.jpg" width="70" height="70" 
+			      style="margin:5px; border:1px solid #ddd; padding:3px;" />
+			</td>
+
+            <td class="list-text " >
+			   <span style="font-size:14px;">图南</span>
+						<p style="color:#666;"></p>
+			</td>
+			
+           
+            <td class="list-text"><a href="theme_edit.html" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
+        </tr>
+
+
+          
+       
+           
+		
+</table>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="footer">Powered by <b><a href="http://www.phpci.com" target="_blank">phpci 6.0.0 </a></b> &copy;2008-2015 &nbsp;<a href="http://www.phpci.com" target="_blank">phpci Inc.</a> in 0.0941 seconds </div>
 <script type="text/javascript">
 var d=$("input[name='id']:checked");
