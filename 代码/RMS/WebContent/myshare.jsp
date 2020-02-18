@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/mycss.css" />
+<script type="text/javascript" src="statics/base/js/myjs.js"></script>
 <script type="text/javascript">var basepath='statics/base/images';</script>
 <script type="text/javascript" src="statics/base/js/metvar.js"></script>
 <script type="text/javascript" src="statics/base/js/jQuery1.7.2.js"></script>
@@ -64,8 +65,9 @@ $("html",parent.document).find('.returnover').remove();
 			<div style="display:inline;float:left;">
 			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
 			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;"><span id="user" style="font-weight: bold;">baocaiqian</span>
+			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
 			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
+			<button class="deleteshare" style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
 			</div>
 			</div>
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
@@ -88,8 +90,9 @@ $("html",parent.document).find('.returnover').remove();
 			<div style="display:inline;float:left;">
 			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
 			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;"><span id="user" style="font-weight: bold;">baocaiqian</span>
+			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
 			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
+			<button style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
 			</div>
 			</div>
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
@@ -111,8 +114,9 @@ $("html",parent.document).find('.returnover').remove();
 			<div style="display:inline;float:left;">
 			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
 			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;"><span id="user" style="font-weight: bold;">baocaiqian</span>
+			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
 			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
+			<button style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
 			</div>
 			</div>
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
@@ -134,8 +138,9 @@ $("html",parent.document).find('.returnover').remove();
 			<div style="display:inline;float:left;">
 			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
 			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;"><span id="user" style="font-weight: bold;">baocaiqian</span>
+			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
 			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
+			<button style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
 			</div>
 			</div>
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
@@ -157,8 +162,9 @@ $("html",parent.document).find('.returnover').remove();
 			<div style="display:inline;float:left;">
 			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
 			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;"><span id="user" style="font-weight: bold;">baocaiqian</span>
+			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
 			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
+			<button id="deleteshare" style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
 			</div>
 			</div>
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
