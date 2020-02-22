@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -90,8 +91,8 @@ $("html",parent.document).find('.returnover').remove();
 						<p style="color:#666;"></p>
 			</td>
 			
-            <td class="list-text"><a href="safe.html" title="模板设置">查看</a></td>
-			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
+            <td class="list-text"><a href="safe.jsp" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.jsp" title="模板设置">文件目录</a></td>
         </tr>
 
          <tr >
@@ -109,8 +110,8 @@ $("html",parent.document).find('.returnover').remove();
 			</td>
 			
 
-            <td class="list-text"><a href="safe.html" title="模板设置">查看</a></td>
-			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
+            <td class="list-text"><a href="safe.jsp" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.jsp" title="模板设置">文件目录</a></td>
         </tr>
 		
 		       <tr >
@@ -127,8 +128,8 @@ $("html",parent.document).find('.returnover').remove();
 						<p style="color:#666;"></p>
 			</td>
 			
-            <td class="list-text"><a href="safe.html" title="模板设置">查看</a></td>
-			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
+            <td class="list-text"><a href="safe.jsp" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.jsp" title="模板设置">文件目录</a></td>
         </tr>
 		
 		
@@ -168,8 +169,8 @@ $("html",parent.document).find('.returnover').remove();
 						<p style="color:#666;"></p>
 			</td>
 			
-            <td class="list-text"><a href="safe.html" title="模板设置">查看</a></td>
-			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
+            <td class="list-text"><a href="safe.jsp" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.jsp" title="模板设置">文件目录</a></td>
         </tr>
 
          <tr >
@@ -187,8 +188,8 @@ $("html",parent.document).find('.returnover').remove();
 			</td>
 			
            
-            <td class="list-text"><a href="safe.html" title="模板设置">查看</a></td>
-			<td class="list-text"><a href="theme_edit.html" title="模板设置">文件目录</a></td>
+            <td class="list-text"><a href="safe.jsp" title="模板设置">查看</a></td>
+			<td class="list-text"><a href="theme_edit.jsp" title="模板设置">文件目录</a></td>
         </tr>
 
 

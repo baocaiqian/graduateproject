@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -69,9 +71,9 @@ function metreturn(url){
 
 
  	<li >
-		<div class="img"><a href="user.html" title="修改用户名和头像"><img src="statics/base/images/icon/yonghu.png"></a></div>
+		<div class="img"><a href="upfile.jsp" title="修改用户名和头像"><img src="statics/base/images/icon/yonghu.png"></a></div>
 		<div class="text">
-			<div class="name"><span class="title"><a href="upfile.html">修改用户名和头像</a></span></div>
+			<div class="name"><span class="title"><a href="upfile.jsp">修改用户名和头像</a></span></div>
 			<div class="info">
 				<dl>
 				<dd>更换用户名或头像</dd>
@@ -79,16 +81,16 @@ function metreturn(url){
 			</div>
 		</div>
 			<span class="downbox">
-				<a href="upfile.html"><img src='statics/base/images/open.png' /><p>打开</p></a>
+				<a href="upfile.jsp"><img src='statics/base/images/open.png' /><p>打开</p></a>
 			</span>
 	</li>
 
 
 
     	<li >
-		<div class="img"><a href="user.html" title="修改密码"><img src="statics/base/images/icon/MIMA.png"></a></div>
+		<div class="img"><a href="admin_add.jsp" title="修改密码"><img src="statics/base/images/icon/MIMA.png"></a></div>
 		<div class="text">
-			<div class="name"><span class="title"><a href="admin_add.html">修改密码</a></span></div>
+			<div class="name"><span class="title"><a href="admin_add.jsp">修改密码</a></span></div>
 			<div class="info">
 				<dl>
 				<dd>忘记密码，找回密码，修改原密码，设置新密码</dd>
@@ -96,13 +98,13 @@ function metreturn(url){
 			</div>
 		</div>
 		<span class="downbox">
-				<a href="admin_add.html"><img src='statics/base/images/open.png' /><p>打开</p></a>
+				<a href="admin_add.jsp"><img src='statics/base/images/open.png' /><p>打开</p></a>
 			</span>
 	</li>
     	<li>
-		<div class="img"><a href="upfile.html" title="隐私权限"><img src="statics/base/images/icon/setprivate.jpg"></a></div>
+		<div class="img"><a href="upfile.jsp" title="隐私权限"><img src="statics/base/images/icon/setprivate.jpg"></a></div>
 		<div class="text">
-			<div class="name"><span class="title"><a href="upfile.html">隐私权限</a></span></div>
+			<div class="name"><span class="title"><a href="upfile.jsp">隐私权限</a></span></div>
 			<div class="info">
 				<dl>
 				<dd>可以设置对外的权限</dd>
@@ -110,7 +112,7 @@ function metreturn(url){
 			</div>
 		</div>
 		<span class="downbox">
-				<a href="upfile.html"><img src='statics/base/images/open.png' /><p>打开</p></a>
+				<a href="upfile.jsp"><img src='statics/base/images/open.png' /><p>打开</p></a>
 			</span>
 	</li>
     	<li>
