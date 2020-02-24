@@ -135,14 +135,14 @@ $(function() {
 				<a target="_blank" href="" id="qthome" title="网站首页">网站首页</a>
 			</div>
                         <ul  id="ul_1">
-										<li ><a href="content.html" id="nav_1_2" target="main" class="on" title="系统信息" hidefocus="true">系统信息</a></li>
+										<li ><a href="content.jsp" id="nav_1_2" target="main" class="on" title="系统信息" hidefocus="true">系统信息</a></li>
 			       					<li ><a href="site.html" id="nav_1_49" target="main"  title="基本设置" hidefocus="true">基本设置</a></li>
 			       					<li ><a href="category.html" id="nav_1_77" target="main"  title="栏目管理" hidefocus="true">栏目管理</a></li>
 			       					<li ><a href="theme.html" id="nav_1_78" target="main"  title="界面风格" hidefocus="true">界面风格</a></li>
 			       					 
 			       			</ul>
                         <ul style="display:none;" id="ul_10">
-										<li ><a href="upload.html" id="nav_10_58" target="main"  title="内容管理" hidefocus="true">内容管理</a></li>
+										<li ><a href="upload.jsp" id="nav_10_58" target="main"  title="内容管理" hidefocus="true">内容管理</a></li>
 			       					 
 			       					<li ><a href="recycle.html" id="nav_10_59" target="main"  title="内容回收站" hidefocus="true">内容回收站</a></li>
 			       			</ul>
