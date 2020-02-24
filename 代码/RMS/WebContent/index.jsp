@@ -157,10 +157,10 @@ $(function() {
 			       					<li ><a href="myshare.jsp" id="nav_12_79" target="main"  title="应用市场" hidefocus="true">我的上传动态</a></li>
 			       			</ul>
                         <ul style="display:none;" id="ul_20">
-									<li ><a href="category.html" id="nav_20_9" target="main"  title="栏目管理" hidefocus="true">栏目管理</a></li>
-			       					<li ><a href="theme.html" id="nav_20_21" target="main"  title="界面风格" hidefocus="true">界面风格</a></li>
-			       					<li ><a href="jpeg.html" id="nav_20_48" target="main"  title="水印缩图" hidefocus="true">水印缩图</a></li>
-			       					<li ><a href="safe.html" id="nav_20_47" target="main"  title="网站安全" hidefocus="true">网站安全</a></li>
+									<li ><a href="category.html" id="nav_20_9" target="main"  title="栏目管理" hidefocus="true">个人资料</a></li>
+			       					<li ><a href="theme.html" id="nav_20_21" target="main"  title="界面风格" hidefocus="true">我的小组</a></li>
+			       					<li ><a href="jpeg.html" id="nav_20_48" target="main"  title="水印缩图" hidefocus="true">我的收藏</a></li>
+			       					<li ><a href="safe.html" id="nav_20_47" target="main"  title="网站安全" hidefocus="true">下载记录</a></li>
 			       					<li ><a href="admin.html" id="nav_20_5" target="main"  title="管理员管理" hidefocus="true">管理员管理</a></li>
 			       					<li ><a href="expand_backup.html" id="nav_20_35" target="main"  title="数据备份" hidefocus="true">数据备份</a></li>
 			       			</ul>

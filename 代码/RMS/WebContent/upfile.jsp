@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -53,23 +55,67 @@ function metreturn(url){
 $("html",parent.document).find('.returnover').remove();
 </script>
 
+        <div  style="width: 30%;height: 100px;border:1px solid #E0E0E0;margin-left: 40px;margin-top:20px;">
+        	<img  style="width:70px;height: 70px;margin-top: 15px;margin-left: 15px;float: left;"   src="statics/base/images/people.jpg">
+        	<div style="float: left;margin-left: 20px;margin-top:35px"><h1>清风明月</h1></div>
+        </div>
 
-</div>
 
-<div class="stat_list">
-	<ul>
-		<li class="now"><a href="upfile.html" title="文件管理器">文件管理器</a></li>
-		 
-	</ul>
-</div>
-<div class='clear'></div>
+
+          <p><font size="5"  color="#1e71b1"  style="margin-left:40px">重置您的用户名或头像</font></p>
+		 <form style="margin-left:100px  "  >
+			<p><font size="3" >新的用户名</font></p>
+			<input   style="line-height:35px"  type="text"   name="name"  value="name" />
+			<br>
+			<br>
+
+
+          <p><font size="3" >更换头像</font></p>
+          <p>支持jpg、jpeg、gif、png、bmp格式的图片</p>
+          <a href="javascript:;" class="filemm"><h5>选择图像</h5>
+           <input type="file" name="" id="">
+          </a>
+
+          <br>
+          <br>
+          <br>
+
+          <input  class="buttona"   type="submit" name="submit"   value="确   定">
+
+
+		</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
 
 <!--<script type="text/javascript" src="statics/lib/ckfinder/ckfinder.js?1426038859"></script>-->
 <div class="v52fmbx_tbmax">
 <div class="v52fmbx_tbbox">
 <div class="v52fmbx">	
 
-<div id="container"></div>
 <script src="statics/lib/ufinder/ufinder.config.js?2"></script>
 <script src="statics/lib/ufinder/ufinder.js"></script>
 <script src="statics/lib/ufinder/lang/zh-cn/zh-cn.js"></script>

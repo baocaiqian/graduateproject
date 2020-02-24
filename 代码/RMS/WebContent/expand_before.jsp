@@ -86,9 +86,9 @@ $("html",parent.document).find('.returnover').remove();
 </div>
 <!-- 三个推荐 -->
 <div style="width:85.55%;margin-left:3.9%;margin-top:20px;height:30px;">
-	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;热门搜索词汇&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png""/></div>
-	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;热门下载资源&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png"/></div>
-	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;热门浏览资源&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png"/></div>
+	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;热门搜索&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png""/></div>
+	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;热门下载&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png"/></div>
+	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;猜你想搜&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png"/></div>
 </div>
 <div style="width:85.55%;margin-left:3.9%;margin-top:5px;">
 	<div style="display:inline;float:left;width:31%;margin-right:1%;">
