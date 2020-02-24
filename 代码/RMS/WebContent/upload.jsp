@@ -450,9 +450,9 @@ App.init = (function() {
 		const files = evt.target.files; // FileList object
 
 		//files template
-		let template = `${Object.keys(files)
+		let template = ${Object.keys(files)
 			.map(
-				file => `<div class="file file--${file}">
+				file => <div class="file file--${file}">
      <div class="name"><span>${files[file].name}</span></div>
      <div class="progress active"></div>
      <div class="done">
@@ -462,9 +462,9 @@ App.init = (function() {
 		</svg>
 						</a>
      </div>
-    </div>`
+    </div>
 			)
-			.join("")}`;
+			.join("")};
 
 		$("#drop").classList.add("hidden");
 		$("footer").classList.add("hasFiles");
