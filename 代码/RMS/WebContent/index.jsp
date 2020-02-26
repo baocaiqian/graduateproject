@@ -135,7 +135,7 @@ $(function() {
 				<a target="_blank" href="" id="qthome" title="网站首页">网站首页</a>
 			</div>
                         <ul  id="ul_1">
-										<li ><a href="content.jsp" id="nav_1_2" target="main" class="on" title="系统信息" hidefocus="true">系统信息</a></li>
+										<li ><a href="case.jsp" id="nav_1_2" target="main" class="on" title="系统信息" hidefocus="true">课程体系</a></li>
 			       					<li ><a href="site.html" id="nav_1_49" target="main"  title="基本设置" hidefocus="true">基本设置</a></li>
 			       					<li ><a href="category.html" id="nav_1_77" target="main"  title="栏目管理" hidefocus="true">栏目管理</a></li>
 			       					<li ><a href="theme.html" id="nav_1_78" target="main"  title="界面风格" hidefocus="true">界面风格</a></li>
@@ -175,7 +175,7 @@ $(function() {
 	</div>
     <div class="floatr" id="metright">
         <div class="iframe">
-		    <div class="min"><iframe frameborder="0" id="main" name="main" src="content.html" scrolling="no"></iframe></div>
+		    <div class="min"><iframe frameborder="0" id="main" name="main" src="case.jsp" scrolling="no"></iframe></div>
 		</div>
     </div>
 	<div class="clear"></div>
