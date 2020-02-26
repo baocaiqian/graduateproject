@@ -6,6 +6,8 @@
 <title>案例管理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/style.css" />
+<link href="statics/base/css/classstyle.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="statics/base/js/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css?5202" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
 <script type="text/javascript">var basepath='statics/base/images';</script>
@@ -61,7 +63,124 @@ function metreturn(url){
 			<img src="statics/base/images/add.png" style="margin-bottom: -4.5px;"/>&nbsp;&nbsp;添加课程
 			</a>
 		</div>
-	
+		<div style="width:90%;margin:auto;">
+		<div class="bd floor-side-body">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="image-ti">
+                                        <img src="statics/base/images/ad001.jpg" alt="">
+                                    </div>
+                                    <p class="slide-title">焊工特种作业操作证</p>
+                                    <p class="slide-body">
+                                        <span class="slide-body-nub">
+                                            <i class="slide-body-nub-icon"></i>
+                                           	 软件学院2016级6班
+                                        </span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="image-ti">
+                                        <img src="statics/base/images/ad002.jpg" alt="">
+                                    </div>
+                                    <p class="slide-title">焊工特种作业操作证</p>
+                                    <p class="slide-body">
+                                        <span class="slide-body-nub">
+                                            <i class="slide-body-nub-icon"></i>
+                                            软件学院2016级6班
+                                        </span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="image-ti">
+                                        <img src="statics/base/images/ad003.jpg" alt="">
+                                    </div>
+                                    <p class="slide-title">焊工特种作业操作证</p>
+                                    <p class="slide-body">
+                                        <span class="slide-body-nub">
+                                            <i class="slide-body-nub-icon"></i>
+                                            软件学院2016级6班
+                                        </span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="image-ti">
+                                        <img src="statics/base/images/ad004.jpg" alt="">
+                                    </div>
+                                    <p class="slide-title">焊工特种作业操作证</p>
+                                    <p class="slide-body">
+                                        <span class="slide-body-nub">
+                                            <i class="slide-body-nub-icon"></i>
+                                            软件学院2016级6班
+                                        </span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="image-ti">
+                                        <img src="statics/base/images/ad005.jpg" alt="">
+                                    </div>
+                                    <p class="slide-title">焊工特种作业操作证</p>
+                                    <p class="slide-body">
+                                        <span class="slide-body-nub">
+                                            <i class="slide-body-nub-icon"></i>
+                                            软件学院2016级6班
+                                        </span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="image-ti">
+                                        <img src="statics/base/images/ad006.jpg" alt="">
+                                    </div>
+                                    <p class="slide-title">焊工特种作业操作证</p>
+                                    <p class="slide-body">
+                                        <span class="slide-body-nub">
+                                            <i class="slide-body-nub-icon"></i>
+                                            软件学院2016级6班
+                                        </span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="image-ti">
+                                        <img src="statics/base/images/ad007.jpg" alt="">
+                                    </div>
+                                    <p class="slide-title">焊工特种作业操作证</p>
+                                    <p class="slide-body">
+                                        <span class="slide-body-nub">
+                                            <i class="slide-body-nub-icon"></i>
+                                            软件学院2016级6班
+                                        </span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="image-ti">
+                                        <img src="statics/base/images/ad008.jpg" alt="">
+                                    </div>
+                                    <p class="slide-title">焊工特种作业操作证</p>
+                                    <p class="slide-body">
+                                        <span class="slide-body-nub">
+                                            <i class="slide-body-nub-icon"></i>
+                                            软件学院2016级6班
+                                        </span>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+        </div>
+	</div>
 </div>
 <div class="footer">Powered by <b><a href="http://www.phpci.com" target="_blank">phpci 6.0.0 </a></b> &copy;2008-2015 &nbsp;<a href="http://www.phpci.com" target="_blank">phpci Inc.</a> in 0.1058 seconds </div>
 <script type="text/javascript">

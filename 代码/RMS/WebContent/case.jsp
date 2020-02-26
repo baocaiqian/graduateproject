@@ -5,9 +5,11 @@
 <head>
 <title>案例管理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="statics/base/css/classstyle.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="statics/base/css/style.css" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css?5202" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
+<script type="text/javascript" src="statics/base/js/jquery.min.js"></script>
 <script type="text/javascript">var basepath='statics/base/images';</script>
 <script type="text/javascript" src="statics/base/js/metvar.js"></script>
 <script type="text/javascript" src="statics/base/js/jQuery1.7.2.js"></script>
