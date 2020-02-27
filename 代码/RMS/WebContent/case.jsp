@@ -184,6 +184,7 @@ function metreturn(url){
 	</div>
 </div>
 <div class="footer">Powered by <b><a href="http://www.phpci.com" target="_blank">phpci 6.0.0 </a></b> &copy;2008-2015 &nbsp;<a href="http://www.phpci.com" target="_blank">phpci Inc.</a> in 0.1058 seconds </div>
+<div class="clear"></div>
 <script type="text/javascript">
 $(function() { 
 	$("#is_move").change( function() {

@@ -51,3 +51,4 @@ ul{list-style:none}
 /*添加课程体系*/
 .buy-now{clear:both;float:right;font-size:18px;color:#ffffff;line-height:22px;padding-top:5px;padding-bottom:5px;;padding-right:13px;padding-left:5px;margin:0 auto;background:#1E71B1;cursor:pointer;border-radius:2px}
 .buy-now:hover{box-shadow:0 8px 16px 0 rgba(30,113,177,0.30);color:#fff;}
+.clearfloat{clear:both;height:0;font-size: 1px;line-height: 0px;} 
