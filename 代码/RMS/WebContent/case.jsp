@@ -5,7 +5,6 @@
 <head>
 <title>案例管理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="statics/base/css/classstyle.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="statics/base/css/style.css" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css?5202" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
@@ -63,6 +62,7 @@ function metreturn(url){
 			<img src="statics/base/images/add.png" style="margin-bottom: -4.5px;"/>&nbsp;&nbsp;添加课程体系
 			</a>
 		</div>
+		<div class="clear"></div>
 	<div class="developer-toolbag-block">
 		<div class="AGrid-row  tool-package">
 			<div class="col-sm-6 ">
@@ -183,6 +183,7 @@ function metreturn(url){
 		</div>
 	</div>
 </div>
+<div class="clear"></div>
 <div class="footer">Powered by <b><a href="http://www.phpci.com" target="_blank">phpci 6.0.0 </a></b> &copy;2008-2015 &nbsp;<a href="http://www.phpci.com" target="_blank">phpci Inc.</a> in 0.1058 seconds </div>
 <div class="clear"></div>
 <script type="text/javascript">
