@@ -10,6 +10,7 @@
 <script type="text/javascript" src="statics/base/js/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css?5202" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
+<link rel="stylesheet" type="text/css" href="statics/base/css/tankuangstyle.css">
 <script type="text/javascript">var basepath='statics/base/images';</script>
 <script type="text/javascript" src="statics/base/js/metvar.js"></script>
 <script type="text/javascript" src="statics/base/js/jQuery1.7.2.js"></script>
@@ -58,11 +59,50 @@ function metreturn(url){
 	<div class="clear"></div>
 <div class="bg-white">
 		<div style="width:88.5%;height:40px;margin-left:5%;margin-top:20px;border-left:#1e71b1 solid 3px;margin-bottom: 20px;padding-bottom:5px;">
-			<img alt="classlogo" src="statics/base/images/classlogo.png"/><font size="5" style="vertical-align:text-bottom">&nbsp;JAVA</font>
-			<a class="buy-now" href="#">
+			<img alt="classlogo" src="statics/base/images/classlogo.png"/><font size="5" style="vertical-align:text-bottom">&nbsp;JAVA&nbsp;&nbsp;<a style="font-size: 10px;color:#1e71b1;cursor: pointer;" class="alter" data-toggle="modal"  href="#addclassSystem">修改体系</a></font>
+			<a class="buy-now" data-toggle="modal" href="#forgetform">
 			<img src="statics/base/images/add.png" style="margin-bottom: -4.5px;"/>&nbsp;&nbsp;添加课程
 			</a>
 		</div>
+		<!-- 弹框 -->
+		<!-- 修改体系 -->
+		<div class="modal" id="addclassSystem">
+			<a class="close" data-dismiss="modal">×</a>
+			<h1>修改课程体系</h1>
+			<form class="signup-form clearfix" method="post" action="#">
+				修改名称：<input name="classSystemname" value="" type="text" placeholder="名称" style="display: block;"/>
+				修改描述：<textarea cols="36" rows="6" style="OVERFLOW:hidden;display: block;margin-bottom: 10px;border:#ddd solid 1px;"placeholder="体系描述"></textarea>
+			<input type="submit" name="type" class="button-blue reg" value="立即修改"/>
+			<div class="clearfix"></div>
+			</form>
+		</div>
+		<!-- 添加课程 -->
+		<div class="modal" id="forgetform">
+		<a class="close" data-dismiss="modal">×</a>
+		<h1>添加课程</h1>
+		<form class="forgot-form" method="post" action="#">
+		课程名称:<input name="classname" value="" placeholder="课程名称" style="display: block;">
+		授课班级:<input name="classes" value="" placeholder="授课班级" style="display: block;">
+		课程封面：<input type="file" id="imagehead"  placeholder="选择课程图片" value=""/>
+		<div class="clearfix"></div>
+		<input type="submit" name="type" class="forgot button-blue" value="添加课程">
+		
+	</form>
+	</div>
+		<script type="text/javascript" src="statics/base/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="statics/base/js/modal.js"></script>
+		<script type="text/javascript">
+$(document).ready(function(){
+
+	$("a.forgot").click(function(){
+		$("#login-modal").modal("hide");
+		$("#forgetform").modal({show:!0})
+	});
+	$("#forgetform").modal("hide");
+	
+});
+</script>
+		<!-- 弹框结束 -->
 		<div style="width:90%;margin:auto;">
 		<div class="bd floor-side-body">
                         <ul>

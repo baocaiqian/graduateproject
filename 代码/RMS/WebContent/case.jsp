@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="statics/base/css/style.css" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css?5202" />
 <link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
+<link rel="stylesheet" type="text/css" href="statics/base/css/tankuangstyle.css">
 <script type="text/javascript" src="statics/base/js/jquery.min.js"></script>
 <script type="text/javascript">var basepath='statics/base/images';</script>
 <script type="text/javascript" src="statics/base/js/metvar.js"></script>
@@ -54,14 +55,27 @@ function metreturn(url){
 	<div class="return"><a href="javascript:;" onClick="location.href='javascript:history.go(-1)'">&lt;&lt;返回</a></div>
 
 	</div>
-	<div class="clear"></div>
 <div class="bg-white">
 		<div style="width:88.5%;height:40px;margin-left:5%;margin-top:20px;border-left:#1e71b1 solid 3px;margin-bottom: 20px;padding-bottom:5px;">
 			<font size="5">&nbsp;我的课程体系</font>
-			<a class="buy-now" href="#">
+			<a class="buy-now" data-toggle="modal"  href="#addclassSystem">
 			<img src="statics/base/images/add.png" style="margin-bottom: -4.5px;"/>&nbsp;&nbsp;添加课程体系
 			</a>
 		</div>
+		<!-- 弹框 -->
+		<div class="modal" id="addclassSystem">
+			<a class="close" data-dismiss="modal">×</a>
+			<h1>添加课程体系</h1>
+			<form class="signup-form clearfix" method="post" action="#">
+				体系名称：<input name="classSystemname" value="" type="text" placeholder="名称" style="display: block;"/>
+				体系描述：<textarea cols="36" rows="6" style="OVERFLOW:hidden;display: block;margin-bottom: 10px;border:#ddd solid 1px;"placeholder="体系描述"></textarea>
+			<input type="submit" name="type" class="button-blue reg" value="添加体系"/>
+			<div class="clearfix"></div>
+			</form>
+		</div>
+		<script type="text/javascript" src="statics/base/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="statics/base/js/modal.js"></script>
+		<!-- 弹框结束 -->
 		<div class="clear"></div>
 	<div class="developer-toolbag-block">
 		<div class="AGrid-row  tool-package">
