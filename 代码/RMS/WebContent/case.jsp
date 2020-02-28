@@ -55,7 +55,7 @@ function metreturn(url){
 	<div class="return"><a href="javascript:;" onClick="location.href='javascript:history.go(-1)'">&lt;&lt;返回</a></div>
 
 	</div>
-<div class="bg-white">
+<div class="bg-white" style="height:auto;">
 		<div style="width:88.5%;height:40px;margin-left:5%;margin-top:20px;border-left:#1e71b1 solid 3px;margin-bottom: 20px;padding-bottom:5px;">
 			<font size="5">&nbsp;我的课程体系</font>
 			<a class="buy-now" data-toggle="modal"  href="#addclassSystem">

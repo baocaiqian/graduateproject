@@ -167,8 +167,9 @@ a {
 }
 
 .floor-side-body {
-	height:auto!important;
-    padding-top: 24px;
+	/*height:auto!important;*/
+   	height:200px;
+    margin-top: 24px;
 }
 
 .floor-side-body ul li {

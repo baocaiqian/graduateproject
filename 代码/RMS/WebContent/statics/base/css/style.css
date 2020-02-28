@@ -23,7 +23,7 @@ ul{list-style:none}
 .AGrid-row:before,.AGrid-row:after{content:" ";display:table;line-height:0}
 .AGrid-row:after{clear:both}
 /*大盒子背景*/
-.bg-white{background-color:#fff}
+.bg-white{background-color:#fff;height: 600px;overflow: auto;}
 .developer-toolbag-block{max-width:1200px;text-align:center;clear:both;margin:0 auto}
 /*标题*/
 .titleBar{text-align:center}
