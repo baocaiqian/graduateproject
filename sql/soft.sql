@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-03-02 15:54:53
+Date: 2020-03-02 16:02:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -140,6 +140,24 @@ CREATE TABLE `resource` (
 
 -- ----------------------------
 -- Records of resource
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `search`
+-- ----------------------------
+DROP TABLE IF EXISTS `search`;
+CREATE TABLE `search` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `searcher` int(11) NOT NULL,
+  `arbitrary` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `course` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `type` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of search
 -- ----------------------------
 
 -- ----------------------------
