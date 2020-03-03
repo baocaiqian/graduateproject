@@ -43,7 +43,7 @@
 			<div class="clear"> </div>
 			<div class="submit">
 				<input type="submit" onclick="myFunction()" value="Sign in" >
-				<h4><a href="#">Lost your Password ?</a></h4>
+				<h4><a href="#">Lost your Password ?</a><a href="register.jsp">注册</a></h4>
 						  <div class="clear">  </div>	
 			</div>
 				
