@@ -79,7 +79,6 @@ $(function() {
 						<a href="index.php/admin/api_login/qq_login" target="_blank">绑定QQ</a>						<div class="langlist" style="display:none;"></div>
 					</li>
 					
-
 				</ol>
 				<div class="clear"></div>
 			</div>
