@@ -1,0 +1,81 @@
+browse：浏览记录
+	id：关键字
+	time:浏览时间
+	looker：浏览者（int类型，因为记录的是用户的id，id不会重复）
+	resource：浏览的资源（int类型，理由同上）
+	last：浏览的持续时间
+classSystem：课程体系
+	id：关键字
+	name：体系名称
+	owner：用户（改成user的话可能会有什么关键字冲突，就叫的owner）
+	describe：体系描述
+course：课程
+	id：关键字
+	name：名字
+	class：授课班级
+	system：所属体系（int类型，存储的体系id）
+	teacher：老师，也就是当前用户的id
+	icon：课程封面
+	term：学期（之前写的path，那个sql文件我更新了。要是不愿意再导一次，就自己改了这个列名就行）
+down：下载记录
+	id：关键字
+	owner：资源所属用户（int类型，理由同上）
+	time：下载时间
+	resource：资源（int类型，理由同上）
+	downuser：下载人（理论上就是当前用户）
+group：小组
+	id：关键字
+	name：组名
+	icon：头像
+	owner：小组创建者
+	time：建群时间（新增属性，sql文件已更新）
+groupfile：小组文件（新增表，sql文件已更新）
+	id：关键字
+	resource：资源（int类型，理由同上）
+	uptime：上传时间
+	downtimes：下载次数
+	uploader：上传人（int类型，理由同上）
+groupmember：小组成员
+	id：关键字
+	member：成员id（int类型）
+	group：所属组（int类型）
+	mail：邮件（我看云晴写的那个地方是有邮件的，但是登录页好像没有邮件）
+	time：入群时间
+resource：资源
+	id：关键字
+	type：资源类型（检索的时候用）
+	name：资源名称
+	course：所属的课程（int类型，理由同上）
+	classsystem：所属课程体系（int类型，理由同上）
+	tag：标签
+	owner：所属者，上传人（int类型，理由同上）
+	authority：权限（公有，私有）
+	size：文件大小
+	time：上传时间
+	downtimes：下载次数
+	looktimes：浏览次数
+	postfix：后缀名
+search：搜索记录（根据检索页面写的）
+	id：关键字
+	searcher：搜索人
+	arbitrary：任意词
+	title：按照名字搜索输入的名字
+	course：课程
+	type：类型
+	time：搜索时间（新增属性，sql已更新）
+upload：上传记录
+	id：关键字
+	resorce：资源（int类型，理由同上）
+	time：上传时间
+	owner：所属者，上传人
+	path：上传路径，这个吧，我没想好我们这个应该咋存，是“课程体系/课程/名字”这样？再讨论讨论，但我觉得应该有这个属性
+user：用户
+	id：关键字
+	name：名字
+	password：密码
+	icon：头像
+（看起来东西少，但是好多表都跟他是关联的）
+	
+	
+	
+		

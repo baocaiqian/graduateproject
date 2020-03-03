@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-03-02 16:02:13
+Date: 2020-03-03 16:58:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -59,7 +59,7 @@ CREATE TABLE `course` (
   `system` int(11) NOT NULL,
   `teacher` int(11) NOT NULL,
   `icon` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `path` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `term` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -93,11 +93,29 @@ CREATE TABLE `group` (
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `icon` varchar(255) CHARACTER SET utf8 NOT NULL,
   `owner` int(11) NOT NULL,
+  `time` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of group
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `groupfile`
+-- ----------------------------
+DROP TABLE IF EXISTS `groupfile`;
+CREATE TABLE `groupfile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `resource` int(11) NOT NULL,
+  `uptime` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `downtimes` int(11) NOT NULL,
+  `uploader` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of groupfile
 -- ----------------------------
 
 -- ----------------------------
@@ -153,6 +171,7 @@ CREATE TABLE `search` (
   `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `course` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `type` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `time` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
