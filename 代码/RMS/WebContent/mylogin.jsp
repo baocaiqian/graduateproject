@@ -1,5 +1,7 @@
-<!DOCTYPE HTML>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Purple_loginform Website Template | Home :: w3layouts</title>
 <link href="statics/base/css/mylogin.css" rel="stylesheet" type="text/css" media="all" />
