@@ -53,10 +53,9 @@
 			
 
 			<div class="submit">
-				<input type="submit" onclick="myFunction()" value="Login" >
-				<h4><a href="#">返回登录页面</a></h4>
+				<input type="submit" onclick="myFunction()" value="注册" >
+				<h4><a href="mylogin.jsp">返回登录页面</a></h4>
 						  <div class="clear">  </div>
->>>>>>> branch 'master' of https://github.com/baocaiqian/graduateproject.git
 			    <br>
 			    <br>	
 			</div>
@@ -68,9 +67,6 @@
 	<div class="clear"> </div>
 <!--- footer --->
 
-<div class="footer">
-	<p>Copyright &copy; 2014.</p>
-</div>
 
 </body>
 </html>

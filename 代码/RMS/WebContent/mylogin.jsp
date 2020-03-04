@@ -30,21 +30,21 @@
 		<form>
 			<ul>
 			<li>
-				<input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
+				<input type="text" class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
 			</li>
 			</ul>
 				<div class="clear"> </div>
 			<ul>
 			<li>
-				<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
+				<input type="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
 			</li>
 			</ul>
 			
 			<div class="clear"> </div>
 			<div class="submit">
-				<input type="submit" style="margin-right:80px;" onclick="myFunction()" value="Sign in"/>
-				<a href="register.jsp"><input type="submit" value="Sign up" /></a>
-				<h4><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lost your Password ?</a></h4>
+				<input type="submit" onclick="myFunction()" value="登录"/>
+				<h4><a href="register.jsp">没有账号？去注册>>></a></h4>
+				<h4><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;忘记密码</a></h4>
 						  <div class="clear">  </div>	
 			</div>
 				
