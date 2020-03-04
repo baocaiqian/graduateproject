@@ -70,7 +70,7 @@ function metreturn(url){
 				</div>
 				<div class="formright">
 				
-				<form method="POST" name="search" action="index.php/admin/cases/index" target="_self">
+				<form method="post" name="search" action="index.php/admin/cases/index" target="_self">
 				
 					<select name="new" id="new" onChange="changes($(this));">
 						<option value="index.php/admin/cases/index">所属栏目</option>
@@ -127,7 +127,7 @@ function metreturn(url){
 		</form>
 		<tr>
 		<td colspan="8" class="page_list">
-		<form method='POST' action='index.php/admin/cases/index?&page=1'>
+		<form method='post' action='index.php/admin/cases/index?&page=1'>
 		<style>.digg4 a{ border:1px solid #ccdbe4; padding:2px 8px 2px 8px; background:#fff; background-position:50%; margin:2px; color:#666; text-decoration:none;}
 		.digg4 a:hover { border:1px solid #999; color:#fff; background-color:#999;}
 		.digg4 a:active {border:1px solid #000099; color:#000000;}
