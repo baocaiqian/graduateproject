@@ -45,14 +45,10 @@
 			<li>
 				<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="statics/base/images/icon/password.jpg"></div>
 			</li>
-
 			<li>
 				<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"><div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="statics/base/images/icon/password.jpg"></div>
 			</li>
-			
 			</ul>
-			
-
 			<div class="submit">
 				<input type="submit" onclick="myFunction()" value="Login" >
 			    <br>
