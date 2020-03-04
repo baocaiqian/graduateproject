@@ -55,6 +55,8 @@
 
 			<div class="submit">
 				<input type="submit" onclick="myFunction()" value="Login" >
+				<h4><a href="#">返回登录页面</a></h4>
+						  <div class="clear">  </div>
 			    <br>
 			    <br>	
 			</div>
