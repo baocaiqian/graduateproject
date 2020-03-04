@@ -41,16 +41,22 @@
 				<input type="text" class="text" value="电话号码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电话号码';}"><div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="statics/base/images/icon/tell.jpg"></div>
 			</li>
 
-				<div class="clear"> </div>
+				<div class="clear"></div>
 			<li>
 				<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="statics/base/images/icon/password.jpg"></div>
 			</li>
 			<li>
 				<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"><div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="statics/base/images/icon/password.jpg"></div>
 			</li>
+			
 			</ul>
+			
+
 			<div class="submit">
 				<input type="submit" onclick="myFunction()" value="Login" >
+				<h4><a href="#">返回登录页面</a></h4>
+						  <div class="clear">  </div>
+>>>>>>> branch 'master' of https://github.com/baocaiqian/graduateproject.git
 			    <br>
 			    <br>	
 			</div>
