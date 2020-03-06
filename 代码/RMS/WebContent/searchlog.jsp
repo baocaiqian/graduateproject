@@ -1,4 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>管理员</title>
@@ -47,9 +49,9 @@ function metreturn(url){
 
 	
 </div>
-<br/>
-<div style="height:40px;width:97%;margin: auto;background-color: #1e71b1;text-align: center;">
-	<input type="text" value="搜索浏览记录" style="width:70%;margin-top:5px;height:25px;background-color: #104e8b;border: #1e71b1 solid 1px; color:#fff;pading-:"/>
+<div style="height:50px;width:100%;margin: auto;background-color: #1c86ee;">
+	<font size="3" color="#FFF" style="padding-left:10px;">浏览记录</font>
+	<a href="#"><img src="statics/base/images/search.png" style="margin-bottom: -11px;margin-left: 23%;background-color: #1874cd;margin-right:0;height:32px;"/></a><input type="text" value="搜索浏览记录" style="width:40%;margin-top:8px;height:30px;margin-left:0px;;background-color: #1874cd;border: #1e71b1 solid 1px; color:#fff;"onfocus="if(value=='搜索浏览记录')value=''" onblur="if(!value)value='搜索浏览记录'"/>
 </div>
 <div style="clear:both;"></div>
 <div class="v52fmbx_tbmax v52fmbx_tbmaxmt">
@@ -60,13 +62,13 @@ function metreturn(url){
                 <td width="300" class="list alignleft" >文件名</td>
                 <td width="100" class="list" style="padding:0px; text-align:center;">上传人</td>
                
-                <td width="70" class="list" style="padding:0px; text-align:center;">所属科目</td>
+                <td width="70" class="list" style="padding:0px; text-align:center;">所属课程</td>
 				<td width="150" class="list" style="padding:0px; text-align:center;">浏览时间</td>
 				<td width="100" class="list" style="padding:0px; text-align:center;">操作</td>
               </tr>
 			  <form name="myform" method="post" id="myform">
 		        <tr class="mouse click">
-                <td class="list-text"><input id="id" type="checkbox" value="5" name="id[]"></td>
+                <td class="list-text"><input id="id" type="checkbox" value="5" name="id[]"/></td>
                 <td class="list-text color999 alignleft" ><a href="admin_edit.html" title="查看详细">Java基础.pptx</a></td>
                 <td class="list-text color999">鲍彩倩</td>
                 
@@ -79,8 +81,7 @@ function metreturn(url){
               </tr>
               	<tr>
 				  <td class="all-submit" colspan="8" style="padding:5px 10px;text-align: center;">
-				  <input type='submit' style="margin:auto;" value='删除' class="submit li-submit" onclick="{if(confirm('确定删除吗?')){document.myform.action='index.php/admin/admin/delsome';return true;}return false;}"/>
-				
+				  <input type='submit' style="margin:auto;" value='批量删除' class="submit li-submit" onclick="{if(confirm('确定删除吗?')){document.myform.action='index.php/admin/admin/delsome';return true;}return false;}"/>
 				  </td>
 			  </tr>
 

@@ -80,37 +80,8 @@ $("html",parent.document).find('.returnover').remove();
           <br>
           <br>
 
-          <input  class="buttona"   type="submit" name="submit"   value="确   定">
-
-
+          <input  class="buttona"   type="submit" name="submit"   value="确   定">list-text
 		</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
 <!--<script type="text/javascript" src="statics/lib/ckfinder/ckfinder.js?1426038859"></script>-->
 <div class="v52fmbx_tbmax">
 <div class="v52fmbx_tbbox">

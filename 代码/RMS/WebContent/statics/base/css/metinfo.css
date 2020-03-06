@@ -367,10 +367,11 @@ input.page_input {
 	color:#f00;
 	text-decoration:underline;
 }
+/*
 .table td.line a:hover {
 	color:#f00;
 }
-
+*/
 
 
 
@@ -1310,7 +1311,6 @@ div.showimg {
 	margin:0px 25px;
 }
 .table tr.modify td.list-text a {
-	color:#f00!important;
 	text-decoration:none;
 }
 .stat_table {
