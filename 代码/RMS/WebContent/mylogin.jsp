@@ -1,16 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<title>Purple_loginform Website Template | Home :: w3layouts</title>
-<link href="statics/base/css/mylogin.css" rel="stylesheet" type="text/css" media="all" />
+<title>登录</title>
+<link href="${ctx }/statics/base/css/mylogin.css" rel="stylesheet" type="text/css" media="all" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <!-- -->
 <script>var __links = document.querySelectorAll('a');function __linkClick(e) { parent.window.postMessage(this.href, '*');} ;for (var i = 0, l = __links.length; i < l; i++) {if ( __links[i].getAttribute('data-t') == '_blank' ) { __links[i].addEventListener('click', __linkClick, false);}}</script>
-<script src="statics/base/js/jquery.min.js"></script>
+<script src="${ctx }/statics/base/js/jquery.min.js"></script>
 <script>$(document).ready(function(c) {
 	$('.alert-close').on('click', function(c){
 		$('.message').fadeOut('slow', function(c){
@@ -25,7 +27,7 @@
 <div class="message warning">
 <div class="inset">
 	<div class="login-head">
-		<img src="statics/base/images/2.png" style="width:80%;margin:auto"/>
+		<img src="${ctx }/statics/base/images/2.png" style="width:80%;margin:auto"/>
 	</div>
 		<form>
 			<ul>

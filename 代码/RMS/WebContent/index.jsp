@@ -159,8 +159,6 @@ $(function() {
 			       					<li ><a href="searchlog.jsp" id="nav_20_5" target="main"  title="管理员管理" hidefocus="true">浏览记录</a></li>
 			       					<li ><a href="expand_backup.html" id="nav_20_35" target="main"  title="数据备份" hidefocus="true">数据备份</a></li>
 			       			</ul>
-             
-
 	    </div>
 		<div class="claer"></div>
 	
