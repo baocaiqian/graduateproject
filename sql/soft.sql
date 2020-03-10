@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-03-03 16:58:56
+Date: 2020-03-10 22:42:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,13 +49,28 @@ CREATE TABLE `classsystem` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `collect`
+-- ----------------------------
+DROP TABLE IF EXISTS `collect`;
+CREATE TABLE `collect` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `resource` int(11) NOT NULL,
+  `collecter` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of collect
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `course`
 -- ----------------------------
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `class` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `classes` varchar(255) CHARACTER SET utf8 NOT NULL,
   `system` int(11) NOT NULL,
   `teacher` int(11) NOT NULL,
   `icon` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -73,7 +88,6 @@ CREATE TABLE `course` (
 DROP TABLE IF EXISTS `down`;
 CREATE TABLE `down` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `owner` int(11) NOT NULL,
   `time` varchar(255) CHARACTER SET utf8 NOT NULL,
   `resource` int(11) NOT NULL,
   `downuser` int(11) NOT NULL,
@@ -111,6 +125,7 @@ CREATE TABLE `groupfile` (
   `uptime` varchar(255) CHARACTER SET utf8 NOT NULL,
   `downtimes` int(11) NOT NULL,
   `uploader` int(11) NOT NULL,
+  `group` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -128,6 +143,7 @@ CREATE TABLE `groupmember` (
   `group` int(11) NOT NULL,
   `mail` varchar(255) CHARACTER SET utf8 NOT NULL,
   `time` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `role` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -153,6 +169,7 @@ CREATE TABLE `resource` (
   `downtimes` int(11) NOT NULL,
   `looktimes` int(11) NOT NULL,
   `postfix` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `loadlog` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -185,7 +202,6 @@ CREATE TABLE `search` (
 DROP TABLE IF EXISTS `upload`;
 CREATE TABLE `upload` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `resorce` int(11) NOT NULL,
   `time` varchar(255) CHARACTER SET utf8 NOT NULL,
   `owner` int(11) NOT NULL,
   `path` varchar(255) CHARACTER SET utf8 NOT NULL,

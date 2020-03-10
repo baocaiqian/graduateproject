@@ -1,13 +1,33 @@
 package com.rms.entity;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
+
 //课程表
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="course")
 public class Course {
-	int id;
-	String name;//课程名称
-	String classes;//班级
-	int System;//所属课程体系的id
-	int teacher;//用户id
-	String icon;//头像
-	String term;//学期
+	private int id;
+	private String name;//课程名称
+	private String classes;//班级
+	private ClassSystem system;//所属课程体系的id
+	private Users teacher;//用户id
+	private String icon;//头像
+	private String term;//学期
+	private List<Resource> resources;
+	@Id
+	@GeneratedValue(generator = "assigned")//表示主键自动生成
+	@GenericGenerator(name="assigned", strategy = "assigned")
 	public int getId() {
 		return id;
 	}
@@ -26,16 +46,20 @@ public class Course {
 	public void setClasses(String classes) {
 		this.classes = classes;
 	}
-	public int getSystem() {
-		return System;
+	@ManyToOne
+	@JoinColumn(name="system")
+	public ClassSystem getSystem() {
+		return system;
 	}
-	public void setSystem(int system) {
-		System = system;
+	public void setSystem(ClassSystem system) {
+		system = system;
 	}
-	public int getTeacher() {
+	@ManyToOne
+	@JoinColumn(name="teacher")
+	public Users getTeacher() {
 		return teacher;
 	}
-	public void setTeacher(int teacher) {
+	public void setTeacher(Users teacher) {
 		this.teacher = teacher;
 	}
 	public String getIcon() {
@@ -49,6 +73,14 @@ public class Course {
 	}
 	public void setTerm(String term) {
 		this.term = term;
+	}
+	@OneToMany(mappedBy="course", targetEntity=Resource.class, 
+	        cascade=CascadeType.ALL)
+	public List<Resource> getResources() {
+		return resources;
+	}
+	public void setResources(List<Resource> resources) {
+		this.resources = resources;
 	}
 	
 }

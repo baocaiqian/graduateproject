@@ -1,10 +1,30 @@
 package com.rms.entity;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
+
 //课程体系
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="classsystem")
 public class ClassSystem {
-	int id;
-	String name;//体系名称
-	int owner;//用户id
-	String describe;//描述
+	private int id;
+	private String name;//体系名称
+	private Users owner;//用户id
+	private String describe;//描述
+	private List<Course> courses;
+	@Id
+	@GeneratedValue(generator = "assigned")//表示主键自动生成
+	@GenericGenerator(name="assigned", strategy = "assigned")
 	public int getId() {
 		return id;
 	}
@@ -17,10 +37,12 @@ public class ClassSystem {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getOwner() {
+	@ManyToOne
+	@JoinColumn(name="owner")
+	public Users getOwner() {
 		return owner;
 	}
-	public void setOwner(int owner) {
+	public void setOwner(Users owner) {
 		this.owner = owner;
 	}
 	public String getDescribe() {
@@ -29,5 +51,12 @@ public class ClassSystem {
 	public void setDescribe(String describe) {
 		this.describe = describe;
 	}
-	
+	@OneToMany(mappedBy="system", targetEntity=Course.class, 
+	        cascade=CascadeType.ALL)
+	public List<Course> getCourses() {
+		return courses;
+	}
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
 }

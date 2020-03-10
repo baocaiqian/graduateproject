@@ -1,19 +1,44 @@
 package com.rms.entity;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import org.hibernate.annotations.GenericGenerator;
+
 //资源
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="resource")
 public class Resource {
-	int id;
-	String type;//资源类型
-	String name;//资源名字
-	int course;//对应课程id
-	int classsystem;//所属课程体系id
-	String tag;//资源标签
-	int owner;//所属人的id；
-	int authority;//权限
-	String size;//文件大小
-	String time;//资源上传时间
-	int downtimes;//下载次数
-	int looktimes;//浏览次数
-	String postfix;//后缀名
+	private int id;
+	private String type;//资源类型
+	private String name;//资源名字
+	private Course course;//对应课程id
+	private ClassSystem classsystem;//所属课程体系id
+	private String tag;//资源标签
+	private Users owner;//所属人的id；
+	private int authority;//权限
+	private String size;//文件大小
+	private String time;//资源上传时间
+	private int downtimes;//下载次数
+	private int looktimes;//浏览次数
+	private String postfix;//后缀名
+	private List<Down> downlog;//下载记录
+	private Upload uploadlog;//所属上传记录
+	private List<Collect> collectlog;//收藏记录
+	private List<Browse> browselog;//浏览记录
+	private List<Groupfile> groupfiles;//在组内上传记录
+	@Id
+	@GeneratedValue(generator = "assigned")//表示主键自动生成
+	@GenericGenerator(name="assigned", strategy = "assigned")
 	public int getId() {
 		return id;
 	}
@@ -32,17 +57,61 @@ public class Resource {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getCourse() {
+	@ManyToOne
+	@JoinColumn(name="course")
+	public Course getCourse() {
 		return course;
 	}
-	public void setCourse(int course) {
+	public void setCourse(Course course) {
 		this.course = course;
 	}
-	public int getClasssystem() {
+	@ManyToOne
+	@JoinColumn(name="classsystem")
+	public ClassSystem getClasssystem() {
 		return classsystem;
 	}
-	public void setClasssystem(int classsystem) {
+	public void setClasssystem(ClassSystem classsystem) {
 		this.classsystem = classsystem;
+	}
+	@OneToMany(mappedBy="resource", targetEntity=Down.class, 
+	        cascade=CascadeType.ALL)
+	public List<Down> getDownlog() {
+		return downlog;
+	}
+	public void setDownlog(List<Down> downlog) {
+		this.downlog = downlog;
+	}
+	@ManyToOne
+	@JoinColumn(name="loadlog")
+	public Upload getUploadlog() {
+		return uploadlog;
+	}
+	public void setUploadlog(Upload uploadlog) {
+		this.uploadlog = uploadlog;
+	}
+	@OneToMany(mappedBy="resource", targetEntity=Collect.class, 
+	        cascade=CascadeType.ALL)
+	public List<Collect> getCollectlog() {
+		return collectlog;
+	}
+	public void setCollectlog(List<Collect> collectlog) {
+		this.collectlog = collectlog;
+	}
+	@OneToMany(mappedBy="resource", targetEntity=Browse.class, 
+	        cascade=CascadeType.ALL)
+	public List<Browse> getBrowselog() {
+		return browselog;
+	}
+	public void setBrowselog(List<Browse> browselog) {
+		this.browselog = browselog;
+	}
+	@OneToMany(mappedBy="resource", targetEntity=Groupfile.class, 
+	        cascade=CascadeType.ALL)
+	public List<Groupfile> getGroupfiles() {
+		return groupfiles;
+	}
+	public void setGroupfiles(List<Groupfile> groupfiles) {
+		this.groupfiles = groupfiles;
 	}
 	public String getTag() {
 		return tag;
@@ -50,10 +119,12 @@ public class Resource {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
-	public int getOwner() {
+	@ManyToOne
+	@JoinColumn(name="owner")
+	public Users getOwner() {
 		return owner;
 	}
-	public void setOwner(int owner) {
+	public void setOwner(Users owner) {
 		this.owner = owner;
 	}
 	public int getAuthority() {

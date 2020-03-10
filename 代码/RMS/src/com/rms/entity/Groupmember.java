@@ -1,27 +1,47 @@
 package com.rms.entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.GenericGenerator;
+
 //小组成员
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="groupmember")
 public class Groupmember {
-	int id;
-	int member;//小组成员id
-	int group;//小组id
-	String mail;//邮件
-	String time;//入组时间
+	private int id;
+	private Users member;//小组成员id
+	private Group group;//小组id
+	private String mail;//邮件
+	private String time;//入组时间
+	private String role;//组内角色
+	@Id
+	@GeneratedValue(generator = "assigned")//表示主键自动生成
+	@GenericGenerator(name="assigned", strategy = "assigned")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getMember() {
+	@ManyToOne
+	@JoinColumn(name="member")
+	public Users getMember() {
 		return member;
 	}
-	public void setMember(int member) {
+	public void setMember(Users member) {
 		this.member = member;
 	}
-	public int getGroup() {
+	@ManyToOne
+	@JoinColumn(name="group")
+	public Group getGroup() {
 		return group;
 	}
-	public void setGroup(int group) {
+	public void setGroup(Group group) {
 		this.group = group;
 	}
 	public String getMail() {
@@ -35,6 +55,12 @@ public class Groupmember {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 }

@@ -1,22 +1,30 @@
 package com.rms.entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.GenericGenerator;
+
 //下载
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="down")
 public class Down {
-	int id;
-	int owner;//资源所属人id
-	String time;//下载时间
-	int resource;//资源id
-	int downuser;//下载人id
+	private int id;
+	private String time;//下载时间
+	private Resource resource;//资源id
+	private Users downuser;//下载人id
+	@Id
+	@GeneratedValue(generator = "assigned")//表示主键自动生成
+	@GenericGenerator(name="assigned", strategy = "assigned")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getOwner() {
-		return owner;
-	}
-	public void setOwner(int owner) {
-		this.owner = owner;
 	}
 	public String getTime() {
 		return time;
@@ -24,17 +32,23 @@ public class Down {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public int getResource() {
+	@ManyToOne
+	@JoinColumn(name="resource")
+	public Resource getResource() {
 		return resource;
 	}
-	public void setResource(int resource) {
+	public void setResource(Resource resource) {
 		this.resource = resource;
 	}
-	public int getDownuser() {
+	@ManyToOne
+	@JoinColumn(name="downuser")
+	public Users getDownuser() {
 		return downuser;
 	}
-	public void setDownuser(int downuser) {
+	public void setDownuser(Users downuser) {
 		this.downuser = downuser;
 	}
+	
+	
 	
 }
