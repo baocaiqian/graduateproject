@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-03-10 22:42:48
+Date: 2020-03-13 23:20:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,11 +42,25 @@ CREATE TABLE `classsystem` (
   `owner` int(11) NOT NULL,
   `describe` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of classsystem
 -- ----------------------------
+INSERT INTO `classsystem` VALUES ('1', 'Python', '1', '\r\nPython是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('2', '小程序开发', '1', '小程序是一种新的开放能力，开发者可以快速地开发一个小程序。小程序可以在微信内被便捷地获取和传播，同时具有出色的使用体验。');
+INSERT INTO `classsystem` VALUES ('3', 'Python', '2', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('4', 'Python', '3', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('5', 'Python', '4', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('6', 'Python', '5', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('7', 'Python', '6', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('8', 'Python', '7', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('9', 'Python', '10', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('10', 'Python', '11', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('11', 'Python', '12', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('12', 'Python', '13', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('13', 'Python', '14', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
+INSERT INTO `classsystem` VALUES ('14', 'Python', '15', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
 
 -- ----------------------------
 -- Table structure for `collect`
@@ -72,15 +86,18 @@ CREATE TABLE `course` (
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `classes` varchar(255) CHARACTER SET utf8 NOT NULL,
   `system` int(11) NOT NULL,
-  `teacher` int(11) NOT NULL,
   `icon` varchar(255) CHARACTER SET utf8 NOT NULL,
   `term` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of course
 -- ----------------------------
+INSERT INTO `course` VALUES ('1', 'django快速开发网站', '2016级6班', '1', 'statics/base/images/micon.png', '2016年下学期');
+INSERT INTO `course` VALUES ('3', 'python接口自动化测试', '2016级6班', '3', 'statics/base/images/micon.png', '2016年下学期');
+INSERT INTO `course` VALUES ('4', 'python自动办公', '2016级6班', '4', 'statics/base/images/micon.png', '2016年下学期');
+INSERT INTO `course` VALUES ('5', 'python自动办公', '2016级6班', '5', 'statics/base/images/micon.png', '2016年下学期');
 
 -- ----------------------------
 -- Table structure for `down`
@@ -221,9 +238,27 @@ CREATE TABLE `users` (
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 NOT NULL,
   `icon` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `school` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `major` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `describe` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
+  `mainmajor` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
+INSERT INTO `users` VALUES ('1', '黄勇', '123456', 'statics/base/images/micon.png', '15529935999@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('2', '无涯', '123456', 'statics/base/images/micon.png', '15529935989@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('3', '陈廷聿', '123456', 'statics/base/images/micon.png', '15539935989@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('4', '麻瓜编程', '123456', 'statics/base/images/micon.png', '13539935989@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('5', '侯爵', '123456', 'statics/base/images/micon.png', '13539935589@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('6', '小蚊子', '123456', 'statics/base/images/micon.png', '13539935589@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('7', '王顺子', '123456', 'statics/base/images/micon.png', '15529945999@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('10', '小布', '123456', 'statics/base/images/micon.png', '15529945939@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('11', '助教海', '123456', 'statics/base/images/micon.png', '15529935939@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('12', '黑板课', '123456', 'statics/base/images/micon.png', '15729945939@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('13', '唐宇帝', '123456', 'statics/base/images/micon.png', '15729645939@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('14', '车万翔', '123456', 'statics/base/images/micon.png', '15723645939@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('15', '乐上轻至', '123456', 'statics/base/images/micon.png', '16723645939@163.com', null, null, null, null);
