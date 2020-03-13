@@ -29,16 +29,16 @@
 	<div class="login-head">
 		<img src="${ctx }/statics/base/images/2.png" style="width:80%;margin:auto"/>
 	</div>
-		<form>
+		<form action="${ctx }/loginController" method="post" name="loginForm" id="loginForm">
 			<ul>
 			<li>
-				<input type="text" class="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
+				<input type="text" class="text" name="email" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
 			</li>
 			</ul>
 				<div class="clear"> </div>
 			<ul>
 			<li>
-				<input type="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
+				<input type="password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <a href="#" class="icon lock"></a>
 			</li>
 			</ul>
 			
@@ -52,7 +52,6 @@
 				
 		</form>
 		</div>					
-	</div>
 	</div>
 	<div class="clear"> </div>
 <!--- footer --->

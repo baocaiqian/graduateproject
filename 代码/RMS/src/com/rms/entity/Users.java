@@ -19,6 +19,11 @@ public class Users {
 	private String name;//用户名
 	private String password;//密码
 	private String icon;//头像
+	private String email;
+	private String school;
+	private String major;
+	private String describe;
+	private String mainmajor;
 	private List<Down> downlog;//下载记录
 	private List<Upload> uploadlog;//上传记录
 	private List<Collect> collectlog;//收藏记录
@@ -27,7 +32,7 @@ public class Users {
 	private List<Group> groups;//所创建小组列表
 	private List<Groupfile> groupfiles;//在组内上传记录
 	private List<ClassSystem> classsystem;//课程体系
-	private List<Course> course;//课程
+	//private List<Course> course;//课程
 	private List<Search> sesrchlog;//搜索记录
 	private List<Groupmember> groupmemberlog;//所在小组
 	@Id
@@ -56,6 +61,38 @@ public class Users {
 	}
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getSchool() {
+		return school;
+	}
+	public void setSchool(String school) {
+		this.school = school;
+	}
+	public String getMajor() {
+		return major;
+	}
+	public void setMajor(String major) {
+		this.major = major;
+	}
+	public String getDescribe() {
+		return describe;
+	}
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
+	public String getMainmajor() {
+		return mainmajor;
+	}
+	public void setMainmajor(String mainmajor) {
+		this.mainmajor = mainmajor;
 	}
 	@OneToMany(mappedBy="downuser", targetEntity=Down.class, 
 	        cascade=CascadeType.ALL)
@@ -121,6 +158,7 @@ public class Users {
 	public void setClasssystem(List<ClassSystem> classsystem) {
 		this.classsystem = classsystem;
 	}
+	/*
 	@OneToMany(mappedBy="teacher", targetEntity=Course.class, 
 	        cascade=CascadeType.ALL)
 	public List<Course> getCourse() {
@@ -129,6 +167,7 @@ public class Users {
 	public void setCourse(List<Course> course) {
 		this.course = course;
 	}
+	*/
 	@OneToMany(mappedBy="searcher", targetEntity=Search.class, 
 	        cascade=CascadeType.ALL)
 	public List<Search> getSesrchlog() {

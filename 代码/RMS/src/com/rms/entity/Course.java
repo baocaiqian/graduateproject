@@ -21,7 +21,7 @@ public class Course {
 	private String name;//课程名称
 	private String classes;//班级
 	private ClassSystem system;//所属课程体系的id
-	private Users teacher;//用户id
+	//private Users teacher;//用户id
 	private String icon;//头像
 	private String term;//学期
 	private List<Resource> resources;
@@ -52,8 +52,9 @@ public class Course {
 		return system;
 	}
 	public void setSystem(ClassSystem system) {
-		system = system;
+		this.system = system;
 	}
+	/*
 	@ManyToOne
 	@JoinColumn(name="teacher")
 	public Users getTeacher() {
@@ -62,6 +63,7 @@ public class Course {
 	public void setTeacher(Users teacher) {
 		this.teacher = teacher;
 	}
+	*/
 	public String getIcon() {
 		return icon;
 	}
