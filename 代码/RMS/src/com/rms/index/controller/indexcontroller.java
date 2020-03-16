@@ -1,8 +1,8 @@
 package com.rms.index.controller;
 
-
 import org.springframework.stereotype.Controller;
+
 @Controller
-public class indexcontroller {
+public class IndexController {
 
 }
