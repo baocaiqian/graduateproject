@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>software教学资料管理系统</title>
 <link href="favicon.ico" rel="shortcut icon" />
-<link href="statics/base/css/metinfo_box.css" rel="stylesheet" />
-<link href="statics/lib/asyncbox/skins/ZCMS/asyncbox.css" type="text/css" rel="stylesheet" />
+<link href="${ctx }/statics/base/css/metinfo_box.css" rel="stylesheet" />
+<link href="${ctx }/statics/lib/asyncbox/skins/ZCMS/asyncbox.css" type="text/css" rel="stylesheet" />
 </head>
-<script type="text/javascript" src="statics/base/js/jQuery1.7.2.js"></script>
-<script type="text/javascript" src="statics/base/js/cookie.js"></script>
-<script type="text/javascript" src="statics/lib/asyncbox/AsyncBox.v1.4.5.js"></script>
+<script type="text/javascript" src="${ctx }/statics/base/js/jQuery1.7.2.js"></script>
+<script type="text/javascript" src="${ctx }/statics/base/js/cookie.js"></script>
+<script type="text/javascript" src="${ctx }/statics/lib/asyncbox/AsyncBox.v1.4.5.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#kzqie").click(function(){
@@ -57,7 +59,7 @@ $(function() {
 
 <style>
 #content,#top .topnbox{ width:1000px;}
-#top .floatr li a span{ behavior: url(statics/images/iepngfix.htc); }
+#top .floatr li a span{ behavior: url(${ctx }/statics/images/iepngfix.htc); }
 </style>
 <body id="indexid">
 <div id="metcmsbox">
@@ -122,7 +124,7 @@ $(function() {
 		</div>
     </div>
     <div class="floatl">
-	    <a href="" hidefocus="true" id="met_logo"><img src="statics/base/images/2.png" alt="phpci企业网站管理系统" title="phpci企业网站管理系统" width = 155px high = 30px/></a>
+	    <a href="" hidefocus="true" id="met_logo"><img src="${ctx }/statics/base/images/2.png" alt="phpci企业网站管理系统" title="phpci企业网站管理系统" width = 155px high = 30px/></a>
 	</div>
 	</div>
 </div>
@@ -134,7 +136,7 @@ $(function() {
 				<a target="_blank" href="" id="qthome" title="网站首页">网站首页</a>
 			</div>
                         <ul  id="ul_1">
-										<li ><a href="case.jsp" id="nav_1_2" target="main" class="on" title="系统信息" hidefocus="true">课程体系</a></li>
+										<li ><a href="classSystem.jsp" id="nav_1_2" target="main" class="on" title="系统信息" hidefocus="true">课程体系</a></li>
 			       			</ul>
                         <ul style="display:none;" id="ul_10">
 										<li ><a href="upload.jsp" id="nav_10_58" target="main"  title="内容管理" hidefocus="true">内容管理</a></li>
@@ -168,13 +170,13 @@ $(function() {
 	</div>
     <div class="floatr" id="metright">
         <div class="iframe">
-		    <div class="min"><iframe frameborder="0" id="main" name="main" src="case.jsp" scrolling="no"></iframe></div>
+		    <div class="min"><iframe frameborder="0" id="main" name="main" src="classSystem.jsp" scrolling="no"></iframe></div>
 		</div>
     </div>
 	<div class="clear"></div>
 	</div>
 </div>
 <div class="footer">Powered by <b><a href="http://www.phpci.com" target="_blank">phpci 6.0.0 </a></b> &copy;2008-2015 &nbsp;<a href="http://www.phpci.com" target="_blank">phpci Inc.</a> in 3.0590 seconds </div>
-<script src="statics/base/js/metinfo.js" type="text/javascript"></script>
+<script src="${ctx }/statics/base/js/metinfo.js" type="text/javascript"></script>
 </body>
 </html>

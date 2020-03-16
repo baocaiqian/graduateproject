@@ -19,10 +19,10 @@ public class UserDao {
 		Session session=this.sessionFactory.getCurrentSession();
 		String p=(String)session.createQuery("select password from Users where email='"+myemail+"'").uniqueResult();
 		if(p.equals(password)) {
-			System.out.println("密码错误");
 		    return true;
 		}
 		else {
+			System.out.println("密码错误");
 			return false;
 		}		
 	}
@@ -30,6 +30,7 @@ public class UserDao {
 		public Users findUserByEmail(String email) {
 			Session session = this.sessionFactory.getCurrentSession();
 			Users u = (Users)session.createQuery("from Users where email='"+email+"'").uniqueResult();
+			System.out.println("userdaor里面的id："+u.getId());
 			return u;
 		}
 }

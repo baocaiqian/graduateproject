@@ -24,6 +24,7 @@ public class Course {
 	//private Users teacher;//用户id
 	private String icon;//头像
 	private String term;//学期
+	private Users teacher;
 	private List<Resource> resources;
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
@@ -54,7 +55,7 @@ public class Course {
 	public void setSystem(ClassSystem system) {
 		this.system = system;
 	}
-	/*
+	
 	@ManyToOne
 	@JoinColumn(name="teacher")
 	public Users getTeacher() {
@@ -63,7 +64,7 @@ public class Course {
 	public void setTeacher(Users teacher) {
 		this.teacher = teacher;
 	}
-	*/
+	
 	public String getIcon() {
 		return icon;
 	}

@@ -32,7 +32,7 @@ public class Users {
 	private List<Group> groups;//所创建小组列表
 	private List<Groupfile> groupfiles;//在组内上传记录
 	private List<ClassSystem> classsystem;//课程体系
-	//private List<Course> course;//课程
+	private List<Course> course;//课程
 	private List<Search> sesrchlog;//搜索记录
 	private List<Groupmember> groupmemberlog;//所在小组
 	@Id
@@ -158,7 +158,7 @@ public class Users {
 	public void setClasssystem(List<ClassSystem> classsystem) {
 		this.classsystem = classsystem;
 	}
-	/*
+	
 	@OneToMany(mappedBy="teacher", targetEntity=Course.class, 
 	        cascade=CascadeType.ALL)
 	public List<Course> getCourse() {
@@ -167,7 +167,6 @@ public class Users {
 	public void setCourse(List<Course> course) {
 		this.course = course;
 	}
-	*/
 	@OneToMany(mappedBy="searcher", targetEntity=Search.class, 
 	        cascade=CascadeType.ALL)
 	public List<Search> getSesrchlog() {
