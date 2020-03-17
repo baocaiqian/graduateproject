@@ -83,10 +83,11 @@ function metreturn(url){
 		<div class="modal" id="forgetform">
 		<a class="close" data-dismiss="modal">×</a>
 		<h1>添加课程</h1>
-		<form class="forgot-form" method="post" action="#">
-		课程名称:<input name="classname" value="" placeholder="课程名称" style="display: block;">
+		<form class="forgot-form" method="post" action="${ctx }/course/addcourse">
+		课程名称:<input name="name" value="" placeholder="课程名称" style="display: block;">
 		授课班级:<input name="classes" value="" placeholder="授课班级" style="display: block;">
-		课程封面：<input type="file" id="imagehead"  placeholder="选择课程图片" value=""/>
+		授课学期:<input name="term" value="" placeholder="授课学期" style="display: block;">
+		<!--  课程封面：<input type="icon" id="imagehead"  placeholder="选择课程图片" value=""/>-->
 		<div class="clearfix"></div>
 		<input type="submit" name="type" class="forgot button-blue" value="添加课程">
 		

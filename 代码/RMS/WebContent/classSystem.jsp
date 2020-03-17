@@ -68,9 +68,9 @@ function metreturn(url){
 		<div class="modal" id="addclassSystem">
 			<a class="close" data-dismiss="modal">×</a>
 			<h1>添加课程体系</h1>
-			<form class="signup-form clearfix" method="post" action="#">
-				体系名称：<input name="classSystemname" value="" type="text" placeholder="名称" style="display: block;"/>
-				体系描述：<textarea cols="36" rows="6" style="OVERFLOW:hidden;display: block;margin-bottom: 10px;border:#ddd solid 1px;"placeholder="体系描述"></textarea>
+			<form class="signup-form clearfix" method="post" action="${ctx }/system/add">
+				体系名称：<input name="name" value="" type="text" placeholder="名称" style="display: block;"/>
+				体系描述：<textarea name="systemdescribe" cols="36" rows="6" style="OVERFLOW:hidden;display: block;margin-bottom: 10px;border:#ddd solid 1px;"placeholder="体系描述"></textarea>
 			<input type="submit" name="type" class="button-blue reg" value="添加体系"/>
 			<div class="clearfix"></div>
 			</form>
@@ -91,10 +91,10 @@ function metreturn(url){
 
 					<div class="layer-text">
 						<p class="dev-text">
-						${ system.describe}
+						${ system.systemdescribe}
 						</p>
 						<div class="layer-btn">
-							<a href="${ctx }/classsystem/getsystem?id=${system.id}">
+							<a href="${ctx }/course/getcourse?id=${system.systemId}">
 								<p>打开体系</p>
 							</a>
 						</div>

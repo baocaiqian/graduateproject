@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="course")
 public class Course {
-	private int id;
+	private int courseid;
 	private String name;//课程名称
 	private String classes;//班级
 	private ClassSystem system;//所属课程体系的id
@@ -29,14 +29,14 @@ public class Course {
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
 	@GenericGenerator(name="assigned", strategy = "assigned")
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
+	}
+	public int getCourseid() {
+		return courseid;
+	}
+	public void setCourseid(int courseid) {
+		this.courseid = courseid;
 	}
 	public void setName(String name) {
 		this.name = name;

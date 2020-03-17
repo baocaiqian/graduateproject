@@ -17,5 +17,7 @@ public class CourseService {
 	public List<Course> getCourse(int systemid,int teacherid){
 		return cd.getCourse(systemid,teacherid);
 	}
-	
+	public boolean addCourse(Course c) {
+		return cd.addCourse(c);
+	}
 }
