@@ -23,6 +23,7 @@ public class Course {
 	private ClassSystem system;//所属课程体系的id
 	//private Users teacher;//用户id
 	private String icon;//头像
+	private String tag;
 	private String term;//学期
 	private Users teacher;
 	private List<Resource> resources;
@@ -70,6 +71,12 @@ public class Course {
 	}
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+	public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 	public String getTerm() {
 		return term;

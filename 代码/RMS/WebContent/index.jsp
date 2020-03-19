@@ -70,7 +70,7 @@ $(function() {
 		<div class="top-right-boxr">
 			<div class="top-r-t">
 				<ol class="rnav">
-					<li class="list">您好 <a href="index.php/admin/home/pwd" id="mydata" target="main" title="编辑 admin" class='tui'>admin</a></li>
+					<li class="list">您好 <a href="usercenter.jsp" id="mydata" target="main" title="编辑 admin" class='tui'>${user.name }</a></li>
 					<li class="line">|</li>
 					<li class="list"><a target="_top" onclick="{if(confirm('确定退出吗?')){window.location='index.php/admin/login/loginout';return true;}return false;}" href="javascript:;" id="outhome" title="退出" class='tui'>退出</a></li>
 					<li class="line">|</li>
@@ -133,7 +133,7 @@ $(function() {
 		<div class="floatl_box">
 	    <div class="nav_list" id="leftnav">
 			<div class="fast">
-				<a target="_blank" href="" id="qthome" title="网站首页">网站首页</a>
+				<a target="_blank" href="${ctx }/index" id="qthome" title="网站首页">网站首页</a>
 			</div>
                         <ul  id="ul_1">
 										<li ><a href="classSystem.jsp" id="nav_1_2" target="main" class="on" title="系统信息" hidefocus="true">课程体系</a></li>

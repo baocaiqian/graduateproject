@@ -29,13 +29,14 @@ public class CourseController {
 		Users u = (Users)session.getAttribute("user");
 		ClassSystem system = css.getSystemById(id);
 		List<Course> courses=cs.getCourse(id, u.getId());
-		system.setCourses(courses);
+		if(!courses.isEmpty()) {
+			system.setCourses(courses);
+		}
 		session.setAttribute("system", system);
-		//request.setAttribute("courses", courses);
 		return "class";
 	}
 	@RequestMapping(value="/addcourse",method=RequestMethod.POST)
-	public String getCourse(Course course,HttpSession session,HttpServletRequest request) {
+	public String addCourse(Course course,HttpSession session,HttpServletRequest request) {
 		ClassSystem system =(ClassSystem)session.getAttribute("system");
 		Users u =(Users)session.getAttribute("user");
 		course.setTeacher(u);

@@ -13,6 +13,8 @@
 <link rel="stylesheet" type="text/css" href="${ctx }/statics/base/css/tankuangstyle.css">
 <link rel="stylesheet" type="text/css" href="${ctx }/statics/base/css/classstyle.css" />
 <script type="text/javascript" src="${ctx }/statics/base/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx }/statics/base/css/tagcss.css"/>
+<script src="${ctx }/statics/base/js/tagsinput.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">var basepath='${ctx }/statics/base/images';</script>
 <script type="text/javascript" src="${ctx }/statics/base/js/metvar.js"></script>
 <script type="text/javascript" src="${ctx }/statics/base/js/jQuery1.7.2.js"></script>
@@ -87,6 +89,16 @@ function metreturn(url){
 		课程名称:<input name="name" value="" placeholder="课程名称" style="display: block;">
 		授课班级:<input name="classes" value="" placeholder="授课班级" style="display: block;">
 		授课学期:<input name="term" value="" placeholder="授课学期" style="display: block;">
+		<div class="tagsinput-primary form-group">
+	   	课程标签:<input name="tag" id="tagsinputval" class="tagsinput" data-role="tagsinput" placeholder="输入标签后回车"/>
+	    <!-- button class="btn" onClick="getinput()">获取输入的值</button -->
+		</div>
+
+<!--  script type="text/javascript">
+function getinput(){
+	alert($('#tagsinputval').val());
+}
+</script-->
 		<!--  课程封面：<input type="icon" id="imagehead"  placeholder="选择课程图片" value=""/>-->
 		<div class="clearfix"></div>
 		<input type="submit" name="type" class="forgot button-blue" value="添加课程">

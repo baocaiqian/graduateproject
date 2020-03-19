@@ -33,7 +33,7 @@ public class ClassSystemDao {
 	//添加课程体系
 	public boolean addSystem(ClassSystem system) {
 		Session session = sf.getCurrentSession();
-		Query q=session.createQuery("from ClassSystem where name='"+system.getName()+"' and owner = "+system.getOwner());
+		Query q=session.createQuery("from ClassSystem where name='"+system.getName()+"' and owner = "+system.getOwner().getId());
 		if(q.list().size()!=0) {
 			//课程体系不允许重名
 			return false;

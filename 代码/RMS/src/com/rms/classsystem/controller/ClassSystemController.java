@@ -26,7 +26,6 @@ public class ClassSystemController {
 		system.setOwner(u);
 		boolean ifrename = css.addSystem(system);
 		if(ifrename) {
-			
 			List<ClassSystem> systems = u.getClasssystem();
 			systems.add(system);
 			u.setClasssystem(systems);
@@ -38,5 +37,8 @@ public class ClassSystemController {
 			request.setAttribute("error",error);
 			return "error";
 		}
+	}
+	public String getSystem(HttpSession session,HttpServletRequest request) {
+		return "classSystem";
 	}
 }
