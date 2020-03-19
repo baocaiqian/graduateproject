@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-03-17 23:15:21
+Date: 2020-03-19 20:46:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,7 +42,7 @@ CREATE TABLE `classsystem` (
   `owner` int(11) NOT NULL,
   `systemdescribe` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`systemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of classsystem
@@ -63,6 +63,13 @@ INSERT INTO `classsystem` VALUES ('13', 'Python', '14', 'Python是一种计算�
 INSERT INTO `classsystem` VALUES ('14', 'Python', '15', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
 INSERT INTO `classsystem` VALUES ('15', 'python', '16', 'Python是一种计算机程序设计语言。是一种面向对象的动态类型语言，最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越来越多被用于独立的、大型项目的开发。');
 INSERT INTO `classsystem` VALUES ('16', '小程序开发', '16', '小程序是一种新的开放能力，开发者可以快速地开发一个小程序。小程序可以在微信内被便捷地获取和传播，同时具有出色的使用体验。');
+INSERT INTO `classsystem` VALUES ('17', 'Java', '16', 'java具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程');
+INSERT INTO `classsystem` VALUES ('18', 'R语言', '1', 'R是用于统计分析、绘图的语言和操作环境。R是属于GNU系统的一个自由、免费、源代码开放的软件，它是一个用于统计计算和统计制图的优秀工具。');
+INSERT INTO `classsystem` VALUES ('19', 'Java', '2', 'java具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程');
+INSERT INTO `classsystem` VALUES ('20', 'R语言', '2', 'R是用于统计分析、绘图的语言和操作环境。R是属于GNU系统的一个自由、免费、源代码开放的软件，它是一个用于统计计算和统计制图的优秀工具。');
+INSERT INTO `classsystem` VALUES ('21', 'c语言', '3', 'C语言是一门面向过程的、抽象化的通用程序设计语言，广泛应用于底层开发。');
+INSERT INTO `classsystem` VALUES ('22', 'C++', '3', 'C++是C语言的继承，它既可以进行C语言的过程化程序设计，又可以进行以抽象数据类型为特点的基于对象的程序设计，还可以进行以继承和多态为特点的面向对象的程序设计。');
+INSERT INTO `classsystem` VALUES ('23', 'c#', '3', 'C#是微软公司发布的一种面向对象的、运行于.NET Framework和.NET Core(完全开源，跨平台)之上的高级程序设计语言。');
 
 -- ----------------------------
 -- Table structure for `collect`
@@ -91,18 +98,53 @@ CREATE TABLE `course` (
   `icon` varchar(255) CHARACTER SET utf8 NOT NULL,
   `term` varchar(255) CHARACTER SET utf8 NOT NULL,
   `teacher` int(11) NOT NULL,
+  `tag` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`courseid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of course
 -- ----------------------------
-INSERT INTO `course` VALUES ('1', 'django快速开发网站', '2016级6班', '1', 'statics/base/images/classes.png', '2016年下学期', '1');
-INSERT INTO `course` VALUES ('3', 'python接口自动化测试', '2016级6班', '3', 'statics/base/images/classes.png', '2016年下学期', '2');
-INSERT INTO `course` VALUES ('4', 'python自动办公', '2016级6班', '4', 'statics/base/images/classes.png', '2016年下学期', '6');
-INSERT INTO `course` VALUES ('5', 'python自动办公', '2016级6班', '15', 'statics/base/images/classes.png', '2016年下学期', '16');
-INSERT INTO `course` VALUES ('6', 'python接口自动化测试', '2016级6班', '15', 'statics/base/images/classes.png', '2016年下学期', '16');
-INSERT INTO `course` VALUES ('7', 'pythonGUI编程', '2017级6班', '15', 'statics/base/images/classes.png', '2018年下', '16');
+INSERT INTO `course` VALUES ('1', 'django快速开发网站', '2016级6班', '1', 'statics/base/images/classes.png', '2016年下学期', '1', 'django，python');
+INSERT INTO `course` VALUES ('3', 'python接口自动化测试', '2016级6班', '3', 'statics/base/images/classes.png', '2016年下学期', '2', '接口');
+INSERT INTO `course` VALUES ('4', 'python自动办公', '2016级6班', '4', 'statics/base/images/classes.png', '2016年下学期', '6', '自动化');
+INSERT INTO `course` VALUES ('5', 'python自动办公', '2016级6班', '15', 'statics/base/images/classes.png', '2016年下学期', '16', '自动化');
+INSERT INTO `course` VALUES ('6', 'python接口自动化测试', '2016级6班', '15', 'statics/base/images/classes.png', '2016年下学期', '16', '接口');
+INSERT INTO `course` VALUES ('7', 'pythonGUI编程', '2017级6班', '15', 'statics/base/images/classes.png', '2018年下', '16', 'GUI编程');
+INSERT INTO `course` VALUES ('8', 'scrapy爬虫', '2016级6班', '15', 'statics/base/images/classes.png', '2019年下', '16', 'scrapy爬虫');
+INSERT INTO `course` VALUES ('10', '微信公众号开发', '2016级6班', '16', 'statics/base/images/classes.png', '2018年下', '16', '小程序,公众号');
+INSERT INTO `course` VALUES ('11', '微信小程序开发基础', '2018级6班', '16', 'statics/base/images/classes.png', '2019年下', '16', '小程序');
+INSERT INTO `course` VALUES ('12', 'wordpress小程序开发', '2017级7班', '16', 'statics/base/images/classes.png', '2018年上', '16', 'wordpress,小程序');
+INSERT INTO `course` VALUES ('13', 'java基础', '2016级5，6班', '17', 'statics/base/images/classes.png', '2017年下', '16', 'Java,基础');
+INSERT INTO `course` VALUES ('14', 'hibernate', '2016级大数据班', '17', 'statics/base/images/classes.png', '2017年下', '16', '数据库,hibernate,jdbc');
+INSERT INTO `course` VALUES ('15', 'spring', '2016级大数据班', '17', 'statics/base/images/classes.png', '2017年下', '16', 'JavaWeb,spring');
+INSERT INTO `course` VALUES ('16', 'Hadoop', '2016级大数据班', '17', 'statics/base/images/classes.png', '2018年下', '16', '大数据分析框架,分布式,mapreduce');
+INSERT INTO `course` VALUES ('17', 'MySQL数据库与JDBC框架', '2016级大数据班', '17', 'statics/base/images/classes.png', '2017年下', '16', '数据库,JDBC');
+INSERT INTO `course` VALUES ('18', 'python-人工智能学习路线图', '2016级大数据班', '1', 'statics/base/images/classes.png', '2018年下', '1', '人工智能,python');
+INSERT INTO `course` VALUES ('19', 'python大数据', '2018级大数据班', '1', 'statics/base/images/classes.png', '2018年下', '1', '大数据,python');
+INSERT INTO `course` VALUES ('20', 'python数据挖掘实战', '2017级大数据班', '1', 'statics/base/images/classes.png', '2017年下', '1', '数据挖掘,数据分析');
+INSERT INTO `course` VALUES ('21', 'scrapy爬虫', '2016级大数据班', '1', 'statics/base/images/classes.png', '2018年下', '1', 'scrapy,爬虫');
+INSERT INTO `course` VALUES ('22', '微信公众号开发', '2017级大数据班', '2', 'statics/base/images/classes.png', '2018年下', '1', '微信,公众号');
+INSERT INTO `course` VALUES ('23', 'R语言文本挖掘', '2019级1班', '18', 'statics/base/images/classes.png', '2019年下', '1', '文本挖掘,R语言');
+INSERT INTO `course` VALUES ('24', 'R语言推荐系统建模', '2019级1班', '18', 'statics/base/images/classes.png', '2019年下', '1', 'R语言,推荐系统');
+INSERT INTO `course` VALUES ('25', 'ggplot2作图', '2017级4班', '18', 'statics/base/images/classes.png', '2017年下', '1', 'ggplot2,作图');
+INSERT INTO `course` VALUES ('26', 'python数据挖掘实战', '2016级大数据班', '3', 'statics/base/images/classes.png', '2017年下', '2', '数据挖掘,数据分析,大数据');
+INSERT INTO `course` VALUES ('27', 'python数据挖掘基础', '2016级大数据班', '3', 'statics/base/images/classes.png', '2018年下', '2', '数据挖掘,数据分析');
+INSERT INTO `course` VALUES ('28', 'python推荐算法', '2016级大数据班', '3', 'statics/base/images/classes.png', '2017年下', '2', '推荐算法,数据挖掘,数据分析');
+INSERT INTO `course` VALUES ('29', 'scrapy爬虫', '2016级大数据班', '3', 'statics/base/images/classes.png', '2017年下', '2', '爬虫,scrapy,数据分析,数据挖掘');
+INSERT INTO `course` VALUES ('30', 'springCloud分布式架构', '2016级大数据班', '19', 'statics/base/images/classes.png', '2017年下', '2', '分布式,微服务');
+INSERT INTO `course` VALUES ('31', 'MySQL数据库与JDBC框架', '2016级大数据班', '19', 'statics/base/images/classes.png', '2018年下', '2', '数据库,JDBC,数据分析');
+INSERT INTO `course` VALUES ('32', 'Hadoop框架', '2016级大数据班', '19', 'statics/base/images/classes.png', '2017年下', '2', '大数据,数据分析,分布式存储,数据挖掘');
+INSERT INTO `course` VALUES ('33', 'spark', '2019级2班', '19', 'statics/base/images/classes.png', '2019年下', '2', 'spark,数据挖掘,大数据计算,数据分析');
+INSERT INTO `course` VALUES ('34', 'mybatis', '2016级大数据班', '19', 'statics/base/images/classes.png', '2018年下', '2', '数据库框架');
+INSERT INTO `course` VALUES ('35', '数据分析报告的制作', '2016级1班', '20', 'statics/base/images/classes.png', '2018年上', '2', '数据分析,数据报告,画图');
+INSERT INTO `course` VALUES ('36', 'python语言基础', '2019级1，2班', '4', 'statics/base/images/classes.png', '2019年下', '3', '语言基础,python，编程语言');
+INSERT INTO `course` VALUES ('37', 'python进阶', '2018级1班', '4', 'statics/base/images/classes.png', '2019年上', '3', 'python进阶,程序设计高级篇，编程语言');
+INSERT INTO `course` VALUES ('38', 'python面向对象与模块化', '2016级大数据班', '4', 'statics/base/images/classes.png', '2018年下', '3', '面向对象,编程语言');
+INSERT INTO `course` VALUES ('39', '程序设计基础(c语言)', '2016级1班', '21', 'statics/base/images/classes.png', '2016年下', '3', '编程语言,程序设计,0基础');
+INSERT INTO `course` VALUES ('40', 'C语言进阶', '2016级1班', '21', 'statics/base/images/classes.png', '2017年上', '3', '编程语言,程序设计进阶');
+INSERT INTO `course` VALUES ('41', '面向对象编程语言', '2016级1班', '22', 'statics/base/images/classes.png', '2017年下', '3', '面向对象,编程语言,程序设计');
+INSERT INTO `course` VALUES ('42', 'c#程序设计', '2016级1班', '23', 'statics/base/images/classes.png', '2018年上', '3', '编程语言,程序设计');
 
 -- ----------------------------
 -- Table structure for `down`
