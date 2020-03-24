@@ -31,10 +31,10 @@
 			<h1>文件上传 </h1>
 		</header>
 		<div class="container kv-main">
-            <form enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data">
                 <hr>
                 <!-- 下拉框 -->
-                <div id="example">
+           <!--     <div id="example">
 		            <select class="div1" v-model="prov">
 			       	    <option v-for="option in arr" :value="option.name">
 				         {{ option.name }}
@@ -53,7 +53,7 @@
 	           </div>
                 <hr>
             
-            
+             --> 
             
                 <!-- 文件提交 -->
                 <div class="form-group">
@@ -68,7 +68,7 @@
     <script src="statics/upload/js/fileinput_locale_zh.js" type="text/javascript"></script>
     <script src="statics/upload/js/bootstrap.min.js" type="text/javascript"></script>
     
-    <!-- 下拉菜单 -->
+    <!-- 下拉菜单样式 -->
     <script type="text/javascript" src="statics/upload/js/vue.min.js"></script>
 	<script type="text/javascript" src="statics/upload/js/items.js"></script>
     
