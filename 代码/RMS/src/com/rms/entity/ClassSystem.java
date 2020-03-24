@@ -17,19 +17,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name="classsystem")
 public class ClassSystem {
-	private int id;
+	private int systemId;
 	private String name;//体系名称
 	private Users owner;//用户id
-	private String describe;//描述
+	private String systemdescribe;//描述
 	private List<Course> courses;
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
 	@GenericGenerator(name="assigned", strategy = "assigned")
-	public int getId() {
-		return id;
+	public int getSystemId() {
+		return systemId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setSystemId(int systemId) {
+		this.systemId = systemId;
 	}
 	public String getName() {
 		return name;
@@ -45,11 +45,11 @@ public class ClassSystem {
 	public void setOwner(Users owner) {
 		this.owner = owner;
 	}
-	public String getDescribe() {
-		return describe;
+	public String getSystemdescribe() {
+		return systemdescribe;
 	}
-	public void setDescribe(String describe) {
-		this.describe = describe;
+	public void setSystemdescribe(String systemdescribe) {
+		this.systemdescribe = systemdescribe;
 	}
 	@OneToMany(mappedBy="system", targetEntity=Course.class, 
 	        cascade=CascadeType.ALL)

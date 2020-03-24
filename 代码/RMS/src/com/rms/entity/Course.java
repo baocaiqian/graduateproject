@@ -17,25 +17,27 @@ import javax.persistence.Table;
 @Entity
 @Table(name="course")
 public class Course {
-	private int id;
+	private int courseid;
 	private String name;//课程名称
 	private String classes;//班级
 	private ClassSystem system;//所属课程体系的id
 	//private Users teacher;//用户id
 	private String icon;//头像
+	private String tag;
 	private String term;//学期
+	private Users teacher;
 	private List<Resource> resources;
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
 	@GenericGenerator(name="assigned", strategy = "assigned")
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
+	}
+	public int getCourseid() {
+		return courseid;
+	}
+	public void setCourseid(int courseid) {
+		this.courseid = courseid;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -54,7 +56,7 @@ public class Course {
 	public void setSystem(ClassSystem system) {
 		this.system = system;
 	}
-	/*
+	
 	@ManyToOne
 	@JoinColumn(name="teacher")
 	public Users getTeacher() {
@@ -63,12 +65,18 @@ public class Course {
 	public void setTeacher(Users teacher) {
 		this.teacher = teacher;
 	}
-	*/
+	
 	public String getIcon() {
 		return icon;
 	}
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+	public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 	public String getTerm() {
 		return term;
