@@ -57,14 +57,14 @@
                 <tr>
                     <td colspan="8" class="centle" style=" height:20px; line-height:30px; font-weight:normal; padding-left:10px;">
                         <div style="float:left;">
-                            <a href="news_add.html">+新增</a>
+                            <a href="news_add.html">+添加</a>
                             <span style="font-weight:normal; color:#999; padding-left:10px;">排序数值越大越靠前</span>
                         </div>
                         <div class="formright">
                             <form method="post" name="search" action="index.php/admin/news/index" target="_self">
 
                                 <select name="new" id="new" onchange="changes($(this));">
-                                    <option value="index.php/admin/news/index">所属栏目</option>
+                                    <option value="index.php/admin/news/index">JavaEE</option>
                                     <option value="index.php/admin/news/index?cid=45">艺术品展示</option>
                                     <option value="index.php/admin/news/index?cid=55">企业形象网站</option>
                                     <option value="index.php/admin/news/index?cid=74">品牌网站设计</option>
@@ -79,12 +79,12 @@
                 </tr>
                 <tr id="list-top">
                     <td width="30" class="list">选择</td>
-                    <td width="250" class="list list_left">标题</td>
-                    <td width="30" class="list">推荐</td>
-                    <td width="30" class="list">置顶</td>
-                    <td width="30" class="list">状态</td>
+                    <td width="250" class="list list_left">文件名</td>
+                    <td width="30" class="list">类型</td>
+                    <td width="30" class="list">大小</td>
+                    <td width="30" class="list">分享</td>
                     <td width="80" class="list">更新时间</td>
-                    <td width="70" style="padding:0px; text-align:center;" class="list">访问次数</td>
+                    <td width="70" style="padding:0px; text-align:center;" class="list">分享小组</td>
                     <td width="70" class="list" style="padding:0px; text-align:center;">操作</td>
                 </tr>
                 <tr class="mouse click">
@@ -93,14 +93,15 @@
                         <input name="data[id][]" type="hidden" value="30" />
                     </td>
 
-                    <td class="list-text alignleft">&nbsp;&nbsp;<a href="show-30" title='预览：测试' target="_blank">测试</a></td>
-                    <td class="list-text"><a href="index.php/admin/news/doset?act=isnice&id=30&&page=1"><img src="statics/base/images/ok_0.gif" /></a></td>
-                    <td class="list-text"><a href="index.php/admin/news/doset?act=istop&id=30&&page=1"><img src="statics/base/images/ok_0.gif" /></a></td>
+                    <td class="list-text alignleft">&nbsp;&nbsp;<a href="show-30" title='预览：测试' target="_blank">JavaEE第二章</a></td>
+                    <td class="list-text"><a href="index.php/admin/news/doset?act=isnice&id=30&&page=1">PPT文件</a></td>
+                    <td class="list-text"><a href="index.php/admin/news/doset?act=istop&id=30&&page=1">937KB</a></td>
                     <td class="list-text"><a href="index.php/admin/news/doset?act=nostatus&id=30&&page=1"><img src="statics/base/images/ok_1.gif" /></a></td>
-                    <td class="list-text color999">2014-11-27 15:40:25</td>
-                    <td class="list-text color999">0</td>
+                    <td class="list-text color999">2019-11-27 15:40:25</td>
+                    <td class="list-text color999"><a href="#">软件学院组</a></td>
                     <td class="list-text">
                         <a href="news_edit.html">编辑</a>&nbsp;&nbsp;
+                        <a href="news_edit.html">下载</a>&nbsp;&nbsp;
                         <a href="javascript:;" onclick="{if(confirm('确定删除吗?')){window.location='index.php/admin/news/del?id=30&page=1';return true;}return false;}">删除</a>
                     </td>
                 </tr>
