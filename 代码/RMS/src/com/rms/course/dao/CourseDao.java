@@ -13,6 +13,7 @@ import com.rms.entity.Course;
 
 @Repository
 public class CourseDao {
+	
 	@Resource
 	private SessionFactory sf;
 	public List<Course> getCourse(int systemid,int teacherid){

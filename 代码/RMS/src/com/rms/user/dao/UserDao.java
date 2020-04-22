@@ -4,6 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.rms.entity.Users;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
@@ -32,5 +34,11 @@ public class UserDao {
 			Users u = (Users)session.createQuery("from Users where email='"+email+"'").uniqueResult();
 			System.out.println("userdaor里面的id："+u.getId());
 			return u;
+		}
+	//发现同系老师
+		public List<Users> findUsersByMajor(Users u){
+			Session session = sessionFactory.getCurrentSession();
+			Query q = session.createQuery("from Users where major like '%"+u.getMajor()+"%' and id !="+u.getId());
+			return q.list();
 		}
 }

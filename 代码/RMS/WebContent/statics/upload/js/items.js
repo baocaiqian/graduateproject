@@ -1,13 +1,13 @@
 var arrAll =
 		[
-			{name: "选择项目", sub: [{name: "请选择"}], type: 1},
+			{name: "选择课程体系", sub: [{name: "请选择"}], type: 1},
 			{
-				name: "厨房",
+				name: "python",
 				sub: [
 					{name: "请选择", sub: []},
 					{
-						name: "电路",
-						sub: [{name: "请选择"}, {name: "灯具"},{name: "电闸"},{name: "房屋停电"},{name: "开关"},{name: "排风扇"},{name: "插座"},{name: "线路"},],
+						name: "python爬虫",
+						sub: [{name: "请选择"}, {name: "公开"},{name: "电闸"},{name: "房屋停电"},{name: "开关"},{name: "排风扇"},{name: "插座"},{name: "线路"},],
 						type: 0
 					},{
 						name: "电器",
@@ -41,7 +41,7 @@ var arrAll =
 				], type: 1
 			},
 			{
-				name: "客厅",
+				name: "Java",
 				sub: [{name: "请选择", sub: []},
 					{
 						name: "餐桌",
@@ -51,7 +51,7 @@ var arrAll =
 				type: 1
 			},
 			{
-				name: "客厅卫生间",
+				name: "微信小程序",
 				sub: [{name: "请选择", sub: []},
 					{
 						name: "餐桌",

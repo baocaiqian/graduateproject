@@ -125,7 +125,7 @@ $(document).ready(function(){
                         <ul>
                         <c:forEach var="course" items="${system.courses }">
                             <li>
-                                <a href="#">
+                                <a href="${ctx }/content.jsp">
                                     <div class="image-ti">
                                         <img src="${ctx }/${course.icon }" alt="">
                                     </div>
@@ -162,12 +162,9 @@ $(document).ready(function(){
 			  -->
 			  <div style="width:90%;margin:auto;">
 				<ol>
-					<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx }/statics/base/images/jiantou.png)"><a href="#3" class="remen1">java基础语法</a></li>
-					<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx }/statics/base/images/jiantou.png)"><a href="content.html" class="remen1">类的继承</a></li>
-					<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx }/statics/base/images/jiantou.png)"><a href="expand_adcat_edit.html" class="remen1">java基础语法</a></li>
-					<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx }/statics/base/images/jiantou.png)"><a href="expand_book_add.html" class="remen1">类的继承</a></li>
-					<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx }/statics/base/images/jiantou.png)"><a href="expand_book.html" class="remen1">java基础语法</a></li>
-					<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx }/statics/base/images/jiantou.png)"><a href="expand_book_edit.html" class="remen1">类的继承</a></li>
+					 <c:forEach var="recommendcourse" items="${recommendcourse }">
+					<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx }/statics/base/images/jiantou.png)"><a href="#3" class="remen1">${recommendcourse }</a></li>
+					</c:forEach>
 		</ol>
 			</div>
 			 
