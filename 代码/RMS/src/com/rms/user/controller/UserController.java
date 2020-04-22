@@ -25,10 +25,12 @@ public class UserController {
 	//登录控制器
 		@RequestMapping(value="/loginController",method=RequestMethod.POST)
 		public String getLoginPerson(Users users,HttpSession session,HttpServletRequest request) {
+			System.out.println("lalalalalllalalllllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 			if(this.userService.getLoginPerson(users)==true) {
 				issigned=true;
 				Users user = this.userService.UserCenter(users.getEmail());
 				System.out.println("usercontroller里面的id："+user.getId());
+				
 				List<ClassSystem> system = css.getSystem(user);
 				user.setClasssystem(system);
 				session.setAttribute("isSigned",issigned);//定义一个是否已登录的接口
@@ -42,4 +44,5 @@ public class UserController {
 				return "mylogin";
 			}
 		}
+	
 }
