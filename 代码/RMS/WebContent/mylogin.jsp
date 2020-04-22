@@ -42,11 +42,19 @@
 			</li>
 			</ul>
 			
+			<ul>
+			<li>
+			    <input type="password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <div style="float: right;width: 40px;height: 30px"><img  style="margin-top: 8px;   width: 40px;height: 30px"   src="${ctx}/statics/base/images/icon/ma.jpg"></div>
+                
+			</li>
+			</ul>
+			
+			
 			<div class="clear"> </div>
 			<div class="submit">
 				<input type="submit" onclick="myFunction()" value="登录"/>
-				<h4><a href="register.jsp">没有账号？去注册>>></a></h4>
-				<h4><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;忘记密码</a></h4>
+				<h4><a href="register.jsp">没有账号？去注册</a></h4>
+				<h4><a href="#">忘记密码</a></h4>
 						  <div class="clear">  </div>	
 			</div>
 				
