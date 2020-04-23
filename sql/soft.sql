@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-03-19 20:46:09
+Date: 2020-04-20 16:13:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,7 +42,7 @@ CREATE TABLE `classsystem` (
   `owner` int(11) NOT NULL,
   `systemdescribe` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`systemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of classsystem
@@ -70,6 +70,7 @@ INSERT INTO `classsystem` VALUES ('20', 'R语言', '2', 'R是用于统计分析�
 INSERT INTO `classsystem` VALUES ('21', 'c语言', '3', 'C语言是一门面向过程的、抽象化的通用程序设计语言，广泛应用于底层开发。');
 INSERT INTO `classsystem` VALUES ('22', 'C++', '3', 'C++是C语言的继承，它既可以进行C语言的过程化程序设计，又可以进行以抽象数据类型为特点的基于对象的程序设计，还可以进行以继承和多态为特点的面向对象的程序设计。');
 INSERT INTO `classsystem` VALUES ('23', 'c#', '3', 'C#是微软公司发布的一种面向对象的、运行于.NET Framework和.NET Core(完全开源，跨平台)之上的高级程序设计语言。');
+INSERT INTO `classsystem` VALUES ('24', '语言数学基础', '4', '编程语言中的一些数学计算与方法');
 
 -- ----------------------------
 -- Table structure for `collect`
@@ -100,7 +101,7 @@ CREATE TABLE `course` (
   `teacher` int(11) NOT NULL,
   `tag` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`courseid`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of course
@@ -145,6 +146,7 @@ INSERT INTO `course` VALUES ('39', '程序设计基础(c语言)', '2016级1班',
 INSERT INTO `course` VALUES ('40', 'C语言进阶', '2016级1班', '21', 'statics/base/images/classes.png', '2017年上', '3', '编程语言,程序设计进阶');
 INSERT INTO `course` VALUES ('41', '面向对象编程语言', '2016级1班', '22', 'statics/base/images/classes.png', '2017年下', '3', '面向对象,编程语言,程序设计');
 INSERT INTO `course` VALUES ('42', 'c#程序设计', '2016级1班', '23', 'statics/base/images/classes.png', '2018年上', '3', '编程语言,程序设计');
+INSERT INTO `course` VALUES ('43', 'python基础', '2017级6班', '5', 'statics/base/images/classes.png', '2018年下', '4', 'python,编程语言');
 
 -- ----------------------------
 -- Table structure for `down`
@@ -296,17 +298,17 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '黄勇', '123456', 'statics/base/images/micon.png', '15529935999@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('2', '无涯', '123456', 'statics/base/images/micon.png', '15529935989@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('3', '陈廷聿', '123456', 'statics/base/images/micon.png', '15539935989@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('4', '麻瓜编程', '123456', 'statics/base/images/micon.png', '13539935989@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('5', '侯爵', '123456', 'statics/base/images/micon.png', '13539935589@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('6', '小蚊子', '123456', 'statics/base/images/micon.png', '13539935589@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('7', '王顺子', '123456', 'statics/base/images/micon.png', '15529945999@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('10', '小布', '123456', 'statics/base/images/micon.png', '15529945939@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('11', '助教海', '123456', 'statics/base/images/micon.png', '15529935939@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('12', '黑板课', '123456', 'statics/base/images/micon.png', '15729945939@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('13', '唐宇帝', '123456', 'statics/base/images/micon.png', '15729645939@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('14', '车万翔', '123456', 'statics/base/images/micon.png', '15723645939@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('15', '乐上轻至', '123456', 'statics/base/images/micon.png', '16723645939@163.com', null, null, null, null);
-INSERT INTO `users` VALUES ('16', '鲍彩倩', '123456', 'statics/base/images/micon.png', '15226535887@163.com', null, null, null, null);
+INSERT INTO `users` VALUES ('1', '黄勇', '123456', 'statics/base/images/micon.png', '15529935999@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('2', '无涯', '123456', 'statics/base/images/micon.png', '15529935989@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('3', '陈廷聿', '123456', 'statics/base/images/micon.png', '15539935989@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('4', '麻瓜编程', '123456', 'statics/base/images/micon.png', '13539935989@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('5', '侯爵', '123456', 'statics/base/images/micon.png', '13539935589@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('6', '小蚊子', '123456', 'statics/base/images/micon.png', '13539935589@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('7', '王顺子', '123456', 'statics/base/images/micon.png', '15529945999@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('10', '小布', '123456', 'statics/base/images/micon.png', '15529945939@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('11', '助教海', '123456', 'statics/base/images/micon.png', '15529935939@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('12', '黑板课', '123456', 'statics/base/images/micon.png', '15729945939@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('13', '唐宇帝', '123456', 'statics/base/images/micon.png', '15729645939@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('14', '车万翔', '123456', 'statics/base/images/micon.png', '15723645939@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('15', '乐上轻至', '123456', 'statics/base/images/micon.png', '16723645939@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('16', '鲍彩倩', '123456', 'statics/base/images/micon.png', '15226535887@163.com', null, '计算机科学与技术', null, null);

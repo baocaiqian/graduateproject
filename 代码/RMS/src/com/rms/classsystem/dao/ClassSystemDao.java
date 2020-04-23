@@ -18,7 +18,6 @@ public class ClassSystemDao {
 	private SessionFactory sf;
 	//获取该用户的课程体系
 	public List<ClassSystem> getSystem(Users u) {
-		System.out.println("classsystemcontroller里面的email："+u.getEmail());
 		int id = u.getId();
 		Session session = sf.getCurrentSession();
 		Query q = session.createQuery("from ClassSystem where owner="+id);

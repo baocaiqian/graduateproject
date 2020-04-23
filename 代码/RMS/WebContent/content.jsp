@@ -1,16 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css" />
-<link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
-<script type="text/javascript">var basepath='statics/base/images';</script>
-<script type="text/javascript" src="statics/base/js/metvar.js"></script>
-<script type="text/javascript" src="statics/base/js/jQuery1.7.2.js"></script>
-<script type="text/javascript" src="statics/base/js/iframes.js"></script>
-<script type="text/javascript" src="statics/base/js/cookie.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/base/css/metinfo.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/base/css/newstyle.css" />
+<script type="text/javascript">var basepath='${ctx}/statics/base/images';</script>
+<script type="text/javascript" src="${ctx}/statics/base/js/metvar.js"></script>
+<script type="text/javascript" src="${ctx}/statics/base/js/jQuery1.7.2.js"></script>
+<script type="text/javascript" src="${ctx}/statics/base/js/iframes.js"></script>
+<script type="text/javascript" src="${ctx}/statics/base/js/cookie.js"></script>
 <script type="text/javascript">
 /*ajax执行*/
 var lang = 'cn';
@@ -31,7 +33,7 @@ window.onerror = killErrors;
 
 <title>网站基本信息设置</title>
 <style>
-img{ behavior: url(statics/images/iepngfix.htc); }
+img{ behavior: url(${ctx}/statics/images/iepngfix.htc); }
 </style>
 
 </head>
@@ -66,8 +68,8 @@ function metreturn(url){
         
 				<li class="contlist">
 			<div class="box">
-				<a href='news.html'>
-					<img src="statics/base/images/PPT.png" width='64' height='64' />
+				<a href='${ctx }/myresource.jsp'>
+					<img src="${ctx}/statics/base/images/PPT.png" width='64' height='64' />
 					<h2>PPT</h2>
 				</a>
 			</div>
@@ -76,7 +78,7 @@ function metreturn(url){
         		<li class="contlist">
 			<div class="box">
 				<a href='video.html'>
-					<img src="statics/base/images/video.png" width='64' height='64' />
+					<img src="${ctx}/statics/base/images/video.png" width='64' height='64' />
 					<h2>视频</h2>
 				</a>
 			</div>
@@ -84,7 +86,7 @@ function metreturn(url){
         		<li class="contlist">
 			<div class="box">
 				<a href='case.html'>
-					<img src="statics/base/images/photo.png" width='64' height='64' />
+					<img src="${ctx}/statics/base/images/photo.png" width='64' height='64' />
 					<h2>图片</h2>
 				</a>
 			</div>
@@ -92,16 +94,32 @@ function metreturn(url){
 		<li class="contlist">
 			<div class="box">
 				<a href='prod.html'>
-					<img src="statics/base/images/soft.png" width='64' height='64' />
+					<img src="${ctx}/statics/base/images/soft.png" width='64' height='64' />
 					<h2>课程软件</h2>
+				</a>
+			</div>
+		</li>
+				<li class="contlist">
+			<div class="box">
+				<a href='expand_book.html'>
+					<img src="${ctx}/statics/base/images/word.png" width='64' height='64' />
+					<h2>word文档</h2>
+				</a>
+			</div>
+		</li>
+				<li class="contlist">
+			<div class="box">
+				<a href='expand_book.html'>
+					<img src="${ctx}/statics/base/images/project.png" width='64' height='64' />
+					<h2>课程作业</h2>
 				</a>
 			</div>
 		</li>
         		<li class="contlist">
 			<div class="box">
 				<a href='expand_book.html'>
-					<img src="statics/base/images/chat.png" width='64' height='64' />
-					<h2>作业留言</h2>
+					<img src="${ctx}/statics/base/images/chat.png" width='64' height='64' />
+					<h2>消息通知</h2>
 				</a>
 			</div>
 		</li>

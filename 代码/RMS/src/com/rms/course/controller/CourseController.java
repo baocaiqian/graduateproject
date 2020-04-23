@@ -16,6 +16,7 @@ import com.rms.course.service.CourseService;
 import com.rms.entity.ClassSystem;
 import com.rms.entity.Course;
 import com.rms.entity.Users;
+import com.rms.recommend.service.RecomendCourseService;
 
 @Controller
 @RequestMapping("/course")
@@ -24,6 +25,8 @@ public class CourseController {
 	private CourseService cs;
 	@Resource
 	private ClassSystemService css;
+	@Resource
+	private RecomendCourseService rcs;
 	@RequestMapping(value="/getcourse",method=RequestMethod.GET)
 	public String getCourse(HttpSession session,HttpServletRequest request,@RequestParam("id") int id){
 		Users u = (Users)session.getAttribute("user");
@@ -32,6 +35,9 @@ public class CourseController {
 		if(!courses.isEmpty()) {
 			system.setCourses(courses);
 		}
+		//获取课程推荐
+		List <String> recommendcourse= rcs.findcourse(u, system);
+		session.setAttribute("recommendcourse",recommendcourse);
 		session.setAttribute("system", system);
 		return "class";
 	}
