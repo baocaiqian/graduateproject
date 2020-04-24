@@ -36,17 +36,21 @@
 			<ul>
 			<li>
 				<input type="text" class="text" value="用户名" name="name"   onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}"><div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="${ctx}/statics/base/images/icon/usrimg.jpg"></div>
-			</li>            
-            <li>
-				<input type="text" class="text" value="邮箱"  name="email"   onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '邮箱';}"><div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="${ctx}/statics/base/images/icon/email.jpg"></div>
-			</li>
-			<li>
-				<input type="text" class="text" value="学校"  name="school" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电话号码';}"><div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="${ctx}/statics/base/images/icon/tell.jpg"></div>
-			</li>
-				<div class="clear"></div>
+			</li>    
+			
 			<li>
 				<input type="password" value="Password" name="password"    onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"> <div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="${ctx}/statics/base/images/icon/password.jpg"></div>
 			</li>
+			        
+            <li>
+				<input type="text" class="text" value="邮箱"  name="email"   onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '邮箱';}"><div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="${ctx}/statics/base/images/icon/email.jpg"></div>
+			</li>
+			
+			<li>
+				<input type="text" class="text" value="学校"  name="school" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '学校';}"><div style="float: right;width: 30px;height: 30px"><img  style="margin-top: 8px;   width: 30px;height: 30px"   src="${ctx}/statics/base/images/icon/tell.jpg"></div>
+			</li>
+				<div class="clear"></div>
+			
 			
 			
 			</ul>

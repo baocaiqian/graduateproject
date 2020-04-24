@@ -1,5 +1,6 @@
 package com.rms.user.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -44,5 +45,44 @@ public class UserController {
 				return "mylogin";
 			}
 		}
+		
+		
+		
+		
+		
+		@RequestMapping(value="/RegisterController",method=RequestMethod.POST)
+		public String regist(Users user,HttpSession session,HttpServletRequest request) throws SQLException {
+			System.out.println("wojallaile^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+			System.out.println(user.getName().equals(null));
+			System.out.println(user.getName().contains(" "));
+			boolean iput=(user.getName().equals("用户名"))||(user.getName().contains(" "))||(user.getPassword().equals("Password"))||(user.getPassword().contains(" "))||(user.getEmail().equals("邮箱"))||(user.getEmail().contains(" "))||(user.getSchool().equals("学校"))||(user.getSchool().contains(" "));                                         ;
+            
+            if(iput) {
+            	return "register";
+            }else {
+            	
+            	boolean b = this.userService.regist(user);
+    			if (b) {
+    				session.setAttribute("user", user);
+    				System.out.println("true");
+    				return "index";
+    			} else {
+    				System.out.println("false……………………………………………………………………………………………………………………………………");
+    				return "register";
+
+    			}
+            	
+            	
+                      	
+            	
+            }
+			
+			
+		}
+		
+		
+		
+		
+		
 	
 }

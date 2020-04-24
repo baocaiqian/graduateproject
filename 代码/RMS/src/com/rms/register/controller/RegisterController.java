@@ -13,12 +13,12 @@ import com.rms.entity.Users;
 
 
 
-@Controller
-public class RegisterController {
-	//注册
-	@RequestMapping(value="/RegisterController",method=RequestMethod.POST)
-	public void UserRegister(Users user,HttpSession session,HttpServletRequest request) {
-		System.out.println("注册啦啦啦");
-		
-	}
-}
+//@Controller
+//public class RegisterController {
+//	//注册
+//	@RequestMapping(value="/RegisterController",method=RequestMethod.POST)
+//	public void UserRegister(Users user,HttpSession session,HttpServletRequest request) {
+//		System.out.println("注册啦啦啦");
+//		
+//	}
+//}

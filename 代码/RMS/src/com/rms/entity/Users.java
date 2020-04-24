@@ -18,9 +18,10 @@ public class Users {
 	private int id;
 	private String name;//用户名
 	private String password;//密码
-	private String icon;//头像
+	
 	private String email;
 	private String school;
+	private String icon;//头像
 	private String major;
 	private String describe;
 	private String mainmajor;
