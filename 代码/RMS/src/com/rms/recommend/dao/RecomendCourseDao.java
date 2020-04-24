@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.rm.until.Repetitive;
 import com.rms.entity.ClassSystem;
 import com.rms.entity.Course;
 import com.rms.entity.Users;
@@ -42,17 +43,7 @@ public class RecomendCourseDao {
 		Query sys= session.createQuery("from ClassSystem where owner in "+userids+" and name ='"+system.getName()
 				+"'");
 		List<ClassSystem> systems = sys.list();
-		//获取体系id列表
 		if(!systems.isEmpty()) {
-		String systemids="(";
-		for(int i=0;i<systems.size();i++) {
-			if(i==systems.size()-1) {
-				systemids=systemids+systems.get(i).getSystemId()+")";
-			}
-			else {
-				systemids=systemids+systems.get(i).getSystemId()+",";
-			}
-		}
 		//获取当前体系所包含课程名称
 		String courses = "(";
 		for(int i=0;i<system.getCourses().size();i++) {
@@ -63,6 +54,45 @@ public class RecomendCourseDao {
 				courses = courses+"'"+system.getCourses().get(i).getName()+"',";
 			}
 		}
+		System.out.println("开始获取重复率");
+		//获取各个课程重复率
+		List<Repetitive> repetitiverate = new ArrayList<Repetitive>();
+				for(ClassSystem cs : systems) {
+					Query recourse= session.createQuery("from Course where system = "+cs.getSystemId()+" and name in "+courses);
+					Repetitive temp = new Repetitive();
+					temp.setSystemid(cs.getSystemId());
+					if(!recourse.list().isEmpty()) {
+						temp.setRate(recourse.list().size());
+					}
+					else {
+						temp.setRate(0);
+					}
+					repetitiverate.add(temp);
+				}
+		//按照课程重复率排序(冒泡排序)
+		for(int i = 0;i<repetitiverate.size()-1;i++) {
+			for(int j =0;j<repetitiverate.size()-i-1;j++) {
+				if(repetitiverate.get(j+1).getRate()>repetitiverate.get(i).getRate()) {
+					int t = repetitiverate.get(j+1).getRate();
+					int id = repetitiverate.get(j+1).getSystemid();
+					repetitiverate.get(j+1).setRate(repetitiverate.get(j).getRate());
+					repetitiverate.get(j+1).setSystemid(repetitiverate.get(j).getSystemid());
+					repetitiverate.get(j).setRate(t);
+					repetitiverate.get(j).setSystemid(id);
+				}
+			}
+		}
+		//获取体系id列表
+			String systemids="(";
+			for(int i=0;i<repetitiverate.size();i++) {
+				if(i==repetitiverate.size()-1) {
+					systemids=systemids+repetitiverate.get(i).getSystemid()+")";
+				}
+				else {
+					systemids=systemids+repetitiverate.get(i).getSystemid()+",";
+				}
+			}		
+		//得到推荐列表
 		Query recommendcourse= session.createQuery("select DISTINCT name from Course where system in "+systemids+" and name not in "+courses);
 		recommendcourse.setFirstResult(0);
 		recommendcourse.setMaxResults(5);

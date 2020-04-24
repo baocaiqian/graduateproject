@@ -53,7 +53,7 @@
 			
 			<div class="clear"> </div>
 			<div class="submit">
-				<input type="submit" onclick="myFunction()" value="登录"/>
+				<input type="submit" value="登录"/>
 				<h4><a href="register.jsp">没有账号？去注册</a></h4>
 				<h4><a href="#">忘记密码</a></h4>
 						  <div class="clear">  </div>	
