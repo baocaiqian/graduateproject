@@ -23,7 +23,7 @@ public class Users {
 	private String school;
 	private String icon;//头像
 	private String major;
-	private String describe;
+	private String presondescribe;
 	private String mainmajor;
 	private List<Down> downlog;//下载记录
 	private List<Upload> uploadlog;//上传记录
@@ -83,11 +83,12 @@ public class Users {
 	public void setMajor(String major) {
 		this.major = major;
 	}
-	public String getDescribe() {
-		return describe;
+	
+	public String getPresondescribe() {
+		return presondescribe;
 	}
-	public void setDescribe(String describe) {
-		this.describe = describe;
+	public void setPresondescribe(String presondescribe) {
+		this.presondescribe = presondescribe;
 	}
 	public String getMainmajor() {
 		return mainmajor;

@@ -26,7 +26,6 @@ public class UserController {
 	//登录控制器
 		@RequestMapping(value="/loginController",method=RequestMethod.POST)
 		public String getLoginPerson(Users users,HttpSession session,HttpServletRequest request) {
-			System.out.println("lalalalalllalalllllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 			if(this.userService.getLoginPerson(users)==true) {
 				issigned=true;
 				Users user = this.userService.UserCenter(users.getEmail());
@@ -52,7 +51,6 @@ public class UserController {
 		
 		@RequestMapping(value="/RegisterController",method=RequestMethod.POST)
 		public String regist(Users user,HttpSession session,HttpServletRequest request) throws SQLException {
-			System.out.println("wojallaile^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 			System.out.println(user.getName().equals(null));
 			System.out.println(user.getName().contains(" "));
 			boolean iput=(user.getName().equals("用户名"))||(user.getName().contains(" "))||(user.getPassword().equals("Password"))||(user.getPassword().contains(" "))||(user.getEmail().equals("邮箱"))||(user.getEmail().contains(" "))||(user.getSchool().equals("学校"))||(user.getSchool().contains(" "));                                         ;
@@ -64,10 +62,11 @@ public class UserController {
             	boolean b = this.userService.regist(user);
     			if (b) {
     				session.setAttribute("user", user);
+    				issigned=true;
+    				session.setAttribute("isSigned",issigned);//定义一个是否已登录的接口
     				System.out.println("true");
     				return "index";
     			} else {
-    				System.out.println("false……………………………………………………………………………………………………………………………………");
     				return "register";
 
     			}

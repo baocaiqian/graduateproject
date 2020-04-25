@@ -37,7 +37,7 @@ public class ClassSystem {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@ManyToOne
+	@ManyToOne(cascade =CascadeType.ALL)
 	@JoinColumn(name="owner")
 	public Users getOwner() {
 		return owner;

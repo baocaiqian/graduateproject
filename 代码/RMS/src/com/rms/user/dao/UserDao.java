@@ -48,38 +48,17 @@ public class UserDao {
 		
 		//注册
 				public boolean saveUsers(Users u) throws SQLException{
-					System.out.println("daodaodao");
-					System.out.println(u.getName());
 					System.out.println(u.getEmail());
-					System.out.println(u.getPassword());
-					System.out.println(u.getSchool());
-					
-					try {
-						Class.forName("com.mysql.jdbc.Driver");
-					} catch (ClassNotFoundException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+					String myemail=u.getEmail();
+					Session session=this.sessionFactory.getCurrentSession();
+					Query q=session.createQuery("from Users where email=?0");
+					q.setParameter(0, myemail);
+					if(q.list().size()!=0) {
+					    return false;
 					}
-					Connection conn =DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/soft?useUnicode=true&characterEncoding=UTF-8", "root", "");
-					  
-			    	 PreparedStatement pstm;
-			    	 try {
-						pstm = conn.prepareStatement("insert into users(name,password,email,school) values(?,?,?,?)");
-						pstm.setString(1, u.getName());
-						pstm.setString(2, u.getPassword());
-						pstm.setString(3, u.getEmail());
-						pstm.setString(4, u.getSchool());
-						int rs=pstm.executeUpdate();
-					    return true;
-						
-						
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						return false;
-						
-					}
-										
-		
+					else {
+						session.save(u);
+						return true;
+					}	
 				}
 }
