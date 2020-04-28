@@ -87,28 +87,28 @@ $("html",parent.document).find('.returnover').remove();
 <!-- 三个推荐 -->
 <div style="width:85.55%;margin-left:3.9%;margin-top:20px;height:30px;">
 	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;热门搜索&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png""/></div>
-	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;热门下载&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png"/></div>
 	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;猜你想搜&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png"/></div>
+	<div style="display:inline;float:left;border-left:#1e71b1 solid 3px;width:31%;margin-right:1%;"><font color="#1e71b1" size="4">&nbsp;&nbsp;&nbsp;热门下载&nbsp;&nbsp;&nbsp;</font><img src="statics/base/images/huo.png"/></div>
 </div>
 <div style="width:85.55%;margin-left:3.9%;margin-top:5px;">
 	<div style="display:inline;float:left;width:31%;margin-right:1%;">
 		<ol>
 			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="#" class="remen1">java基础语法</a></li>
 			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="login.html" class="remen1">类的继承</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="expand_ad.html" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="expand_ad_add.html" class="remen1">类的继承</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="app_lists.html" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="app.html" class="remen1">类的继承</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="expand_ad.html" class="remen1">多态</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="expand_ad_add.html" class="remen1">数据挖掘</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="app_lists.html" class="remen1">多线程</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="app.html" class="remen1">数据分析</a></li>
 		</ol>
 	</div>
 	<div style="display:inline;float:left;width:31%;margin-right:1%;">
 	<ol>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="#1" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="#2" class="remen1">类的继承</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="expand_adcat.html" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="expand_adcad_add.html" class="remen1">类的继承</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="app.html" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="case.html" class="remen1">类的继承</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="#1" class="remen1">数据分析</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="#2" class="remen1">数据挖掘</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="expand_adcat.html" class="remen1">爬虫</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="expand_adcad_add.html" class="remen1">Hadoop</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="app.html" class="remen1">spark</a></li>
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(statics/base/images/jiantou.png)"><a href="case.html" class="remen1">协同过滤</a></li>
 		</ol>
 	</div>
 		<div style="display:inline;float:left;width:31%;margin-right:1%;">

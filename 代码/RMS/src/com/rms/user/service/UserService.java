@@ -1,4 +1,6 @@
 package com.rms.user.service;
+import java.sql.SQLException;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -24,5 +26,12 @@ public class UserService {
 	//根据邮箱查找用户信息。进入个人中心页
 		public Users UserCenter(String email) {
 			return this.userDao.findUserByEmail(email);
+		}
+		
+	//注册
+		public boolean regist(Users user) throws SQLException {
+            return this.userDao.saveUsers(user);
+		    
+
 		}
 }

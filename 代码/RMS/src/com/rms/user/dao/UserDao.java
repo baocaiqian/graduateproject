@@ -4,6 +4,12 @@ import org.springframework.stereotype.Repository;
 
 import com.rms.entity.Users;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
@@ -33,4 +39,26 @@ public class UserDao {
 			System.out.println("userdaor里面的id："+u.getId());
 			return u;
 		}
+	//发现同系老师
+		public List<Users> findUsersByMajor(Users u){
+			Session session = sessionFactory.getCurrentSession();
+			Query q = session.createQuery("from Users where major like '%"+u.getMajor()+"%' and id !="+u.getId());
+			return q.list();
+		}
+		
+		//注册
+				public boolean saveUsers(Users u) throws SQLException{
+					System.out.println(u.getEmail());
+					String myemail=u.getEmail();
+					Session session=this.sessionFactory.getCurrentSession();
+					Query q=session.createQuery("from Users where email=?0");
+					q.setParameter(0, myemail);
+					if(q.list().size()!=0) {
+					    return false;
+					}
+					else {
+						session.save(u);
+						return true;
+					}	
+				}
 }

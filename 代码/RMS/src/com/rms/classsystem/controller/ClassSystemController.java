@@ -1,6 +1,7 @@
 package com.rms.classsystem.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -23,12 +24,18 @@ public class ClassSystemController {
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String addSystem(ClassSystem system,HttpSession session,HttpServletRequest request) {
 		Users u = (Users)session.getAttribute("user");
+		List<ClassSystem> systems;
+		if(u.getClasssystem()==null) {
+			systems =new ArrayList<ClassSystem>();
+		}
+		else {
+			systems =u.getClasssystem();
+		}
+		systems.add(system);
+		u.setClasssystem(systems);
 		system.setOwner(u);
 		boolean ifrename = css.addSystem(system);
 		if(ifrename) {
-			List<ClassSystem> systems = u.getClasssystem();
-			systems.add(system);
-			u.setClasssystem(systems);
 			session.setAttribute("user", u);
 			return "classSystem";
 		}

@@ -144,9 +144,9 @@
 			el: '#example',
 			data: {
 				arr: arrAll,
-				prov: '厨房',  //系名
-				city: '电路',   //课程名
-				district: '灯具',  //ppt等
+				prov: '体系名称',  //系名
+				city: '课程名称',   //课程名
+				district: '资源类型',  //ppt等
 				cityArr: [],
 				districtArr: []
 			},
