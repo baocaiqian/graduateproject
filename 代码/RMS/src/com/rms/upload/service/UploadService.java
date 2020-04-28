@@ -12,7 +12,7 @@ import com.rms.upload.dao.UploadDao;
 public class UploadService {
     @Resource
     private UploadDao ud;
-    public void UploadingFile(MultipartFile file,String path) {
-    	ud.uploadfile(file, path);
+    public void UploadingFile(MultipartFile[] files) {
+    	ud.uploadfile(files);
     }
 }

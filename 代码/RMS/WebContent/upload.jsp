@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 <!doctype html>
 <html lang="zh">
 <head>
@@ -31,7 +33,7 @@
 			<h1>文件上传 </h1>
 		</header>
 		<div class="container kv-main">
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" >
                 <hr>
                 <!-- 下拉框 -->
            <!--     <div id="example">
@@ -57,7 +59,7 @@
             
                 <!-- 文件提交 -->
                 <div class="form-group">
-                    <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#" data-preview-file-icon="">
+                    <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" name="files" data-upload-url="${ctx }/upload/uploadingfile" data-preview-file-icon="">  <!-- 输入数据上传的url -->
                 </div>
             </form>
         </div>	
@@ -73,6 +75,7 @@
 	<script type="text/javascript" src="statics/upload/js/items.js"></script>
     
     
+    <!-- 其他几种方式文件上传样式 -->
     <script>
 	    $("#file-0").fileinput({
 	        'allowedFileExtensions' : ['jpg', 'png','gif'],
