@@ -123,7 +123,14 @@ function metreturn(url){
 				</a>
 			</div>
 		</li>
-
+		<li class="contlist">
+			<div class="box">
+				<a href='expand_book.html'>
+					<img src="${ctx}/statics/base/images/chat.png" width='64' height='64' />
+					<h2>练习demo</h2>
+				</a>
+			</div>
+		</li>
 
          
 </ul>

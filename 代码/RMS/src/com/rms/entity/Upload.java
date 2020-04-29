@@ -21,7 +21,7 @@ public class Upload {
 	private String time;//上传时间
 	private Users owner;//上传的人的id
 	private String path;//上传路径
-	private List<Resource> resources;
+	//private List<Resource> resources;
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
 	@GenericGenerator(name="assigned", strategy = "assigned")
@@ -51,6 +51,7 @@ public class Upload {
 	public void setPath(String path) {
 		this.path = path;
 	}
+	/*
 	@OneToMany(mappedBy="uploadlog", targetEntity=Resource.class, 
 	        cascade=CascadeType.ALL)
 	public List<Resource> getResources() {
@@ -59,5 +60,5 @@ public class Upload {
 	public void setResources(List<Resource> resources) {
 		this.resources = resources;
 	}
-	
+	*/
 }
