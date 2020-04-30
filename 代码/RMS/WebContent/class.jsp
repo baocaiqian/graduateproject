@@ -54,7 +54,7 @@ function metreturn(url){
 </script>
 	<div class="metinfotop">
 
-	<div class="position">简体中文 > 内容管理 > <a href="content.html">内容管理</a> > <a href='case.html'>案例管理</a></div>
+	<div class="position"> <a href="${ctx }/course/getcourse?id=${system.systemId}">${system.name }</a></div>
 
 
 	<div class="return"><a href="javascript:;" onClick="location.href='javascript:history.go(-1)'">&lt;&lt;返回</a></div>
@@ -125,7 +125,7 @@ $(document).ready(function(){
                         <ul>
                         <c:forEach var="course" items="${system.courses }">
                             <li>
-                                <a href="${ctx }/content.jsp">
+                                <a href="${ctx }/course/content?id=${course.courseid}">
                                     <div class="image-ti">
                                         <img src="${ctx }/${course.icon }" alt="">
                                     </div>
@@ -153,12 +153,6 @@ $(document).ready(function(){
 				<img style="width: 90%;margin-top:5%;margin-left:5%;margin-right:5%;height:100px;" src="${ctx }/statics/base/images/ad001.jpg;"/>
 				<p style="text-align: center;font-size: 20px;margin: 0;">java基础</p>
 			</div>
-			<br>
-			<div style="width:75%;margin:auto;height:150px;border:#ddd solid 1px;">
-				<img style="width: 90%;margin-top:5%;margin-left:5%;margin-right:5%;height:100px;" src="${ctx }/statics/base/images/ad001.jpg;"/>
-				<p style="text-align: center;font-size: 20px;margin: 0;">java基础</p>
-			</div>
-			<br>
 			  -->
 			  <div style="width:90%;margin:auto;">
 				<ol>

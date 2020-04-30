@@ -30,7 +30,7 @@ public class Resource {
 	private int looktimes;//浏览次数
 	private String postfix;//后缀名
 	private List<Down> downlog;//下载记录
-	private Upload uploadlog;//所属上传记录
+	//private Upload uploadlog;//所属上传记录
 	private List<Collect> collectlog;//收藏记录
 	private List<Browse> browselog;//浏览记录
 	private List<Groupfile> groupfiles;//在组内上传记录
@@ -79,14 +79,16 @@ public class Resource {
 	public void setDownlog(List<Down> downlog) {
 		this.downlog = downlog;
 	}
+	/*
 	@ManyToOne
-	@JoinColumn(name="loadlog")
+	@JoinColumn(name="uploadlog")
 	public Upload getUploadlog() {
 		return uploadlog;
 	}
 	public void setUploadlog(Upload uploadlog) {
 		this.uploadlog = uploadlog;
 	}
+	*/
 	@OneToMany(mappedBy="resource", targetEntity=Collect.class, 
 	        cascade=CascadeType.ALL)
 	public List<Collect> getCollectlog() {

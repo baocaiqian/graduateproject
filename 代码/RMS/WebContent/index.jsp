@@ -145,8 +145,8 @@ $(function() {
 			       			</ul>
                         <ul style="display:none;" id="ul_37">
 									 
-			       					<li ><a href="expand_before.jsp" id="nav_37_13" target="main"  title="友情链接" hidefocus="true">资源库高级检索</a></li>
-			       					<li ><a href="expand_ad.jsp" id="nav_37_63" target="main"  title="站内广告" hidefocus="true">我的资源检索</a></li>
+			       					<li ><a href="${ctx }/research" id="nav_37_13" target="main"  title="友情链接" hidefocus="true">资源库高级检索</a></li>
+			       					<li ><a href="${ctx }/myresourceresearch" id="nav_37_63" target="main"  title="站内广告" hidefocus="true">我的资源检索</a></li>
 			       					 
 			       			</ul>
                         <ul style="display:none;" id="ul_12">

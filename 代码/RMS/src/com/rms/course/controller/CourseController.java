@@ -41,6 +41,12 @@ public class CourseController {
 		session.setAttribute("system", system);
 		return "class";
 	}
+	@RequestMapping(value="/content",method=RequestMethod.GET)
+	public String getCoursename(HttpSession session,HttpServletRequest request,@RequestParam("id") int id) {
+		Course c = cs.findCourseById(id);
+		request.setAttribute("course", c);
+		return "content";
+	}
 	@RequestMapping(value="/addcourse",method=RequestMethod.POST)
 	public String addCourse(Course course,HttpSession session,HttpServletRequest request) {
 		ClassSystem system =(ClassSystem)session.getAttribute("system");
