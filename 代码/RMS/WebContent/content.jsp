@@ -51,7 +51,7 @@ function metreturn(url){
 }
 </script>
 	<div class="metinfotop">
-	<div class="position">简体中文 > 内容管理 > <a href="content.html">内容管理</a></div>
+	<div class="position"><a href="${ctx }/course/getcourse?id=${course.system.systemId}">${course.system.name }</a> <span> > </span> ${course.name }</div>
 	<div class="return"></div>
 	</div>
 	<div class="clear"></div>
@@ -68,7 +68,7 @@ function metreturn(url){
         
 				<li class="contlist">
 			<div class="box">
-				<a href='${ctx }/myresource.jsp'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="PPT"'>
 					<img src="${ctx}/statics/base/images/PPT.png" width='64' height='64' />
 					<h2>PPT</h2>
 				</a>
@@ -77,7 +77,7 @@ function metreturn(url){
         		
         		<li class="contlist">
 			<div class="box">
-				<a href='video.html'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="视频"'>
 					<img src="${ctx}/statics/base/images/video.png" width='64' height='64' />
 					<h2>视频</h2>
 				</a>
@@ -85,7 +85,7 @@ function metreturn(url){
 		</li>
         		<li class="contlist">
 			<div class="box">
-				<a href='case.html'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="图片"'>
 					<img src="${ctx}/statics/base/images/photo.png" width='64' height='64' />
 					<h2>图片</h2>
 				</a>
@@ -93,7 +93,7 @@ function metreturn(url){
 		</li>
 		<li class="contlist">
 			<div class="box">
-				<a href='prod.html'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="课程软件"'>
 					<img src="${ctx}/statics/base/images/soft.png" width='64' height='64' />
 					<h2>课程软件</h2>
 				</a>
@@ -101,7 +101,7 @@ function metreturn(url){
 		</li>
 				<li class="contlist">
 			<div class="box">
-				<a href='expand_book.html'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="word文档"'>
 					<img src="${ctx}/statics/base/images/word.png" width='64' height='64' />
 					<h2>word文档</h2>
 				</a>
@@ -109,7 +109,7 @@ function metreturn(url){
 		</li>
 				<li class="contlist">
 			<div class="box">
-				<a href='expand_book.html'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="课程作业"'>
 					<img src="${ctx}/statics/base/images/project.png" width='64' height='64' />
 					<h2>课程作业</h2>
 				</a>
@@ -117,7 +117,7 @@ function metreturn(url){
 		</li>
         		<li class="contlist">
 			<div class="box">
-				<a href='expand_book.html'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="消息通知"'>
 					<img src="${ctx}/statics/base/images/chat.png" width='64' height='64' />
 					<h2>消息通知</h2>
 				</a>
@@ -125,8 +125,8 @@ function metreturn(url){
 		</li>
 		<li class="contlist">
 			<div class="box">
-				<a href='expand_book.html'>
-					<img src="${ctx}/statics/base/images/chat.png" width='64' height='64' />
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="练习demo"'>
+					<img src="${ctx}/statics/base/images/demo.png" width='64' height='64' />
 					<h2>练习demo</h2>
 				</a>
 			</div>

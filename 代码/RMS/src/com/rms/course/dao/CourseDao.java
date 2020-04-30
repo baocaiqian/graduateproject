@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.rms.entity.Course;
+import com.rms.entity.Users;
 
 @Repository
 public class CourseDao {
@@ -33,5 +34,22 @@ public class CourseDao {
 			session.save(c);
 			return true;
 		}
+	}
+	public Course findCourseById(int id) {
+		Session session = sf.getCurrentSession();
+		Course c = (Course)session.createQuery("from Course where courseid="+id).uniqueResult();
+		return c;
+	}
+	//获取所有不重复的课程名
+	public List<String> findallcoursename(){
+		Session session = sf.getCurrentSession();
+		Query q=session.createQuery("select distinct name from Course");
+		return q.list();
+	}
+	//获取我的不重复的课程名
+	public List<String> findmycoursename(Users u){
+		Session session = sf.getCurrentSession();
+		Query q=session.createQuery("select distinct name from Course where teacher ="+u.getId());
+		return q.list();
 	}
 }
