@@ -44,11 +44,6 @@ public class UserController {
 				return "mylogin";
 			}
 		}
-		
-		
-		
-		
-		
 		@RequestMapping(value="/RegisterController",method=RequestMethod.POST)
 		public String regist(Users user,HttpSession session,HttpServletRequest request) throws SQLException {
 			System.out.println(user.getName().equals(null));

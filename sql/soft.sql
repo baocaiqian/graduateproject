@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-04-20 16:13:25
+Date: 2020-04-30 16:17:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,7 +42,7 @@ CREATE TABLE `classsystem` (
   `owner` int(11) NOT NULL,
   `systemdescribe` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`systemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of classsystem
@@ -71,6 +71,10 @@ INSERT INTO `classsystem` VALUES ('21', 'c语言', '3', 'C语言是一门面向�
 INSERT INTO `classsystem` VALUES ('22', 'C++', '3', 'C++是C语言的继承，它既可以进行C语言的过程化程序设计，又可以进行以抽象数据类型为特点的基于对象的程序设计，还可以进行以继承和多态为特点的面向对象的程序设计。');
 INSERT INTO `classsystem` VALUES ('23', 'c#', '3', 'C#是微软公司发布的一种面向对象的、运行于.NET Framework和.NET Core(完全开源，跨平台)之上的高级程序设计语言。');
 INSERT INTO `classsystem` VALUES ('24', '语言数学基础', '4', '编程语言中的一些数学计算与方法');
+INSERT INTO `classsystem` VALUES ('25', 'R语言', '16', 'R是用于统计分析、绘图的语言和操作环境。R是属于GNU系统的一个自由、免费、源代码开放的软件，它是一个用于统计计算和统计制图的优秀工具。');
+INSERT INTO `classsystem` VALUES ('26', 'Java', '13', 'java具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程');
+INSERT INTO `classsystem` VALUES ('27', 'c语言', '0', 'C语言是一门面向过程的、抽象化的通用程序设计语言，广泛应用于底层开发。');
+INSERT INTO `classsystem` VALUES ('28', 'Java', '0', 'java具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程');
 
 -- ----------------------------
 -- Table structure for `collect`
@@ -235,13 +239,14 @@ CREATE TABLE `resource` (
   `downtimes` int(11) NOT NULL,
   `looktimes` int(11) NOT NULL,
   `postfix` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `loadlog` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of resource
 -- ----------------------------
+INSERT INTO `resource` VALUES ('1', 'PPT', 'Hibernate单实体映射', '14', '17', 'hibernate', '16', '1', '231KB', '2020年3月20日', '5', '15', '.pptx');
+INSERT INTO `resource` VALUES ('4', 'PPT', 'Hibernate一对一关联映射上', '14', '17', 'hibernate，一对一映射', '16', '1', '223KB', '2020年3月20日', '6', '16', '.pptx');
 
 -- ----------------------------
 -- Table structure for `search`
@@ -272,11 +277,13 @@ CREATE TABLE `upload` (
   `owner` int(11) NOT NULL,
   `path` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of upload
 -- ----------------------------
+INSERT INTO `upload` VALUES ('1', '2020年3月20日', '16', 'Java/hibernate/ppt/Hibernate单实体映射.pptx');
+INSERT INTO `upload` VALUES ('2', '2020年3月20日', '16', 'Java/hibernate/ppt/hibernate,一对一关联映射.pptx');
 
 -- ----------------------------
 -- Table structure for `users`
@@ -286,14 +293,14 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `icon` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `icon` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8 NOT NULL,
   `school` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `major` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `describe` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
+  `presondescribe` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
   `mainmajor` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of users
@@ -312,3 +319,18 @@ INSERT INTO `users` VALUES ('13', '唐宇帝', '123456', 'statics/base/images/mi
 INSERT INTO `users` VALUES ('14', '车万翔', '123456', 'statics/base/images/micon.png', '15723645939@163.com', null, '计算机科学与技术', null, null);
 INSERT INTO `users` VALUES ('15', '乐上轻至', '123456', 'statics/base/images/micon.png', '16723645939@163.com', null, '计算机科学与技术', null, null);
 INSERT INTO `users` VALUES ('16', '鲍彩倩', '123456', 'statics/base/images/micon.png', '15226535887@163.com', null, '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('17', 'BCQ', '123456', null, '15267878956@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('18', '独孤慕雪', '123456', null, '1523338923@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('19', '张新成', '123456', null, '48912389@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('20', '张耀', '123456', null, 'dwasiufds@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('21', '胡一天', '123456', null, 'dskaj@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('22', '胡一天', '123456', null, 'dskaj@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('23', '张云龙', '123456', null, 'fs@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('24', '许放', '123456', null, 'xufang@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('25', '黎语冰', '123456', null, 'liyubing@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('26', '黎语冰', '123456', null, 'liyubing@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('27', 'tangxue', '123456', null, 'tangxue@130.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('28', 'c语言', '123456', null, 'das@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('29', '侯明辉', '123456', null, 'dhwis@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('30', 'sjdh', '123456', null, 'cz@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('31', 'sjdh', '123456', null, 'cz@163.com', '河北师范大学', null, null, null);
