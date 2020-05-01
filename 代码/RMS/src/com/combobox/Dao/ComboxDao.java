@@ -20,6 +20,7 @@ public class ComboxDao {
 	
 	//查出用户所有的课程体系，查出所有的课程，查出所有的小组
 	public List<String>  getallcs(int userid){
+		System.out.println("看看这里执行了吗---------------------------------");
 		Session session=this.sf.getCurrentSession();
 		Query q=session.createQuery("select name from classsystem where owner=?0");
 		q.setParameter(0, userid);
