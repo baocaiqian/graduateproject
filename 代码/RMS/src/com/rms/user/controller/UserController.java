@@ -26,29 +26,40 @@ public class UserController {
 	//登录控制器
 		@RequestMapping(value="/loginController",method=RequestMethod.POST)
 		public String getLoginPerson(Users users,HttpSession session,HttpServletRequest request) {
-			if(this.userService.getLoginPerson(users)==true) {
-				issigned=true;
-				Users user = this.userService.UserCenter(users.getEmail());
-				System.out.println("usercontroller里面的id："+user.getId());
-				
-				List<ClassSystem> system = css.getSystem(user);
-				user.setClasssystem(system);
-				session.setAttribute("isSigned",issigned);//定义一个是否已登录的接口
-				session.setAttribute("user", user);
-				return "index";
-			}
-			else {
-				issigned=false;
-				request.getSession().setAttribute("isSigned",issigned);//定义一个是否登录的接口
-				request.setAttribute("errormessage", "该邮箱未注册或密码错误，请重新输入");
-				return "mylogin";
-			}
+			boolean iput=(users.getEmail().equals("用户名"))||(users.getEmail().contains(" "))||(users.getPassword().contains(" "));
+			if(iput) {
+            	return "mylogin";
+            }else {
+            	if(this.userService.getLoginPerson(users)==true) {
+    				issigned=true;
+    				Users user = this.userService.UserCenter(users.getEmail());
+    				System.out.println("usercontroller里面的id："+user.getId());
+    				
+    				List<ClassSystem> system = css.getSystem(user);
+    				user.setClasssystem(system);
+    				session.setAttribute("isSigned",issigned);//定义一个是否已登录的接口
+    				session.setAttribute("user", user);
+    				return "index";
+    			}
+    			else {
+    				issigned=false;
+    				request.getSession().setAttribute("isSigned",issigned);//定义一个是否登录的接口
+    				request.setAttribute("errormessage", "该邮箱未注册或密码错误，请重新输入");
+    				return "mylogin";
+    			}
+            	
+            	          	
+            }
+			
+			
+			
+		
 		}
 		@RequestMapping(value="/RegisterController",method=RequestMethod.POST)
 		public String regist(Users user,HttpSession session,HttpServletRequest request) throws SQLException {
 			System.out.println(user.getName().equals(null));
 			System.out.println(user.getName().contains(" "));
-			boolean iput=(user.getName().equals("用户名"))||(user.getName().contains(" "))||(user.getPassword().equals("Password"))||(user.getPassword().contains(" "))||(user.getEmail().equals("邮箱"))||(user.getEmail().contains(" "))||(user.getSchool().equals("学校"))||(user.getSchool().contains(" "));                                         ;
+			boolean iput=(user.getName().equals("用户名"))||(user.getName().contains(" "))||(user.getPassword().equals("Password"))||(user.getPassword().contains(" "))||(user.getEmail().equals("邮箱"))||(user.getEmail().contains(" "))||(user.getSchool().equals("学校"))||(user.getSchool().contains(" "));   
             
             if(iput) {
             	return "register";
