@@ -22,7 +22,6 @@ public class UploadController {
 	//文件上传控制器
 	@RequestMapping(value="/uploadingfile",method=RequestMethod.POST)
 	public String createfile(HttpSession session,@RequestParam("files") MultipartFile[] files,HttpServletRequest request) {
-		System.out.println("成功跳到了本页面------------------------");
 		session.getAttribute("user");//获取用户名，查看是否已登录以及登录的用户名，暂时不确定是不是这个
 		//String path=session.getServletContext().getRealPath("/"); //获取当前地址
 		us.UploadingFile(files);
