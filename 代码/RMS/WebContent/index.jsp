@@ -139,7 +139,7 @@ $(function() {
 										<li ><a href="classSystem.jsp" id="nav_1_2" target="main" class="on" title="系统信息" hidefocus="true">课程体系</a></li>
 			       			</ul>
                         <ul style="display:none;" id="ul_10">
-										<li ><a href="upload.jsp" id="nav_10_58" target="main"  title="内容管理" hidefocus="true">内容管理</a></li>
+										<li ><a href="${ctx }/combobox" id="nav_10_58" target="main"  title="内容管理" hidefocus="true">内容管理</a></li>  <!-- 上传文件的页面，需要改 -->
 			       					 
 			       					<li ><a href="recycle.html" id="nav_10_59" target="main"  title="内容回收站" hidefocus="true">内容回收站</a></li>
 			       			</ul>

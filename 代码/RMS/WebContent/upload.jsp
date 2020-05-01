@@ -36,8 +36,17 @@
             <form method="post" enctype="multipart/form-data" >
                 <hr>
                 <!-- 下拉框 -->
+                <div>
                 
+                课程体系：<select>
+              <c:forEach items="${allcs }" var="acs">
+                  <option value="${acs }">${acs }</option>
+                  ${acs }
+              </c:forEach> 
                
+              </select>
+                
+                </div>
                 <hr>
             
             
@@ -57,8 +66,7 @@
     <!-- 下拉菜单样式 -->
     <script type="text/javascript" src="statics/upload/js/vue.min.js"></script>
 	<script type="text/javascript" src="statics/upload/js/items.js"></script>
-    
-    
+      
     <!-- 其他几种方式文件上传样式 -->
     <script>
 	    $("#file-0").fileinput({
