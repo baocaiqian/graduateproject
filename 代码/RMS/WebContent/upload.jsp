@@ -34,9 +34,10 @@
 		</header>
 		<div class="container kv-main">
             <form method="post" enctype="multipart/form-data" >
+            <!-- 如果你这用的是表单的话，你可以在创建一个这样的实体，应该是可以对应上的，不用建表，建一个这样的类就行，select的name的值要跟类的字段名字一样 -->
                 <hr>
                 <!-- 下拉框 -->
-                <div>
+                <div style="display: inline;">
                 
                 课程体系：<select>
               <c:forEach items="${allcs }" var="acs">
@@ -45,6 +46,26 @@
               </c:forEach> 
                
               </select>
+                
+                </div>
+                 <div style="display: inline;">
+                
+                课程名称：<select>
+              <c:forEach items="${allcource }" var="acs">
+                  <option value="${acs }">${acs }</option>
+                  ${acs }
+              </c:forEach> 
+               
+              </select>
+               <div style="display: inline;">
+                
+                是否公开：<select>
+               <option value="不公开">不公开</option>
+                <option value="公开">公开</option>
+                <!-- 这个在插入数据库的时候用一个判断语句，因为数据库里存储的是整数类型，1表示公开，0表示不公开，不能直接改value的值，因为获取下来的value都是string类型 -->
+              </select>
+                
+                </div>
                 
                 </div>
                 <hr>
@@ -63,9 +84,6 @@
     <script src="statics/upload/js/fileinput_locale_zh.js" type="text/javascript"></script>
     <script src="statics/upload/js/bootstrap.min.js" type="text/javascript"></script>
     
-    <!-- 下拉菜单样式 -->
-    <script type="text/javascript" src="statics/upload/js/vue.min.js"></script>
-	<script type="text/javascript" src="statics/upload/js/items.js"></script>
       
     <!-- 其他几种方式文件上传样式 -->
     <script>

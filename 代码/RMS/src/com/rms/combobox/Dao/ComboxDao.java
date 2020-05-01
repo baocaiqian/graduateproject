@@ -1,4 +1,4 @@
-package com.combobox.Dao;
+package com.rms.combobox.Dao;
 
 import java.util.List;
 
@@ -22,29 +22,25 @@ public class ComboxDao {
 	public List<String>  getallcs(int userid){
 		System.out.println("看看这里执行了吗---------------------------------");
 		Session session=this.sf.getCurrentSession();
-		Query q=session.createQuery("select name from classsystem where owner=?0");
-		q.setParameter(0, userid);
-		List<String> allcs=q.list();//找到该用户所有的课程体系	
-		return allcs;
+		Query q=session.createQuery("select name from ClassSystem where owner="+userid);
+		return q.list();
 	}
 	
 	//查出用户所有的课程
 	public List<String> getallcource(int userid){
 		Session session=this.sf.getCurrentSession();
-		Query q=session.createQuery("select name from course where owner=?0");
-		q.setParameter(0, userid);
+		Query q=session.createQuery("select name from Course where teacher="+userid);
 		return q.list();		
 	}
-	
+	/*
 	//查出该用户拥有的所有小组
 		public List<String> getallgroup(int userid){
 			Session session=this.sf.getCurrentSession();
-			Query q=session.createQuery("select name from group where owner=?0");
-			q.setParameter(0, userid);
+			Query q=session.createQuery("select name from Group where owner="+userid);
 			return q.list();		
 		}
 	
-	
+	*/
 	
 	
 	

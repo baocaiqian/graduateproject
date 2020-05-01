@@ -1,4 +1,4 @@
-package com.combobox.controller;
+package com.rms.combobox.controller;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.combobox.service.ComboxService;
+import com.rms.combobox.service.ComboxService;
 import com.rms.entity.Users;
 
 @Controller
@@ -30,9 +30,11 @@ public class ComboxController {
 		List<String> allcs=cs.getallcs(userid);
 		request.setAttribute("allcs",allcs); //存储着所有课程体系
 		List<String> allcource=cs.getallcource(userid);
-		request.setAttribute("allcource", allcource);
+		request.setAttribute("allcource", allcource);//所有的课程
+		/*
 		List<String> allgroup=cs.getAllgroup(userid);
 		request.setAttribute("allgroup", allgroup);
+		*/
 		return "upload";
 	}
 
