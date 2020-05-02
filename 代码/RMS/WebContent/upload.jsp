@@ -33,18 +33,17 @@
 			<h1>文件上传 </h1>
 		</header>
 		<div class="container kv-main">
-            <form method="post" enctype="multipart/form-data" >
+            <form id="myform" method="post" action="${ctx }/upload/uploadingfile" enctype="multipart/form-data" >
+           
+            
             <!-- 如果你这用的是表单的话，你可以在创建一个这样的实体，应该是可以对应上的，不用建表，建一个这样的类就行，select的name的值要跟类的字段名字一样 -->
                 <hr>
                 <!-- 下拉框 -->
-                <div style="display: inline;">
-                
+                <div style="display: inline;">             
                 课程体系：<select>
               <c:forEach items="${allcs }" var="acs">
                   <option value="${acs }">${acs }</option>
-                  ${acs }
-              </c:forEach> 
-               
+              </c:forEach>
               </select>
                 
                 </div>
@@ -53,10 +52,9 @@
                 课程名称：<select>
               <c:forEach items="${allcource }" var="acs">
                   <option value="${acs }">${acs }</option>
-                  ${acs }
-              </c:forEach> 
-               
+              </c:forEach>
               </select>
+              
                <div style="display: inline;">
                 
                 是否公开：<select>
@@ -73,7 +71,7 @@
             
                 <!-- 文件提交 -->
                 <div class="form-group">
-                    <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" name="files" data-upload-url="${ctx }/upload/uploadingfile" data-preview-file-icon="">  <!-- 输入数据上传的url -->
+                    <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" name="files"  data-preview-file-icon="">  <!--  -->
                 </div>
             </form>
         </div>	
@@ -147,6 +145,7 @@
 	        */
 	    });
 		</script>
+		
 		
 		
 		
