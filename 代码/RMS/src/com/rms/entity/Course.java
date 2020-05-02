@@ -26,7 +26,7 @@ public class Course {
 	private String tag;
 	private String term;//学期
 	private Users teacher;
-	private List<Resource> resources;
+	private List<Resources> resources;
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
 	@GenericGenerator(name="assigned", strategy = "assigned")
@@ -84,12 +84,12 @@ public class Course {
 	public void setTerm(String term) {
 		this.term = term;
 	}
-	@OneToMany(mappedBy="course", targetEntity=Resource.class, 
+	@OneToMany(mappedBy="course", targetEntity=Resources.class, 
 	        cascade=CascadeType.ALL)
-	public List<Resource> getResources() {
+	public List<Resources> getResources() {
 		return resources;
 	}
-	public void setResources(List<Resource> resources) {
+	public void setResources(List<Resources> resources) {
 		this.resources = resources;
 	}
 	

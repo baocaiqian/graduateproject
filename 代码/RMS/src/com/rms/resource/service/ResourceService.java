@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.rms.entity.Resources;
 import com.rms.entity.Users;
 import com.rms.resource.dao.ResourceDao;
 
@@ -14,7 +16,7 @@ import com.rms.resource.dao.ResourceDao;
 public class ResourceService {
 	@Resource
 	private ResourceDao rd;
-	public List<Resource> getmyresource(Users u) {
+	public List<Resources> getmyresource(Users u) {
 		return rd.getallResource(u);
 	}
 }

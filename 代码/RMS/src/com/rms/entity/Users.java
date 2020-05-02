@@ -29,7 +29,7 @@ public class Users {
 	private List<Upload> uploadlog;//上传记录
 	private List<Collect> collectlog;//收藏记录
 	private List<Browse> browselog;//浏览记录
-	private List<Resource> resource;//资源列表
+	private List<Resources> resource;//资源列表
 	private List<Group> groups;//所创建小组列表
 	private List<Groupfile> groupfiles;//在组内上传记录
 	private List<ClassSystem> classsystem;//课程体系
@@ -128,12 +128,12 @@ public class Users {
 	public void setBrowselog(List<Browse> browselog) {
 		this.browselog = browselog;
 	}
-	@OneToMany(mappedBy="owner", targetEntity=Resource.class, 
+	@OneToMany(mappedBy="owner", targetEntity=Resources.class, 
 	        cascade=CascadeType.ALL)
-	public List<Resource> getResource() {
+	public List<Resources> getResource() {
 		return resource;
 	}
-	public void setResource(List<Resource> resource) {
+	public void setResource(List<Resources> resource) {
 		this.resource = resource;
 	}
 	@OneToMany(mappedBy="owner", targetEntity=Group.class, 

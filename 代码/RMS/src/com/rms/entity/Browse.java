@@ -16,7 +16,7 @@ public class Browse {
 	private int id;
 	private String time;//浏览时间
 	private Users looker;//浏览者
-	private Resource resource;//资源id
+	private Resources resource;//资源id
 	private double last;//持续时间
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
@@ -43,10 +43,10 @@ public class Browse {
 	}
 	@ManyToOne
 	@JoinColumn(name="resource")
-	public Resource getResource() {
+	public Resources getResource() {
 		return resource;
 	}
-	public void setResource(Resource resource) {
+	public void setResource(Resources resource) {
 		this.resource = resource;
 	}
 	public double getLast() {

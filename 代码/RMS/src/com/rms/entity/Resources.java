@@ -14,8 +14,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 @Entity
-@Table(name="resource")
-public class Resource {
+@Table(name="resources")
+public class Resources {
 	private int id;
 	private String type;//资源类型
 	private String name;//资源名字
