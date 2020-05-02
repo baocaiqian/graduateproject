@@ -32,7 +32,7 @@
 		<form action="${ctx }/loginController" method="post" name="loginForm" id="loginForm">
 			<ul>
 			<li>
-				<input type="text" class="text" name="email" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}"><a href="#" class=" icon user"></a>
+				<input type="text" class="text" name="email" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}"><a href="#" class=" icon user"></a>
 			</li>
 			</ul>
 				<div class="clear"> </div>
