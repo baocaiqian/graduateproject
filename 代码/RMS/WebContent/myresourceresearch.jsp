@@ -75,31 +75,12 @@ function metreturn(url){
 	</select>
 	<font size="3">标题: </font><input style="width=20px;"  type="text"/>
 	<font size="3">任意词： </font><input style="width=20px;"  type="text"/>
-	<font size="3">条件组合方式: </font><input type="radio" name="select"/><lable style="font-size:15px;">AND</lable>&nbsp;
-				</font><input type="radio" name="select"/><lable style="font-size:15px;">OR</lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type="submit" value="检索" style="width:40px;high:100%"/>
 </div>
 <div style="clear:both;"></div>
 
 <div class="v52fmbx_tbmax">
 <div class="v52fmbx_tbbox">
-<!--
-<h3 class="v52fmbx_hr">
-
-    <span class="formleft">
-		<a href="expand_ad_add.html" title="新增">+新增</a>
-	</span>
-	
-	<span class="formright">
-		<select name="new" id="new" onChange="changes($(this));" style="position:relative; top:2px;">
-				<option value="index.php/admin/expand_ad/index">广告类别</option>
-								   <option value="index.php/admin/expand_ad/index?cid=18" >合作客户</option>
-								   <option value="index.php/admin/expand_ad/index?cid=17" >左边广告</option>
-								   <option value="index.php/admin/expand_ad/index?cid=16" >首页幻灯片</option>
-						</select>
-	</span>
-</h3>
--->
 <table cellpadding="2" cellspacing="1" class="table">
               <tr>
 			    <td width="20" class="list" style="padding:0px; text-align:center;">选择</td>
@@ -116,7 +97,8 @@ function metreturn(url){
 				<td width="50" class="list" style="padding:0px; text-align:center;">上传时间</td>
               </tr>
 			  <form name="myform" method="post" id="myform">
-			  <c:forEach var="resource" items="resources">
+			  <c:if test="${resources!=null}">
+			  <c:forEach var="resource" items="${ resources}">
                  <tr class="mouse click">
                 <td class="list-text"><input name="id[]" type='checkbox' id="id" value="${resource.id }" /></td>
                 <td class="list-text">${resource.id }</td>
@@ -137,6 +119,7 @@ function metreturn(url){
 				<td class="list-text">${resource.time}</td>
               </tr>
               </c:forEach>
+              </c:if>
    	  		 <tr> 
 			 <td class="all-submit" colspan="12" style="padding:5px 10px;">
 			 <input type='submit' value='删除选定内容' class="submit li-submit" onclick="{if(confirm('确定删除吗?')){document.myform.action='index.php/admin/expand_ad/delsome?&page=1';return true;}return false;}"/>

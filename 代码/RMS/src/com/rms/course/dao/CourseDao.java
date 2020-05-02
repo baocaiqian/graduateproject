@@ -52,4 +52,10 @@ public class CourseDao {
 		Query q=session.createQuery("select distinct name from Course where teacher ="+u.getId());
 		return q.list();
 	}
+	//根据名字跟用户查找课程
+	public Course getCourseBynameAndUser(String name,Users u) {
+		Session session = sf.getCurrentSession();
+		Course c =(Course)session.createQuery("from Course where teacher ="+u.getId()+"and name = '"+name+"'").uniqueResult();
+		return c;
+	}
 }
