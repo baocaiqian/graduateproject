@@ -36,7 +36,7 @@ public class UserDao {
 		public Users findUserByEmail(String email) {
 			Session session = this.sessionFactory.getCurrentSession();
 			Users u = (Users)session.createQuery("from Users where email='"+email+"'").uniqueResult();
-			System.out.println("userdaor里面的id："+u.getId());
+
 			return u;
 		}
 	//发现同系老师
