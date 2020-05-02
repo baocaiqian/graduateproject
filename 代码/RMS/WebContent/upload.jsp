@@ -10,8 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>基于Bootstrup 3可预览的HTML5文件上传插件</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="statics/upload/css/default.css">
-<link href="statics/upload/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />	
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/upload/css/default.css">
+<link href="${ctx}/statics/upload/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />	
 <!--[if IE]>
 	<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
 <![endif]-->
@@ -33,14 +33,15 @@
 			<h1>文件上传 </h1>
 		</header>
 		<div class="container kv-main">
-            <form id="myform" method="post" action="${ctx }/upload/uploadingfile" enctype="multipart/form-data" >
-           
-            
+
+            <form method="post" enctype="multipart/form-data" action="${ctx }/upload/uploadingfile">
             <!-- 如果你这用的是表单的话，你可以在创建一个这样的实体，应该是可以对应上的，不用建表，建一个这样的类就行，select的name的值要跟类的字段名字一样 -->
                 <hr>
                 <!-- 下拉框 -->
-                <div style="display: inline;">             
-                课程体系：<select>
+
+                <div style="display: inline;">
+                
+                课程体系：<select name="classsystem">
               <c:forEach items="${allcs }" var="acs">
                   <option value="${acs }">${acs }</option>
               </c:forEach>
@@ -49,7 +50,7 @@
                 </div>
                  <div style="display: inline;">
                 
-                课程名称：<select>
+                课程名称：<select name ="course">
               <c:forEach items="${allcource }" var="acs">
                   <option value="${acs }">${acs }</option>
               </c:forEach>
@@ -57,7 +58,7 @@
               
                <div style="display: inline;">
                 
-                是否公开：<select>
+                是否公开：<select name="ifopen">
                <option value="不公开">不公开</option>
                 <option value="公开">公开</option>
                 <!-- 这个在插入数据库的时候用一个判断语句，因为数据库里存储的是整数类型，1表示公开，0表示不公开，不能直接改value的值，因为获取下来的value都是string类型 -->
@@ -67,20 +68,18 @@
                 
                 </div>
                 <hr>
-            
-            
                 <!-- 文件提交 -->
                 <div class="form-group">
-                    <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" name="files"  data-preview-file-icon="">  <!--  -->
+                    <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" name="files" data-preview-file-icon="">  <!-- 输入数据上传的url -->
                 </div>
             </form>
         </div>	
 	</div>
 	
-	<script src="statics/upload/js/jquery.min.js"></script>
-    <script src="statics/upload/js/fileinput.js" type="text/javascript"></script>
-    <script src="statics/upload/js/fileinput_locale_zh.js" type="text/javascript"></script>
-    <script src="statics/upload/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="${ctx}/statics/upload/js/jquery.min.js"></script>
+    <script src="${ctx}/statics/upload/js/fileinput.js" type="text/javascript"></script>
+    <script src="${ctx}/statics/upload/js/fileinput_locale_zh.js" type="text/javascript"></script>
+    <script src="${ctx}/statics/upload/js/bootstrap.min.js" type="text/javascript"></script>
     
       
     <!-- 其他几种方式文件上传样式 -->

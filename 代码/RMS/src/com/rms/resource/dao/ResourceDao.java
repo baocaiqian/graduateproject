@@ -22,4 +22,5 @@ public class ResourceDao {
 		Query q = session.createQuery("from Resource where owner = "+u.getId());
 		return q.list();
 	}
+	
 }

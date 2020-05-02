@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.rms.entity.Upform;
+import com.rms.entity.Users;
 import com.rms.upload.dao.UploadDao;
 
 @Service
@@ -12,7 +14,7 @@ import com.rms.upload.dao.UploadDao;
 public class UploadService {
     @Resource
     private UploadDao ud;
-    public void UploadingFile(MultipartFile[] files) {
-    	ud.uploadfile(files);
+    public void UploadingFile(Upform form,Users u) {
+    	ud.uploadfile(form,u);
     }
 }
