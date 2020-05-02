@@ -68,7 +68,8 @@ function metreturn(url){
         
 				<li class="contlist">
 			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="PPT"'>
+			          <a href="${ctx }/myresource.jsp">
+				<!--  a href='${ctx }/resource?courseid=${course.courseid}&type="PPT"'-->
 					<img src="${ctx}/statics/base/images/PPT.png" width='64' height='64' />
 					<h2>PPT</h2>
 				</a>
