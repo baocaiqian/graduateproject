@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="groupfile")
 public class Groupfile {
 	private int id;
-	private Resource resource;//资源id
+	private Resources resource;//资源id
 	private String uptime;//上传时间
 	private int downstimes;//下载次数
 	private Users uplorder;//上传人id
@@ -30,10 +30,10 @@ public class Groupfile {
 	}
 	@ManyToOne
 	@JoinColumn(name="resource")
-	public Resource getResource() {
+	public Resources getResource() {
 		return resource;
 	}
-	public void setResource(Resource resource) {
+	public void setResource(Resources resource) {
 		this.resource = resource;
 	}
 	public String getUptime() {

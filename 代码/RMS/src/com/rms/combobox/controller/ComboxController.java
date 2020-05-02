@@ -23,7 +23,6 @@ public class ComboxController {
 	@RequestMapping(value="/combobox",method=RequestMethod.GET)
 	public String getComboContent(HttpSession session,HttpServletRequest request) {
 		//获得登陆者的id
-		System.out.println("看看到这里了吗---------------------------------");
 		Object obj=session.getAttribute("user");
 		Users myuser=(Users)obj;
 		int userid=myuser.getId();

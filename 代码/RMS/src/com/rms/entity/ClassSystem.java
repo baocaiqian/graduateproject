@@ -37,7 +37,7 @@ public class ClassSystem {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@ManyToOne(cascade =CascadeType.ALL)
+	@ManyToOne  //如果把此处的(cascade =CascadeType.ALL)去掉
 	@JoinColumn(name="owner")
 	public Users getOwner() {
 		return owner;

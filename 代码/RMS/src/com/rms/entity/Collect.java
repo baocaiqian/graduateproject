@@ -15,7 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Collect {
 	private int id;//主键
 	private Users collecter;//收藏者
-	private Resource resource;//资源
+	private Resources resource;//资源
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
 	@GenericGenerator(name="assigned", strategy = "assigned")
@@ -35,10 +35,10 @@ public class Collect {
 	}
 	@ManyToOne
 	@JoinColumn(name="resource")
-	public Resource getResource() {
+	public Resources getResource() {
 		return resource;
 	}
-	public void setResource(Resource resource) {
+	public void setResource(Resources resource) {
 		this.resource = resource;
 	}
 	

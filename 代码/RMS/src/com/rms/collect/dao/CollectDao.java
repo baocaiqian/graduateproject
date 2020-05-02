@@ -1,4 +1,4 @@
-package com.rms.resource.dao;
+package com.rms.collect.dao;
 
 import java.util.List;
 
@@ -9,18 +9,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-import com.rms.entity.Resources;
 import com.rms.entity.Users;
 
 @Repository
-public class ResourceDao {
+public class CollectDao {
 	@Resource
 	private SessionFactory sf;
-	//获取当前用户所有资源
-	public List<Resources> getallResource(Users u){
+	//获取当前用户收集的所有资源
+	public List<Integer> getCollectlog(Users u){
 		Session session = sf.getCurrentSession();
-		Query q = session.createQuery("from Resources where owner = "+u.getId());
+		Query q = session.createQuery("select resource from Collect where collecter = "+u.getId());
 		return q.list();
-	}
-	
+		}
 }

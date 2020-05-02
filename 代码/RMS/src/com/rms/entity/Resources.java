@@ -14,17 +14,17 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 @Entity
-@Table(name="resource")
-public class Resource {
+@Table(name="resources")
+public class Resources {
 	private int id;
 	private String type;//资源类型
 	private String name;//资源名字
 	private Course course;//对应课程id
 	private ClassSystem classsystem;//所属课程体系id
-	private String tag;//资源标签
+	private String path;//资源标签
 	private Users owner;//所属人的id；
 	private int authority;//权限
-	private String size;//文件大小
+	private double size;//文件大小
 	private String time;//资源上传时间
 	private int downtimes;//下载次数
 	private int looktimes;//浏览次数
@@ -34,6 +34,20 @@ public class Resource {
 	private List<Collect> collectlog;//收藏记录
 	private List<Browse> browselog;//浏览记录
 	private List<Groupfile> groupfiles;//在组内上传记录
+	
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public double getSize() {
+		return size;
+	}
+	public void setSize(double size) {
+		this.size = size;
+	}
+	
 	@Id
 	@GeneratedValue(generator = "assigned")//表示主键自动生成
 	@GenericGenerator(name="assigned", strategy = "assigned")
@@ -72,7 +86,7 @@ public class Resource {
 		this.classsystem = classsystem;
 	}
 	@OneToMany(mappedBy="resource", targetEntity=Down.class, 
-	        cascade=CascadeType.ALL)
+	        cascade=CascadeType.ALL)  //此处原来是mappedBy resource
 	public List<Down> getDownlog() {
 		return downlog;
 	}
@@ -113,12 +127,7 @@ public class Resource {
 	public void setGroupfiles(List<Groupfile> groupfiles) {
 		this.groupfiles = groupfiles;
 	}
-	public String getTag() {
-		return tag;
-	}
-	public void setTag(String tag) {
-		this.tag = tag;
-	}
+	
 	@ManyToOne
 	@JoinColumn(name="owner")
 	public Users getOwner() {
@@ -133,12 +142,7 @@ public class Resource {
 	public void setAuthority(int authority) {
 		this.authority = authority;
 	}
-	public String getSize() {
-		return size;
-	}
-	public void setSize(String size) {
-		this.size = size;
-	}
+
 	public String getTime() {
 		return time;
 	}

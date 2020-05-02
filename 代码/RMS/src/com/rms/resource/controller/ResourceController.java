@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rms.course.service.CourseService;
+import com.rms.entity.Resources;
 import com.rms.entity.Users;
 import com.rms.resource.service.ResourceService;
 
@@ -31,7 +32,7 @@ public class ResourceController {
 	@RequestMapping(value="/myresourceresearch",method=RequestMethod.GET)
 	public String getmyresource(HttpSession session,HttpServletRequest request) {
 		Users u = (Users)session.getAttribute("user");
-		List<Resource> resources = rs.getmyresource(u);
+		List<Resources> resources = rs.getmyresource(u);
 		List<String> coursenames = cs.getmycoursename(u);
 		request.setAttribute("names", coursenames);
 		request.setAttribute("resources",resources);
