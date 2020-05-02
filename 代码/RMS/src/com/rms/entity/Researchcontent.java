@@ -4,7 +4,6 @@ public class Researchcontent {
 	private String type;
 	private String course;
 	private String title;
-	private String redom;
 	public String getType() {
 		return type;
 	}
@@ -22,12 +21,6 @@ public class Researchcontent {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getRedom() {
-		return redom;
-	}
-	public void setRedom(String redom) {
-		this.redom = redom;
 	}
 	
 }

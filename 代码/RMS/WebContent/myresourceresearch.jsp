@@ -57,8 +57,9 @@ function metreturn(url){
 	</div>
 
 <div style=" width:80%;high:30px;border:1px;margin:auto;">
+	<form action="">
 	<font size="3">资源类型：</font>
-	<select>
+	<select name="type">
 		<option value="图片" >图片</option>
 		<option value="视频" >视频</option>
 		<option value="课程软件" >课程软件</option>
@@ -68,14 +69,14 @@ function metreturn(url){
 		<option value="消息通知" >消息通知</option>
 	</select>
 	<font size="3">所属学科：</font>
-	<select>
+	<select name="course">
 		<c:forEach var="name" items="${names }">
 		<option value="${name }">${name }</option>
 		</c:forEach>
 	</select>
-	<font size="3">标题: </font><input style="width=20px;"  type="text"/>
-	<font size="3">任意词： </font><input style="width=20px;"  type="text"/>
+	<font size="3">关键字: </font><input name="title" style="width=20px;"  type="text"/>
 	<input type="submit" value="检索" style="width:40px;high:100%"/>
+	</form>
 </div>
 <div style="clear:both;"></div>
 

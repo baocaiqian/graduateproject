@@ -1,6 +1,8 @@
 package com.rms.resource.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -14,6 +16,7 @@ import com.rms.course.dao.CourseDao;
 import com.rms.entity.Course;
 import com.rms.entity.Researchcontent;
 import com.rms.entity.Resources;
+import com.rms.entity.Search;
 import com.rms.entity.Users;
 
 @Repository
@@ -28,17 +31,98 @@ public class ResourceDao {
 		Query q = session.createQuery("from Resources where owner = "+u.getId());
 		return q.list();
 	}
-	//个人资源库的查找
-	public List<Resources> getsearchResource(Researchcontent rc,Users u){
-//按课程名字搜索
-		List<Resources> searchrecourses = new ArrayList<Resources>();
-		//获取下来课程
-		if(rc.getCourse()!=null&&rc.getRedom()==null&&rc.getTitle()==null&&rc.getType()==null) {
-		Course c=cd.getCourseBynameAndUser(rc.getCourse(), u);
-		List<Resources> courseresources = findResourceByCourse(c);
+	public List<Resources> getallsearchResource(Search rc,Users u){
+		Session session = sf.getCurrentSession();
+		rc.setSearcher(u);
+		String dateDir = new SimpleDateFormat("yyyyMMdd").format(new Date());
+		rc.setTime(dateDir);
+		session.save(rc);
+		if(rc.getCourse()!=null) {
+			List<Course> courses=cd.getCourseByname(rc.getCourse());
+			String courseids = "(";
+			for(int i=0;i<courses.size();i++) {
+				if(i==courses.size()-1) {
+					courseids=courseids+courses.get(i).getCourseid()+')';
+				}else {
+					courseids=courseids+courses.get(i).getCourseid()+',';
+				}
+			}
+			if(rc.getTitle()==null&&rc.getType()==null) {
+				Query q = session.createQuery("from Resources where course in"+courseids);
+				return q.list();
+			}
+			else if(rc.getTitle()==null&&rc.getType()!=null){
+				Query q = session.createQuery("from Resources where course in"+courseids+"and type="+rc.getType());
+				return q.list();
+			}
+			else if(rc.getTitle()!=null&&rc.getType()==null) {
+				Query q = session.createQuery("from Resources where course in"+courseids+"and name like '%"+rc.getTitle()+"%'");
+				return q.list();
+			}
+			else{
+					Query q = session.createQuery("from Resources where course in"+courseids+"and type="+rc.getType()+"and name like '%"+rc.getTitle()+"%'");
+					return q.list();
+				}
 		}
-		
-		return null;
+		else{
+			if(rc.getTitle()!=null&&rc.getType()!=null) {
+				Query q = session.createQuery("from Resources where type="+rc.getType()+"and name like '%"+rc.getTitle()+"%'");
+				return q.list();
+			}
+			else if(rc.getTitle()==null&&rc.getType()!=null) {
+				Query q = session.createQuery("from Resources where type="+rc.getType());
+				return q.list();
+			}
+			else if(rc.getTitle()!=null&&rc.getType()==null) {
+					Query q = session.createQuery("from Resources where name like '%"+rc.getTitle()+"%'");
+					return q.list();
+				}
+			else{
+				Query q = session.createQuery("from Resources");
+				return q.list();
+				}
+			 
+		}
+	}
+	//个人资源库的查找
+	public List<Resources> getsearchResource(Search rc,Users u){
+		Session session = sf.getCurrentSession();
+		rc.setSearcher(u);
+		String dateDir = new SimpleDateFormat("yyyyMMdd").format(new Date());
+		rc.setTime(dateDir);
+		session.save(rc);
+		if(rc.getCourse()!=null&&rc.getTitle()==null&&rc.getType()==null) {
+			Course c=cd.getCourseBynameAndUser(rc.getCourse(), u);
+			Query q = session.createQuery("from Resources where course = "+c.getCourseid());
+		return  q.list();
+		}else if(rc.getCourse()!=null&&rc.getTitle()==null&&rc.getType()!=null){
+			Course c=cd.getCourseBynameAndUser(rc.getCourse(), u);
+			Query q = session.createQuery("from Resources where course = "+c.getCourseid()+"and type="+rc.getType());
+			return q.list();
+		}else if(rc.getCourse()!=null&&rc.getTitle()!=null&&rc.getType()!=null) {
+			Course c=cd.getCourseBynameAndUser(rc.getCourse(), u);
+			Query q = session.createQuery("from Resources where course = "+c.getCourseid()+"and type="+rc.getType()+"and name like '%"+rc.getTitle()+"%'");
+			return q.list();
+		}
+		else if(rc.getCourse()!=null&&rc.getTitle()!=null&&rc.getType()==null) {
+			Course c=cd.getCourseBynameAndUser(rc.getCourse(), u);
+			Query q = session.createQuery("from Resources where course = "+c.getCourseid()+"and name like '%"+rc.getTitle()+"%'");
+			return q.list();
+		}
+		else if(rc.getCourse()==null&&rc.getTitle()!=null&&rc.getType()!=null) {
+			Query q = session.createQuery("from Resources where type="+rc.getType()+"and name like '%"+rc.getTitle()+"%'");
+			return q.list();
+		}else if(rc.getCourse()==null&&rc.getTitle()==null&&rc.getType()!=null) {
+			Query q = session.createQuery("from Resources where type="+rc.getType());
+			return q.list();
+		}else if(rc.getCourse()==null&&rc.getTitle()!=null&&rc.getType()==null) {
+			Query q = session.createQuery("from Resources where name like '%"+rc.getTitle()+"%'");
+			return q.list();
+		}
+		else {
+			Query q = session.createQuery("from Resources");
+			return q.list();
+		}
 	}
 	//根据课程id查找资源列表
 	public List<Resources> findResourceByCourse(Course c){

@@ -58,4 +58,9 @@ public class CourseDao {
 		Course c =(Course)session.createQuery("from Course where teacher ="+u.getId()+"and name = '"+name+"'").uniqueResult();
 		return c;
 	}
+	public List<Course> getCourseByname(String name) {
+		Session session = sf.getCurrentSession();
+		Query q=session.createQuery("from Course where name = '"+name+"'");
+		return q.list();
+	}
 }

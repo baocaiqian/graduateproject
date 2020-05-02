@@ -58,9 +58,10 @@ $("html",parent.document).find('.returnover').remove();
 </script>
 <div style="width:86.5%;margin-left:3%;background:url(${ctx}/statics/base/images/bgs.png)">
 <br/><br/><br/><br/><br/><br/>
-	<div style="margin-left:3.5%;high:30px;border:1px;">
+	<div style="margin-left:8%;high:30px;border:1px;">
+	<form action="">
 	<font size="3">资源类型：</font>
-	<select>
+	<select name="type">
 		<option value="word文档">word文档</option>
 		<option value="图片" >图片</option>
 		<option value="视频" >视频</option>
@@ -71,16 +72,14 @@ $("html",parent.document).find('.returnover').remove();
 		<option value="消息通知" >消息通知</option>
 	</select>
 	<font size="3">所属学科：</font>
-	<select>
+	<select name="course">
 		<c:forEach var="name" items="${names }">
 		<option value="${name }">${name }</option>
 		</c:forEach>
-	</select>
-	<font size="3">标题: </font><input style="width=20px;"  type="text"/>
-	<font size="3">任意词： </font><input style="width=20px;"  type="text"/>
-	<font size="3">条件组合方式: </font><input type="radio" name="select"/><lable style="font-size:15px;">AND</lable>&nbsp;
-				<input type="radio" name="select"/><lable style="font-size:15px;">OR</lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</select >
+	<font size="3">关键字: </font><input name="title" style="width=20px;"  type="text"/>
 	<input type="submit" value="检索" style="width:40px;high:100%"/>
+	</form>
 </div>
 <br/><br/><br/><br/><br/><br/>
 </div>

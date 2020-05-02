@@ -56,7 +56,7 @@ function metreturn(url){
 
 	</div>
 
-<div style=" width:80%;high:30px;border:1px;margin:auto;">
+<div style=" width:60%;high:30px;border:1px;margin:auto;">
 	<font size="3">标题: </font><input style="width=20px;"  type="text"/>
 	<font size="3">任意词： </font><input style="width=20px;"  type="text"/>
 	<font size="3">条件组合方式: </font><input type="radio" name="select"/><lable style="font-size:15px;">AND</lable>&nbsp;
