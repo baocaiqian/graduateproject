@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-04-30 16:17:39
+Date: 2020-05-02 20:18:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -222,10 +222,10 @@ CREATE TABLE `groupmember` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `resource`
+-- Table structure for `resources`
 -- ----------------------------
-DROP TABLE IF EXISTS `resource`;
-CREATE TABLE `resource` (
+DROP TABLE IF EXISTS `resources`;
+CREATE TABLE `resources` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) CHARACTER SET utf8 NOT NULL,
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
@@ -234,7 +234,7 @@ CREATE TABLE `resource` (
   `tag` varchar(255) CHARACTER SET utf8 NOT NULL,
   `owner` int(11) NOT NULL,
   `authority` int(11) NOT NULL,
-  `size` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `size` double(200,2) NOT NULL,
   `time` varchar(255) CHARACTER SET utf8 NOT NULL,
   `downtimes` int(11) NOT NULL,
   `looktimes` int(11) NOT NULL,
@@ -243,10 +243,10 @@ CREATE TABLE `resource` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of resource
+-- Records of resources
 -- ----------------------------
-INSERT INTO `resource` VALUES ('1', 'PPT', 'Hibernate单实体映射', '14', '17', 'hibernate', '16', '1', '231KB', '2020年3月20日', '5', '15', '.pptx');
-INSERT INTO `resource` VALUES ('4', 'PPT', 'Hibernate一对一关联映射上', '14', '17', 'hibernate，一对一映射', '16', '1', '223KB', '2020年3月20日', '6', '16', '.pptx');
+INSERT INTO `resources` VALUES ('1', 'PPT', 'Hibernate单实体映射', '14', '17', 'hibernate', '16', '1', '231.00', '2020年3月20日', '5', '15', '.pptx');
+INSERT INTO `resources` VALUES ('4', 'PPT', 'Hibernate一对一关联映射上', '14', '17', 'hibernate，一对一映射', '16', '1', '223.00', '2020年3月20日', '6', '16', '.pptx');
 
 -- ----------------------------
 -- Table structure for `search`
