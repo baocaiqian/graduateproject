@@ -24,6 +24,8 @@ public class UserDao {
 		String myemail=users.getEmail();
 		Session session=this.sessionFactory.getCurrentSession();
 		String p=(String)session.createQuery("select password from Users where email='"+myemail+"'").uniqueResult();
+		System.out.println("用户端输入的密码"+password);
+		System.out.println("数据库的密码"+p);
 		if(p.equals(password)) {
 		    return true;
 		}
@@ -39,6 +41,16 @@ public class UserDao {
 
 			return u;
 		}
+	
+	
+//		//根据邮箱查找用户密码
+//				public String findPawordByEmail(String email) {
+//					Session session = this.sessionFactory.getCurrentSession();
+//					Users u = (Users)session.createQuery("from Users where email='"+email+"'").uniqueResult();
+//                    System.out.println("查询到数据库中的密码");
+//                    System.out.println(u.getPassword());
+//					return u.getPassword();
+//				}
 	//发现同系老师
 		public List<Users> findUsersByMajor(Users u){
 			Session session = sessionFactory.getCurrentSession();
