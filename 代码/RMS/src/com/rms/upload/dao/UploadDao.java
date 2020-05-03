@@ -1,17 +1,17 @@
 package com.rms.upload.dao;
 
 import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.List;
+
 
 import javax.annotation.Resource;
 
-import org.hibernate.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -22,6 +22,7 @@ import com.rms.entity.Course;
 import com.rms.entity.Resources;
 import com.rms.entity.Upform;
 import com.rms.entity.Users;
+
 
 @Repository
 public class UploadDao {
@@ -108,6 +109,10 @@ public class UploadDao {
 		System.out.println("333333333333333333333333333333333333看看这离是否可");
 		//根据classsystem名获取该classsystem对象
 		ClassSystem classsystem1 = (ClassSystem) session.createQuery("from ClassSystem where name='"+classsystem+"' and owner="+myid).uniqueResult();
+		//根据userid找到User
+		Users user1=(Users) session.createQuery("from Users where id="+myid).uniqueResult();
+		
+		
 		
 		System.out.println("44444444444444444444444444444444444444看看这离是否可");
 		Resources rs = new Resources();
@@ -116,29 +121,24 @@ public class UploadDao {
 		rs.setCourse(course1);
 		rs.setClasssystem(classsystem1);
 		rs.setPath(filepath);
-		//rs.setOwner(u);
 		rs.setAuthority(ifopennum);
 		rs.setSize(size);
 		rs.setTime(time);
 		rs.setDowntimes(0);
 		rs.setLooktimes(0);
 		rs.setPostfix(postfix);
-		
+		rs.setOwner(user1);//找到User
 		//为空的值
 		rs.setBrowselog(null);
 		rs.setCollectlog(null);
 		rs.setDownlog(null);
         rs.setGroupfiles(null);	
-        rs.setOwner(null);
-		
-		//先存入user中
+       
+        session.save(rs);
+//		//先存入user中
 //		List<Resources> list=new ArrayList<Resources>();
 //		list.add(rs);
-//		u.setResource(list);
-		
-		System.out.println("55555555555555555555555555看看这离是否可");
-		session.save(rs);
-		System.out.println("6666666666666666666666666666看看这离是否可");
+//		users1.setResource(list);
 		//session.getTransaction().commit();
 	}
 	

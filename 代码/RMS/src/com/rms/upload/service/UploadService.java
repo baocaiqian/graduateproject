@@ -13,7 +13,7 @@ import com.rms.upload.dao.UploadDao;
 public class UploadService {
     @Resource
     private UploadDao ud;
-    @Transactional(readOnly=false)
+    
     public void UploadingFile(Upform form,int myid) {
     	ud.uploadfile(form,myid);
     }
