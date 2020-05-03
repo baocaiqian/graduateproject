@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : soft
+Source Server         : localhost_3306
 Source Server Version : 50506
 Source Host           : localhost:3306
 Source Database       : soft
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-05-02 20:18:16
+Date: 2020-05-03 20:20:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -231,7 +231,7 @@ CREATE TABLE `resources` (
   `name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `course` int(11) NOT NULL,
   `classsystem` int(11) NOT NULL,
-  `tag` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `path` varchar(255) CHARACTER SET utf8 NOT NULL,
   `owner` int(11) NOT NULL,
   `authority` int(11) NOT NULL,
   `size` double(200,2) NOT NULL,
@@ -240,13 +240,16 @@ CREATE TABLE `resources` (
   `looktimes` int(11) NOT NULL,
   `postfix` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of resources
 -- ----------------------------
-INSERT INTO `resources` VALUES ('1', 'PPT', 'Hibernate单实体映射', '14', '17', 'hibernate', '16', '1', '231.00', '2020年3月20日', '5', '15', '.pptx');
-INSERT INTO `resources` VALUES ('4', 'PPT', 'Hibernate一对一关联映射上', '14', '17', 'hibernate，一对一映射', '16', '1', '223.00', '2020年3月20日', '6', '16', '.pptx');
+INSERT INTO `resources` VALUES ('1', 'other', 'Ch4.2.ppt', '14', '17', 'E://upload//16//Java//hibernate//Ch4.2.ppt', '16', '0', '4827136.00', '2020-05-03 09:19:25', '0', '0', 'ppt');
+INSERT INTO `resources` VALUES ('2', 'other', 'Ch5.1.ppt', '5', '15', 'E://upload//16//python//python自动办公//Ch5.1.ppt', '16', '0', '3569152.00', '2020-05-03 09:34:28', '0', '0', 'ppt');
+INSERT INTO `resources` VALUES ('3', 'other', 'Ch6.1.ppt', '13', '17', 'E://upload//16//Java//java基础//Ch6.1.ppt', '16', '0', '972288.00', '2020-05-03 09:39:36', '0', '0', 'ppt');
+INSERT INTO `resources` VALUES ('4', 'other', 'Ch6.1.ppt', '5', '15', 'E://upload//16//python//python自动办公//Ch6.1.ppt', '16', '0', '972288.00', '2020-05-03 09:42:59', '0', '0', 'ppt');
+INSERT INTO `resources` VALUES ('5', 'other', '北邮2019拟录取名单.pdf', '5', '15', 'D://upload//16//python//python自动办公//北邮2019拟录取名单.pdf', '16', '0', '2547496.00', '2020-05-03 18:44:50', '0', '0', 'pdf');
 
 -- ----------------------------
 -- Table structure for `search`
