@@ -23,11 +23,8 @@ public class UploadController {
 	public String createfile(HttpSession session,HttpServletRequest request,Upform form) {
 		Users u =(Users)session.getAttribute("user");//获取用户名，查看是否已登录以及登录的用户名，暂时不确定是不是这个
 		//String path=session.getServletContext().getRealPath("/"); //获取当前地址
-		//us.UploadingFile(files);
-		System.out.println("试试看能不能输出：");
-		System.out.println(form.getClasssystem());
-		System.out.println(form.getFiles().length);
-		us.UploadingFile(form, u);
+		int myid=u.getId();
+		us.UploadingFile(form, myid);
 
 		return "upload";
 	}
