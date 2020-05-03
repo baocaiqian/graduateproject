@@ -1,17 +1,17 @@
 package com.rms.upload.dao;
 
 import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.List;
+
 
 import javax.annotation.Resource;
 
-import org.hibernate.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -22,6 +22,7 @@ import com.rms.entity.Course;
 import com.rms.entity.Resources;
 import com.rms.entity.Upform;
 import com.rms.entity.Users;
+
 
 @Repository
 public class UploadDao {
@@ -92,9 +93,7 @@ public class UploadDao {
 		//file.getSize()能够获取文件大小，但是单位是k好像是，底下这个转换有问题，所以变成了0
 		//Double size =(Double)(file.getSize()/Math.round(1048576.0*100)/100.0);
 		Double size=(double) file.getSize();
-		System.out.println("7777777777777777777777777777看看这离是否可");
 		System.out.println("文件大小："+size);
-		System.out.println("11111111111111111111111111看看这离是否可");
 		//插入到数据库的时候，判断一下form的是否公开，因为resourse的公开属性是int类型，但是这获取下来是string，公开or不公开。判断一下再插入就行。
 		 //根据文件后缀名找到文件类型
 		String filetype = gettype(postfix);
@@ -102,44 +101,32 @@ public class UploadDao {
 		//获取当前系统时间
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 		String time = df.format(new Date());
-		//根据course名字获取该course对象（记得查询时还有用户id）
-		System.out.println("22222222222222222222222222222看看这离是否可"+myid);
+		//根据course名字获取该course对象（记得查询时还有用户id）	
 		Course course1 = (Course) session.createQuery("from Course where name='"+course+"' and teacher="+myid).uniqueResult();
-		System.out.println("333333333333333333333333333333333333看看这离是否可");
 		//根据classsystem名获取该classsystem对象
 		ClassSystem classsystem1 = (ClassSystem) session.createQuery("from ClassSystem where name='"+classsystem+"' and owner="+myid).uniqueResult();
-		
-		System.out.println("44444444444444444444444444444444444444看看这离是否可");
+		//根据userid找到User
+		Users user1=(Users) session.createQuery("from Users where id="+myid).uniqueResult();
+
 		Resources rs = new Resources();
 		rs.setType(filetype);
 		rs.setName(fileName);
 		rs.setCourse(course1);
 		rs.setClasssystem(classsystem1);
 		rs.setPath(filepath);
-		//rs.setOwner(u);
 		rs.setAuthority(ifopennum);
 		rs.setSize(size);
 		rs.setTime(time);
 		rs.setDowntimes(0);
 		rs.setLooktimes(0);
 		rs.setPostfix(postfix);
-		
+		rs.setOwner(user1);//找到User
 		//为空的值
 		rs.setBrowselog(null);
 		rs.setCollectlog(null);
 		rs.setDownlog(null);
-        rs.setGroupfiles(null);	
-        rs.setOwner(null);
-		
-		//先存入user中
-//		List<Resources> list=new ArrayList<Resources>();
-//		list.add(rs);
-//		u.setResource(list);
-		
-		System.out.println("55555555555555555555555555看看这离是否可");
-		session.save(rs);
-		System.out.println("6666666666666666666666666666看看这离是否可");
-		//session.getTransaction().commit();
+        rs.setGroupfiles(null);	 
+        session.save(rs);
 	}
 	
 	//找到文件类型的函数
@@ -153,14 +140,6 @@ public class UploadDao {
 		return "other";		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 		//获取后缀名
 	public String getPostfix(String filename) {
 		if ((filename != null) && (filename.length() > 0)) { 
@@ -170,11 +149,8 @@ public class UploadDao {
 		        }     
 		        }  
 		return filename;
-}   
+     }   
 		
 	
-		
-		
-		
 	}
 

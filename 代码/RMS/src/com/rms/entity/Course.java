@@ -27,12 +27,14 @@ public class Course {
 	private String term;//学期
 	private Users teacher;
 	private List<Resources> resources;
-	@Id
-	@GeneratedValue(generator = "assigned")//表示主键自动生成
-	@GenericGenerator(name="assigned", strategy = "assigned")
+	
 	public String getName() {
 		return name;
 	}
+	
+	@Id
+	@GeneratedValue(generator = "assigned")//表示主键自动生成
+	@GenericGenerator(name="assigned", strategy = "assigned")
 	public int getCourseid() {
 		return courseid;
 	}
