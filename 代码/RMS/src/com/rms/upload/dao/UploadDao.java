@@ -93,9 +93,7 @@ public class UploadDao {
 		//file.getSize()能够获取文件大小，但是单位是k好像是，底下这个转换有问题，所以变成了0
 		//Double size =(Double)(file.getSize()/Math.round(1048576.0*100)/100.0);
 		Double size=(double) file.getSize();
-		System.out.println("7777777777777777777777777777看看这离是否可");
 		System.out.println("文件大小："+size);
-		System.out.println("11111111111111111111111111看看这离是否可");
 		//插入到数据库的时候，判断一下form的是否公开，因为resourse的公开属性是int类型，但是这获取下来是string，公开or不公开。判断一下再插入就行。
 		 //根据文件后缀名找到文件类型
 		String filetype = gettype(postfix);
@@ -103,18 +101,13 @@ public class UploadDao {
 		//获取当前系统时间
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 		String time = df.format(new Date());
-		//根据course名字获取该course对象（记得查询时还有用户id）
-		System.out.println("22222222222222222222222222222看看这离是否可"+myid);
+		//根据course名字获取该course对象（记得查询时还有用户id）	
 		Course course1 = (Course) session.createQuery("from Course where name='"+course+"' and teacher="+myid).uniqueResult();
-		System.out.println("333333333333333333333333333333333333看看这离是否可");
 		//根据classsystem名获取该classsystem对象
 		ClassSystem classsystem1 = (ClassSystem) session.createQuery("from ClassSystem where name='"+classsystem+"' and owner="+myid).uniqueResult();
 		//根据userid找到User
 		Users user1=(Users) session.createQuery("from Users where id="+myid).uniqueResult();
-		
-		
-		
-		System.out.println("44444444444444444444444444444444444444看看这离是否可");
+
 		Resources rs = new Resources();
 		rs.setType(filetype);
 		rs.setName(fileName);
@@ -132,14 +125,8 @@ public class UploadDao {
 		rs.setBrowselog(null);
 		rs.setCollectlog(null);
 		rs.setDownlog(null);
-        rs.setGroupfiles(null);	
-       
+        rs.setGroupfiles(null);	 
         session.save(rs);
-//		//先存入user中
-//		List<Resources> list=new ArrayList<Resources>();
-//		list.add(rs);
-//		users1.setResource(list);
-		//session.getTransaction().commit();
 	}
 	
 	//找到文件类型的函数
@@ -153,14 +140,6 @@ public class UploadDao {
 		return "other";		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 		//获取后缀名
 	public String getPostfix(String filename) {
 		if ((filename != null) && (filename.length() > 0)) { 
@@ -170,11 +149,8 @@ public class UploadDao {
 		        }     
 		        }  
 		return filename;
-}   
+     }   
 		
 	
-		
-		
-		
 	}
 
