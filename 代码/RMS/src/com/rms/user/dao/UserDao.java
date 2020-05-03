@@ -73,4 +73,25 @@ public class UserDao {
 						return true;
 					}	
 				}
+				
+				
+				//修改用户密码或邮箱
+				public void changeUsers(Users ubefore,Users uinput) {
+					Session session = sessionFactory.getCurrentSession();
+					Query query = session.createSQLQuery("update users set name=?,password=?,email=? where email=?	");
+					query.setString(1, uinput.getName());
+					query.setString(2, uinput.getPassword());
+					query.setString(3, uinput.getEmail());
+					query.setString(4, ubefore.getEmail());
+
+					query.executeUpdate();
+				}
+					
+				
+				
+				
+				
+				
+				
+		
 }

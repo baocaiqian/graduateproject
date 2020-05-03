@@ -40,11 +40,7 @@ public class UserController {
             
         }
 		
-		
-
 	
-		
-		
 		boolean iput = (users.getEmail().equals("用户名")) || (users.getEmail().contains(" "))||(users.getPassword().equals("Password"))
 				|| (users.getPassword().contains(" "));
 		if (iput||(!trueVcode)) {
@@ -138,5 +134,31 @@ public class UserController {
 		
 		
 	}
+	
+	
+	@RequestMapping(value = "/changeController", method = RequestMethod.POST)
+	//修改密码
+	public void changeEmailPassword(Users user, HttpSession session, HttpServletRequest request) throws SQLException {
+		System.out.println("到修改的controller里面来了");
+		Users userbefore=(Users) session.getAttribute("user");
+		System.out.println(userbefore.getEmail());
+		
+		System.out.println("输入框中输入的用户的名字"+user.getName());
+		this.userService.xiugaiUser(userbefore, user);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

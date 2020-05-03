@@ -38,4 +38,12 @@ public class UserService {
 		    
 
 		}
+		
+		
+		//注册
+				public void xiugaiUser(Users ubefore,Users uinput) throws SQLException {
+		            this.userDao.changeUsers(ubefore, uinput);
+				    
+
+				}
 }
