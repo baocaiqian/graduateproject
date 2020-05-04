@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
+Source Server         : soft
 Source Server Version : 50506
 Source Host           : localhost:3306
 Source Database       : soft
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-05-03 20:20:31
+Date: 2020-05-04 13:36:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,7 +42,7 @@ CREATE TABLE `classsystem` (
   `owner` int(11) NOT NULL,
   `systemdescribe` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`systemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of classsystem
@@ -105,7 +105,7 @@ CREATE TABLE `course` (
   `teacher` int(11) NOT NULL,
   `tag` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`courseid`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of course
@@ -240,16 +240,14 @@ CREATE TABLE `resources` (
   `looktimes` int(11) NOT NULL,
   `postfix` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of resources
 -- ----------------------------
-INSERT INTO `resources` VALUES ('1', 'other', 'Ch4.2.ppt', '14', '17', 'E://upload//16//Java//hibernate//Ch4.2.ppt', '16', '0', '4827136.00', '2020-05-03 09:19:25', '0', '0', 'ppt');
-INSERT INTO `resources` VALUES ('2', 'other', 'Ch5.1.ppt', '5', '15', 'E://upload//16//python//python自动办公//Ch5.1.ppt', '16', '0', '3569152.00', '2020-05-03 09:34:28', '0', '0', 'ppt');
-INSERT INTO `resources` VALUES ('3', 'other', 'Ch6.1.ppt', '13', '17', 'E://upload//16//Java//java基础//Ch6.1.ppt', '16', '0', '972288.00', '2020-05-03 09:39:36', '0', '0', 'ppt');
-INSERT INTO `resources` VALUES ('4', 'other', 'Ch6.1.ppt', '5', '15', 'E://upload//16//python//python自动办公//Ch6.1.ppt', '16', '0', '972288.00', '2020-05-03 09:42:59', '0', '0', 'ppt');
-INSERT INTO `resources` VALUES ('5', 'other', '北邮2019拟录取名单.pdf', '5', '15', 'D://upload//16//python//python自动办公//北邮2019拟录取名单.pdf', '16', '0', '2547496.00', '2020-05-03 18:44:50', '0', '0', 'pdf');
+INSERT INTO `resources` VALUES ('2', 'PPT', 'Hibernate框架.pptx', '14', '17', 'E://upload//16//Java//hibernate//Hibernate框架.pptx', '16', '0', '464117.00', '2020-05-03 20:41:02', '14', '13', 'pptx');
+INSERT INTO `resources` VALUES ('3', 'PPT', 'ch08_Hibernate高级配置.pptx', '14', '17', 'E://upload//16//Java//hibernate//ch08_Hibernate高级配置.pptx', '16', '0', '201292.00', '2020-05-03 20:44:12', '10', '11', 'pptx');
+INSERT INTO `resources` VALUES ('4', 'PPT', 'ch07-Hibernate检索.pptx', '14', '17', 'E://upload//16//Java//hibernate//ch07-Hibernate检索.pptx', '16', '0', '259359.00', '2020-05-03 20:45:10', '13', '12', 'pptx');
 
 -- ----------------------------
 -- Table structure for `search`
@@ -257,18 +255,30 @@ INSERT INTO `resources` VALUES ('5', 'other', '北邮2019拟录取名单.pdf', '
 DROP TABLE IF EXISTS `search`;
 CREATE TABLE `search` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `searcher` int(11) NOT NULL,
-  `arbitrary` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `course` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `type` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `time` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `searcher` int(11) DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `course` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `time` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of search
 -- ----------------------------
+INSERT INTO `search` VALUES ('1', '16', '', 'hibernate', 'PPT', '20200503');
+INSERT INTO `search` VALUES ('2', '16', '检索', 'hibernate', 'PPT', '20200503');
+INSERT INTO `search` VALUES ('3', '16', '一对一映射', 'hibernate', 'PPT', '20200503');
+INSERT INTO `search` VALUES ('4', '16', '一对一映射', 'hibernate', 'PPT', '20200504');
+INSERT INTO `search` VALUES ('5', '16', 'hibernate', 'hibernate', 'PPT', '20200504');
+INSERT INTO `search` VALUES ('6', '16', '映射', 'hibernate', 'PPT', '20200504');
+INSERT INTO `search` VALUES ('7', '16', '多对多', 'hibernate', 'PPT', '20200504');
+INSERT INTO `search` VALUES ('8', '16', 'hibernate', 'hibernate', 'PPT', '20200504');
+INSERT INTO `search` VALUES ('9', '16', 'hibernate', 'hibernate', 'PPT', '20200504');
+INSERT INTO `search` VALUES ('10', '16', '检索', 'java基础', 'PPT', '20200504');
+INSERT INTO `search` VALUES ('11', null, 'HBASE', 'Hadoop', '课程软件', '20200504');
+INSERT INTO `search` VALUES ('12', null, 'python', 'python自动办公', 'word文档', '20200504');
+INSERT INTO `search` VALUES ('13', null, '一对一映射', 'python自动办公', '图片', '20200504');
 
 -- ----------------------------
 -- Table structure for `upload`
@@ -308,32 +318,32 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '黄勇', '123456', 'statics/base/images/micon.png', '15529935999@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('2', '无涯', '123456', 'statics/base/images/micon.png', '15529935989@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('3', '陈廷聿', '123456', 'statics/base/images/micon.png', '15539935989@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('4', '麻瓜编程', '123456', 'statics/base/images/micon.png', '13539935989@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('5', '侯爵', '123456', 'statics/base/images/micon.png', '13539935589@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('6', '小蚊子', '123456', 'statics/base/images/micon.png', '13539935589@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('7', '王顺子', '123456', 'statics/base/images/micon.png', '15529945999@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('10', '小布', '123456', 'statics/base/images/micon.png', '15529945939@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('11', '助教海', '123456', 'statics/base/images/micon.png', '15529935939@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('12', '黑板课', '123456', 'statics/base/images/micon.png', '15729945939@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('13', '唐宇帝', '123456', 'statics/base/images/micon.png', '15729645939@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('14', '车万翔', '123456', 'statics/base/images/micon.png', '15723645939@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('15', '乐上轻至', '123456', 'statics/base/images/micon.png', '16723645939@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('16', '鲍彩倩', '123456', 'statics/base/images/micon.png', '15226535887@163.com', null, '计算机科学与技术', null, null);
-INSERT INTO `users` VALUES ('17', 'BCQ', '123456', null, '15267878956@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('18', '独孤慕雪', '123456', null, '1523338923@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('19', '张新成', '123456', null, '48912389@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('20', '张耀', '123456', null, 'dwasiufds@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('21', '胡一天', '123456', null, 'dskaj@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('22', '胡一天', '123456', null, 'dskaj@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('23', '张云龙', '123456', null, 'fs@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('24', '许放', '123456', null, 'xufang@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('25', '黎语冰', '123456', null, 'liyubing@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('26', '黎语冰', '123456', null, 'liyubing@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('27', 'tangxue', '123456', null, 'tangxue@130.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('28', 'c语言', '123456', null, 'das@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('29', '侯明辉', '123456', null, 'dhwis@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('30', 'sjdh', '123456', null, 'cz@163.com', '河北师范大学', null, null, null);
-INSERT INTO `users` VALUES ('31', 'sjdh', '123456', null, 'cz@163.com', '河北师范大学', null, null, null);
+INSERT INTO `users` VALUES ('1', '黄勇', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15529935999@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('2', '无涯', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15529935989@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('3', '陈廷聿', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15539935989@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('4', '麻瓜编程', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '13539935989@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('5', '侯爵', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '13539935589@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('6', '小蚊子', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '13539935589@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('7', '王顺子', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15529945999@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('10', '小布', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15529945939@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('11', '助教海', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15529935939@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('12', '黑板课', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15729945939@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('13', '唐宇帝', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15729645939@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('14', '车万翔', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15723645939@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('15', '乐上轻至', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '16723645939@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('16', '鲍彩倩', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15226535887@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('17', 'BCQ', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '15267878956@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('18', '独孤慕雪', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '1523338923@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('19', '张新成', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', '48912389@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('20', '张耀', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'dwasiufds@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('21', '胡一天', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'dskaj@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('22', '胡一天', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'dskaj@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('23', '张云龙', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'fs@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('24', '许放', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'xufang@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('25', '黎语冰', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'liyubing@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('26', '黎语冰', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'liyubing@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('27', 'tangxue', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'tangxue@130.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('28', 'c语言', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'das@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('29', '侯明辉', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'dhwis@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('30', 'sjdh', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'cz@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('31', 'sjdh', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'cz@163.com', '河北师范大学', '计算机科学与技术', null, null);

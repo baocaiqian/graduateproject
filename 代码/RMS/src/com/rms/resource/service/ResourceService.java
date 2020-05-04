@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rms.entity.Resources;
+import com.rms.entity.Search;
 import com.rms.entity.Users;
 import com.rms.resource.dao.ResourceDao;
 
@@ -18,5 +19,19 @@ public class ResourceService {
 	private ResourceDao rd;
 	public List<Resources> getmyresource(Users u) {
 		return rd.getallResource(u);
+	}
+	//数据库检索
+	public List<Resources> getallsearchResource(Search rc,Users u){
+		return rd.getallsearchResource(rc, u);
+	}
+	//个人资源库检索
+	public List<Resources> getsearchResource(Search rc,Users u){
+		return rd.getsearchResource(rc, u);
+	}
+	public List<Resources> getsearchResourcebyhot(Search rc,Users u){
+		return rd.getsearchResourcebyhot(rc, u);
+	}
+	public List<String> findhotdown(){
+		return rd.gethotdown();
 	}
 }

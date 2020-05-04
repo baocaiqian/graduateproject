@@ -7,17 +7,17 @@
 <head>
 <title>资源检索</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css" />
-<link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
-<script type="text/javascript">var basepath='statics/base/images';</script>
-<script type="text/javascript" src="statics/base/js/metvar.js"></script>
-<script type="text/javascript" src="statics/base/js/jQuery1.7.2.js"></script>
-<script type="text/javascript" src="statics/base/js/iframes.js"></script>
-<script type="text/javascript" src="statics/base/js/cookie.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx }/statics/base/css/metinfo.css" />
+<link rel="stylesheet" type="text/css" href="${ctx }/statics/base/css/newstyle.css" />
+<script type="text/javascript">var basepath='${ctx }/statics/base/images';</script>
+<script type="text/javascript" src="${ctx }/statics/base/js/metvar.js"></script>
+<script type="text/javascript" src="${ctx }/statics/base/js/jQuery1.7.2.js"></script>
+<script type="text/javascript" src="${ctx }/statics/base/js/iframes.js"></script>
+<script type="text/javascript" src="${ctx }/statics/base/js/cookie.js"></script>
 <script type="text/javascript">
 /*ajax执行*/
 var lang = 'cn';
-var metimgurl='statics/base/images/';
+var metimgurl='${ctx }/statics/base/images/';
 var depth='../';
 $(document).ready(function(){
 	ifreme_methei();
@@ -57,33 +57,32 @@ function metreturn(url){
 	</div>
 
 <div style=" width:60%;high:30px;border:1px;margin:auto;">
-	<font size="3">标题: </font><input style="width=20px;"  type="text"/>
-	<font size="3">任意词： </font><input style="width=20px;"  type="text"/>
-	<font size="3">条件组合方式: </font><input type="radio" name="select"/><lable style="font-size:15px;">AND</lable>&nbsp;
-				</font><input type="radio" name="select"/><lable style="font-size:15px;">OR</lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<form action="${ctx }/searched" method="post">
+	<font size="3">资源类型：</font>
+	<select name="type">
+		<option value="word文档">word文档</option>
+		<option value="图片" >图片</option>
+		<option value="视频" >视频</option>
+		<option value="课程软件" >课程软件</option>
+ 		<option value="PPT" >PPT</option>
+		<option value="练习demo" >练习demo</option>
+		<option value="课程作业" >课程作业</option>
+		<option value="消息通知" >消息通知</option>
+	</select>
+	<font size="3">所属学科：</font>
+	<select name="course">
+		<c:forEach var="name" items="${names }">
+		<option value="${name }">${name }</option>
+		</c:forEach>
+	</select >
+	<font size="3">关键字: </font><input name="title" style="width=20px;"  type="text"/>
 	<input type="submit" value="检索" style="width:40px;high:100%"/>
+	</form>
 </div>
 <div style="clear:both;"></div>
 
 <div class="v52fmbx_tbmax">
 <div class="v52fmbx_tbbox">
-<!--
-<h3 class="v52fmbx_hr">
-
-    <span class="formleft">
-		<a href="expand_ad_add.html" title="新增">+新增</a>
-	</span>
-	
-	<span class="formright">
-		<select name="new" id="new" onChange="changes($(this));" style="position:relative; top:2px;">
-				<option value="index.php/admin/expand_ad/index">广告类别</option>
-								   <option value="index.php/admin/expand_ad/index?cid=18" >合作客户</option>
-								   <option value="index.php/admin/expand_ad/index?cid=17" >左边广告</option>
-								   <option value="index.php/admin/expand_ad/index?cid=16" >首页幻灯片</option>
-						</select>
-	</span>
-</h3>
--->
 <table cellpadding="2" cellspacing="1" class="table">
               <tr>
 			    <td width="20" class="list" style="padding:0px; text-align:center;">选择</td>
@@ -99,12 +98,15 @@ function metreturn(url){
 				<td width="50" class="list" style="padding:0px; text-align:center;">上传时间</td>
               </tr>
 			  <form name="myform" method="post" id="myform">
+            
+               <c:if test="${resources!=null}">
+			  <c:forEach var="resource" items="${ resources}">
                  <tr class="mouse click">
-                <td class="list-text"><input name="id[]" type='checkbox' id="id" value="1" /></td>
-                <td class="list-text">3</td>
-			    <td class="list-text alignleft">&nbsp;&nbsp;Hadoop简介及发展史</td>
-				<td class="list-text">.pptx</td>
-				<td class="list-text">3.45MB</td>
+                <td class="list-text"><input name="id[]" type='checkbox' id="id" value="${resource.id }" /></td>
+                <td class="list-text">${resource.id }</td>
+				<td class="list-text">${resource.course.name }</td>
+			    <td class="list-text alignleft">${resource.name }</td>
+				<td class="list-text">${resource.postfix}</td>
                 <td class="list-text"><a href="#">在线预览</a></td>      
 				<td class="list-text">
 				<a href="expand_ad_edit.html">点击下载</a>
@@ -112,29 +114,13 @@ function metreturn(url){
 				<a href="javascript:;" onclick="{if(confirm('确定删除吗?')){window.location='index.php/admin/expand_ad/del?id=3&&page=1';return true;}return false;}" >删除</a>
 				-->
 				</td>
-				<td class="list-text">12</td>
-			    <td class="list-text">23</td>
-				<td class="list-text">鲍彩倩</td>
-				<td class="list-text">2020年2月5日</td>
+				<td class="list-text">${resource.looktimes}</td>
+			    <td class="list-text">${resource.downtimes}</td>
+				<td class="list-text">${resource.owner.name}</td>
+				<td class="list-text">${resource.time}</td>
               </tr>
-                           <tr class="mouse click">
-                <td class="list-text"><input name="id[]" type='checkbox' id="id" value="2" /></td>
-                <td class="list-text">3</td>
-			    <td class="list-text alignleft">&nbsp;&nbsp;Hive安装与部署</td>
-				<td class="list-text">.pptx</td>
-				<td class="list-text">2.38MB</td>
-                <td class="list-text"><a href="#">在线预览</a></td>      
-				<td class="list-text">
-				<a href="expand_ad_edit.html">点击下载</a>
-				<!--
-				<a href="javascript:;" onclick="{if(confirm('确定删除吗?')){window.location='index.php/admin/expand_ad/del?id=3&&page=1';return true;}return false;}" >删除</a>
-				-->
-				</td>
-				<td class="list-text">13</td>
-			    <td class="list-text">22</td>
-				<td class="list-text">李芳</td>
-				<td class="list-text">2020年1月31日</td>
-              </tr>
+              </c:forEach>
+              </c:if>
 			 <td class="all-submit" colspan="12" style="padding:5px 10px;">
 			 <input type='submit' value='删除选定内容' class="submit li-submit" onclick="{if(confirm('确定删除吗?')){document.myform.action='index.php/admin/expand_ad/delsome?&page=1';return true;}return false;}"/>
 			 <input type='submit' value='下载全部内容' class="submit li-submit" onclick="{if(confirm('确定下载全部吗?')){document.myform.action='index.php/admin/expand_ad/delsome?&page=1';return true;}return false;}"/>

@@ -15,7 +15,6 @@ import javax.persistence.Table;
 public class Search {
 	private int id;
 	private Users searcher;//查找者
-	private String arbitrary;//任意词
 	private String title;//标题
 	private String course;//课程
 	private String type;//类型
@@ -36,12 +35,6 @@ public class Search {
 	}
 	public void setSearcher(Users searcher) {
 		searcher = searcher;
-	}
-	public String getArbitrary() {
-		return arbitrary;
-	}
-	public void setArbitrary(String arbitrary) {
-		this.arbitrary = arbitrary;
 	}
 	public String getTitle() {
 		return title;

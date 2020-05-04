@@ -31,6 +31,8 @@ public class CourseController {
 	public String getCourse(HttpSession session,HttpServletRequest request,@RequestParam("id") int id){
 		Users u = (Users)session.getAttribute("user");
 		ClassSystem system = css.getSystemById(id);
+		System.out.println(id);
+		System.out.println(system.getName());
 		List<Course> courses=cs.getCourse(id, u.getId());
 		if(!courses.isEmpty()) {
 			system.setCourses(courses);
