@@ -86,5 +86,11 @@ public class ResourceController {
 			request.setAttribute("search", s);
 			return "researchresult";
 		}
-		
+		//获取共享资源
+		@RequestMapping(value="/hotsearched",method=RequestMethod.GET)
+		public String getShareresource(HttpSession session,HttpServletRequest request) {
+			List<Resources> share = rs.getsharer();
+			request.setAttribute("share", share);
+			return "share";
+		}
 }

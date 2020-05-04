@@ -34,4 +34,7 @@ public class ResourceService {
 	public List<String> findhotdown(){
 		return rd.gethotdown();
 	}
+	public List<Resources> getsharer(){
+		return rd.getshareresource();
+	}
 }

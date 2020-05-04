@@ -152,4 +152,11 @@ public class ResourceDao {
 		return q.list();
 	}
 	
+	//获取共享资源
+	public List<Resources> getshareresource(){
+		Session session = sf.getCurrentSession();
+		Query q = session.createQuery("from Resources r order by r.time desc");
+		return q.list();
+	}
+	
 }
