@@ -31,10 +31,13 @@ public class ClassSystemController {
 		else {
 			systems =u.getClasssystem();
 		}
+		/*
+		system.setOwner(u);
+		
 		systems.add(system);
 		u.setClasssystem(systems);
-		system.setOwner(u);
-		boolean ifrename = css.addSystem(system);
+		*/
+		boolean ifrename = css.addSystem(system,u);
 		if(ifrename) {
 			session.setAttribute("user", u);
 			return "classSystem";
@@ -44,6 +47,7 @@ public class ClassSystemController {
 			request.setAttribute("error",error);
 			return "error";
 		}
+		
 	}
 	public String getSystem(HttpSession session,HttpServletRequest request) {
 		return "classSystem";

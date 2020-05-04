@@ -21,7 +21,7 @@ public class ClassSystemService {
 	public ClassSystem getSystemById(int id) {
 		return csd.getSystemById(id);
 	}
-	public boolean addSystem(ClassSystem system) {
-		return csd.addSystem(system);
+	public boolean addSystem(ClassSystem system,Users u) {
+		return csd.addSystem(system,u);
 	}
 }

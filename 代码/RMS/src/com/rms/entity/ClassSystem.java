@@ -4,12 +4,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.GenericGenerator;
 
 //课程体系
 import javax.persistence.Entity;
@@ -22,9 +21,13 @@ public class ClassSystem {
 	private Users owner;//用户id
 	private String systemdescribe;//描述
 	private List<Course> courses;
+	/*
 	@Id
-	@GeneratedValue(generator = "assigned")//表示主键自动生成
+	@GeneratedValue(generator = "assigned",strategy = GenerationType.IDENTITY)//表示主键自动生成
 	@GenericGenerator(name="assigned", strategy = "assigned")
+	*/
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getSystemId() {
 		return systemId;
 	}

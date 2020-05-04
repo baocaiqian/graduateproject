@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -37,7 +38,7 @@ public class Users {
 	private List<Search> sesrchlog;//搜索记录
 	private List<Groupmember> groupmemberlog;//所在小组
 	@Id
-	@GeneratedValue(generator = "assigned")//表示主键自动生成
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@GenericGenerator(name="assigned", strategy = "assigned")
 	public int getId() {
 		return id;

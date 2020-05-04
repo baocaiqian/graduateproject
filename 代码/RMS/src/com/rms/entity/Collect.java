@@ -2,12 +2,12 @@ package com.rms.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
 
 //收藏表
 @Entity
@@ -17,8 +17,7 @@ public class Collect {
 	private Users collecter;//收藏者
 	private Resources resource;//资源
 	@Id
-	@GeneratedValue(generator = "assigned")//表示主键自动生成
-	@GenericGenerator(name="assigned", strategy = "assigned")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}

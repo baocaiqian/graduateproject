@@ -1,5 +1,6 @@
 package com.rms.classsystem.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -30,16 +31,26 @@ public class ClassSystemDao {
 		return system;
 	}
 	//添加课程体系
-	public boolean addSystem(ClassSystem system) {
+	public boolean addSystem(ClassSystem system,Users u) {
 		Session session = sf.getCurrentSession();
-		Query q=session.createQuery("from ClassSystem where name='"+system.getName()+"' and owner = "+system.getOwner().getId());
+		Query q=session.createQuery("from ClassSystem where name='"+system.getName()+"' and owner = "+u.getId());
 		if(q.list().size()!=0) {
 			//课程体系不允许重名
 			return false;
 		}
 		else
 		{
+			system.setOwner(u);
 			session.save(system);
+			List<ClassSystem> systems;
+			if(u.getClasssystem()==null) {
+				systems=new ArrayList<ClassSystem>();
+			}else {
+				systems=u.getClasssystem();
+			}
+			systems.add(system);
+			System.out.println(system.getSystemId());
+			u.setClasssystem(systems);
 			return true;
 		}
 	}

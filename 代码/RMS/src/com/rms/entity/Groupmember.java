@@ -1,11 +1,10 @@
 package com.rms.entity;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import org.hibernate.annotations.GenericGenerator;
 
 //小组成员
 import javax.persistence.Entity;
@@ -20,8 +19,7 @@ public class Groupmember {
 	private String time;//入组时间
 	private String role;//组内角色
 	@Id
-	@GeneratedValue(generator = "assigned")//表示主键自动生成
-	@GenericGenerator(name="assigned", strategy = "assigned")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}

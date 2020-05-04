@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.GenericGenerator;
 
 //小组
 import javax.persistence.Entity;
@@ -25,8 +25,7 @@ public class Group {
 	private List<Groupmember> members;
 	private List<Groupfile> files;
 	@Id
-	@GeneratedValue(generator = "assigned")//表示主键自动生成
-	@GenericGenerator(name="assigned", strategy = "assigned")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}

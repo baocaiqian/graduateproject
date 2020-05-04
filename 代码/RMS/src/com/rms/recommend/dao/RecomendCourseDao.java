@@ -31,8 +31,6 @@ public class RecomendCourseDao {
 		List<Users> alluser = ud.findUsersByMajor(u);
 		//获取同系老师id
 		if(!alluser.isEmpty()) {
-			
-		
 		String userids="(";
 		for(int i=0;i<alluser.size();i++) {
 			if(i==alluser.size()-1) {
@@ -49,6 +47,7 @@ public class RecomendCourseDao {
 		List<ClassSystem> systems = sys.list();
 		if(!systems.isEmpty()) {
 		//获取当前体系所包含课程名称
+			if(!system.getCourses().isEmpty()) {
 		String courses = "(";
 		for(int i=0;i<system.getCourses().size();i++) {
 			if(i==system.getCourses().size()-1) {
@@ -109,6 +108,7 @@ public class RecomendCourseDao {
 		recommendcourse.setFirstResult(0);
 		recommendcourse.setMaxResults(5);
 		return recommendcourse.list();
+		}
 		}
 		}
 		return null;

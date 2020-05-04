@@ -39,6 +39,7 @@ public class CourseController {
 		}
 		//获取课程推荐
 		List <String> recommendcourse= rcs.findcourse(u, system);
+		
 		session.setAttribute("recommendcourse",recommendcourse);
 		session.setAttribute("system", system);
 		return "class";

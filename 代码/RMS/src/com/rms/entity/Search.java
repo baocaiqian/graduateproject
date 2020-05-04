@@ -1,11 +1,11 @@
 package com.rms.entity;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.GenericGenerator;
 
 //查找表，记录搜索记录
 import javax.persistence.Entity;
@@ -20,8 +20,7 @@ public class Search {
 	private String type;//类型
 	private String time;//查找时间
 	@Id
-	@GeneratedValue(generator = "assigned")//表示主键自动生成
-	@GenericGenerator(name="assigned", strategy = "assigned")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
@@ -34,7 +33,7 @@ public class Search {
 		return searcher;
 	}
 	public void setSearcher(Users searcher) {
-		searcher = searcher;
+		this.searcher = searcher;
 	}
 	public String getTitle() {
 		return title;
