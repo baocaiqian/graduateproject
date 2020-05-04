@@ -37,6 +37,7 @@ public class ResourceController {
 		List<HotResearch> hotresearch = ss.getHotSearch();
 		List<String> intrestedsearch = rs.getApriori(u);
 		List<String> hotdown = rs.findhotdown();
+		
 		if(hotresearch.size()<=6) {
 			request.setAttribute("hotresearch", hotresearch);
 			request.setAttribute("intrestedsearch",intrestedsearch);
@@ -45,6 +46,7 @@ public class ResourceController {
 			request.setAttribute("hotresearch", hotresearch.subList(0,6));
 			request.setAttribute("intrestedsearch",intrestedsearch.subList(0, 6));
 		}
+		
 		request.setAttribute("hotdown", hotdown);
 		return "research";
 	}
@@ -94,6 +96,9 @@ public class ResourceController {
 		@RequestMapping(value="/share",method=RequestMethod.GET)
 		public String getShareresource(HttpSession session,HttpServletRequest request) {
 			List<Resources> share = rs.getsharer();
+			List<Resources> hotlook = rs.getlooktimesmax();
+			System.out.println("controller"+hotlook.size());
+			request.setAttribute("hotlook", hotlook);
 			request.setAttribute("share", share);
 			return "share";
 		}

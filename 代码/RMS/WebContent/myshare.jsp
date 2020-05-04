@@ -69,7 +69,7 @@ $("html",parent.document).find('.returnover').remove();
 			<img src="${ctx}/${resource.owner.icon}" style="width:40px;height:40px;"/>
 			</div>
 			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;"><span id="user" style="font-weight: bold;">${resource.owner.name }</span>
-			上传文件<span id="name" style="font-weight: bold;">${resource.name }</span>到<span id="mulu" style="font-weight: bold;">${resource.path } </span> on <span id="date">${resource.time }</span>
+			上传文件<span id="name" style="font-weight: bold;">${resource.name }</span>到<span id="mulu" style="font-weight: bold;">${resource.path } </span> 
 			</div>
 			</div>
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">

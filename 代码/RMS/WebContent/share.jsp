@@ -68,11 +68,11 @@ $("html",parent.document).find('.returnover').remove();
 			<img src="${ctx}/${resource.owner.icon}" style="width:40px;height:40px;"/>
 			</div>
 			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;"><span id="user" style="font-weight: bold;">${resource.owner.name }</span>
-			上传文件<span id="name" style="font-weight: bold;">${resource.name }</span>到<span id="mulu" style="font-weight: bold;">${resource.path } </span> on <span id="date">${resource.time }</span>
+			上传文件<span id="name" style="font-weight: bold;">${resource.name }</span>到<span id="mulu" style="font-weight: bold;">${resource.path } </span>
 			</div>
 			</div>
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
-				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;${resource.name }&nbsp;&nbsp; </span><span id="mulu" style="font-weight: bold;font-size:15px;">${resource.time }</span></a>
+				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;${resource.name }&nbsp;&nbsp; </span></a>
 				<button style="float:right;=background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%border:#fff);margin-top:7px;margin-right:5px;height:25px;width:40px;font-size: 15px;"><img src="${ctx}/statics/base/images/chakan.png"/></button>
 				<br/>
 				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/class.png" />&nbsp;&nbsp;${resource.course.name }
@@ -106,12 +106,9 @@ $("html",parent.document).find('.returnover').remove();
 		<div style="width:80%;margin-left:20px;margin-top:20px;">
 			<h1 style="font-size: 20px;color: #1e71b1;border-left:#1e71b1 solid 2px;">&nbsp;最热浏览</h1>
 			<ol style="margin-left:5px;">
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png);"><a href="#" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="login.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_ad.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_ad_add.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="app_lists.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="app.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
+			<c:forEach items="${hotlook}" var="look">
+				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png);"><a href="#" class="remen1"><span id="name">${look.name }</span><!--  &nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">${look.owner.name }</span></a></li>-->
+			</c:forEach>
 			</ol>
 		</div>
 		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

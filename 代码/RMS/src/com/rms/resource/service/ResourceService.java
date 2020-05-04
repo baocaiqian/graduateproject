@@ -47,4 +47,7 @@ public class ResourceService {
 	public List<String> getApriori(Users u) throws ParseException{
 		return am.getApriori(u);
 	}
+	public List<Resources> getlooktimesmax(){
+		return rd.getlooktimesmax();
+	}
 }

@@ -170,5 +170,13 @@ public class ResourceDao {
 		Query q = session.createQuery("from Resources r where r.authority=0 and r.owner="+u.getId()+" order by r.time desc");
 		return q.list();
 	}
-	
+	//发现浏览次数最多的资源
+	public List<Resources> getlooktimesmax(){
+		Session session = sf.getCurrentSession();
+		Query q = session.createQuery("from Resources r where r.authority=0 order by r.looktimes desc");
+		q.setFirstResult(0);
+		q.setMaxResults(6);
+		System.out.println("获取到的浏览次数最多的资源"+q.list().size());
+		return q.list();
+	}
 }
