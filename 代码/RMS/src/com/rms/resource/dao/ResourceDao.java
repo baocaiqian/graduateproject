@@ -47,33 +47,33 @@ public class ResourceDao {
 					courseids=courseids+courses.get(i).getCourseid()+',';
 				}
 			}
-			if(rc.getTitle()==null&&rc.getType()==null) {
+			if(rc.getTitle().isEmpty()&&rc.getType().isEmpty()) {
 				Query q = session.createQuery("from Resources where course in"+courseids);
 				return q.list();
 			}
-			else if(rc.getTitle()==null&&rc.getType()!=null){
-				Query q = session.createQuery("from Resources where course in"+courseids+"and type="+rc.getType());
+			else if(rc.getTitle().isEmpty()&&!rc.getType().isEmpty()){
+				Query q = session.createQuery("from Resources where course in"+courseids+"and type = '"+rc.getType()+"'");
 				return q.list();
 			}
-			else if(rc.getTitle()!=null&&rc.getType()==null) {
+			else if(!rc.getTitle().isEmpty()&&rc.getType().isEmpty()) {
 				Query q = session.createQuery("from Resources where course in"+courseids+"and name like '%"+rc.getTitle()+"%'");
 				return q.list();
 			}
 			else{
-					Query q = session.createQuery("from Resources where course in"+courseids+"and type="+rc.getType()+"and name like '%"+rc.getTitle()+"%'");
+					Query q = session.createQuery("from Resources where course in"+courseids+"and type= '"+rc.getType()+"'and name like '%"+rc.getTitle()+"%'");
 					return q.list();
 				}
 		}
 		else{
-			if(rc.getTitle()!=null&&rc.getType()!=null) {
-				Query q = session.createQuery("from Resources where type="+rc.getType()+"and name like '%"+rc.getTitle()+"%'");
+			if(!rc.getTitle().isEmpty()&&!rc.getType().isEmpty()) {
+				Query q = session.createQuery("from Resources where type='"+rc.getType()+"'and name like '%"+rc.getTitle()+"%'");
 				return q.list();
 			}
-			else if(rc.getTitle()==null&&rc.getType()!=null) {
+			else if(rc.getTitle().isEmpty()&&!rc.getType().isEmpty()) {
 				Query q = session.createQuery("from Resources where type="+rc.getType());
 				return q.list();
 			}
-			else if(rc.getTitle()!=null&&rc.getType()==null) {
+			else if(!rc.getTitle().isEmpty()&&rc.getType().isEmpty()) {
 					Query q = session.createQuery("from Resources where name like '%"+rc.getTitle()+"%'");
 					return q.list();
 				}
@@ -97,11 +97,11 @@ public class ResourceDao {
 		return  q.list();
 		}else if(rc.getCourse()!=null&&rc.getTitle()==null&&rc.getType()!=null){
 			Course c=cd.getCourseBynameAndUser(rc.getCourse(), u);
-			Query q = session.createQuery("from Resources where course = "+c.getCourseid()+"and type="+rc.getType());
+			Query q = session.createQuery("from Resources where course = "+c.getCourseid()+"and type='"+rc.getType()+"'");
 			return q.list();
 		}else if(rc.getCourse()!=null&&rc.getTitle()!=null&&rc.getType()!=null) {
 			Course c=cd.getCourseBynameAndUser(rc.getCourse(), u);
-			Query q = session.createQuery("from Resources where course = "+c.getCourseid()+"and type="+rc.getType()+"and name like '%"+rc.getTitle()+"%'");
+			Query q = session.createQuery("from Resources where course = "+c.getCourseid()+"and type='"+rc.getType()+"' and name like '%"+rc.getTitle()+"%'");
 			return q.list();
 		}
 		else if(rc.getCourse()!=null&&rc.getTitle()!=null&&rc.getType()==null) {
@@ -110,10 +110,10 @@ public class ResourceDao {
 			return q.list();
 		}
 		else if(rc.getCourse()==null&&rc.getTitle()!=null&&rc.getType()!=null) {
-			Query q = session.createQuery("from Resources where type="+rc.getType()+"and name like '%"+rc.getTitle()+"%'");
+			Query q = session.createQuery("from Resources where type='"+rc.getType()+"'and name like '%"+rc.getTitle()+"%'");
 			return q.list();
 		}else if(rc.getCourse()==null&&rc.getTitle()==null&&rc.getType()!=null) {
-			Query q = session.createQuery("from Resources where type="+rc.getType());
+			Query q = session.createQuery("from Resources where type='"+rc.getType()+"'");
 			return q.list();
 		}else if(rc.getCourse()==null&&rc.getTitle()!=null&&rc.getType()==null) {
 			Query q = session.createQuery("from Resources where name like '%"+rc.getTitle()+"%'");
@@ -130,4 +130,26 @@ public class ResourceDao {
 		Query q = session.createQuery("from Resources where course = "+c.getCourseid());
 		return q.list();
 	}
+	//通过热门词汇搜索
+	public List<Resources> getsearchResourcebyhot(Search rc,Users u){
+		Session session = sf.getCurrentSession();
+		rc.setSearcher(u);
+		String dateDir = new SimpleDateFormat("yyyyMMdd").format(new Date());
+		rc.setTime(dateDir);
+		session.save(rc);
+		Query q = session.createQuery("from Resources where name like '%"+rc.getTitle()+"%'");
+		return q.list();
+	}
+	//获取热门下载
+	public List<String> gethotdown(){
+		/*
+		from PsPatrolMission a order by a.createTime desc where rownum <= 10
+		*/
+		Session session = sf.getCurrentSession();
+		Query q = session.createQuery("select r.name from Resources r order by r.downtimes desc");
+		q.setFirstResult(0);
+		q.setMaxResults(6);
+		return q.list();
+	}
+	
 }

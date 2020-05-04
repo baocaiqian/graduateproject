@@ -95,7 +95,7 @@ function metreturn(url){
 						</p>
 						<div class="layer-btn">
 							<a href="${ctx }/course/getcourse?id=${system.systemId}">
-								<p>打开体系</p>
+								<p>${system.systemId}打开体系</p>
 							</a>
 						</div>
 					</div>

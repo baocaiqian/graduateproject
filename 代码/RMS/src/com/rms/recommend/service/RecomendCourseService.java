@@ -20,4 +20,5 @@ public class RecomendCourseService {
 	public List<String> findcourse(Users u,ClassSystem system){
 		return rcd.findcourse(u, system);
 	}
+	
 }

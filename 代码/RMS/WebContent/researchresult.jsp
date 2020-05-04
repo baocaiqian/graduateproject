@@ -1,23 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE html>
-<html lang="zh-CN">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <title>资源检索</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="${ctx}/statics/base/css/metinfo.css" />
-<link rel="stylesheet" type="text/css" href="${ctx}/statics/base/css/newstyle.css" />
-<script type="text/javascript">var basepath='${ctx}/statics/base/images';</script>
-<script type="text/javascript" src="${ctx}/statics/base/js/metvar.js"></script>
-<script type="text/javascript" src="${ctx}/statics/base/js/jQuery1.7.2.js"></script>
-<script type="text/javascript" src="${ctx}/statics/base/js/iframes.js"></script>
-<script type="text/javascript" src="${ctx}/statics/base/js/cookie.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx }/statics/base/css/metinfo.css" />
+<link rel="stylesheet" type="text/css" href="${ctx }/statics/base/css/newstyle.css" />
+<script type="text/javascript">var basepath='${ctx }/statics/base/images';</script>
+<script type="text/javascript" src="${ctx }/statics/base/js/metvar.js"></script>
+<script type="text/javascript" src="${ctx }/statics/base/js/jQuery1.7.2.js"></script>
+<script type="text/javascript" src="${ctx }/statics/base/js/iframes.js"></script>
+<script type="text/javascript" src="${ctx }/statics/base/js/cookie.js"></script>
 <script type="text/javascript">
 /*ajax执行*/
 var lang = 'cn';
-var metimgurl='${ctx}/statics/base/images/';
+var metimgurl='${ctx }/statics/base/images/';
 var depth='../';
 $(document).ready(function(){
 	ifreme_methei();
@@ -56,25 +56,25 @@ function metreturn(url){
 
 	</div>
 
-<div style=" width:80%;high:30px;border:1px;margin:auto;">
-	<form action="${ctx }/mysearched" method="post">
+<div style=" width:60%;high:30px;border:1px;margin:auto;">
+	<form action="${ctx }/searched" method="post">
 	<font size="3">资源类型：</font>
 	<select name="type">
+		<option value="word文档">word文档</option>
 		<option value="图片" >图片</option>
 		<option value="视频" >视频</option>
 		<option value="课程软件" >课程软件</option>
  		<option value="PPT" >PPT</option>
- 		<option value="文本文档" >文本文档</option>
 		<option value="练习demo" >练习demo</option>
-		<option value="音频" >音频</option>
-		<option value="其他" >其他</option>
+		<option value="课程作业" >课程作业</option>
+		<option value="消息通知" >消息通知</option>
 	</select>
 	<font size="3">所属学科：</font>
 	<select name="course">
 		<c:forEach var="name" items="${names }">
 		<option value="${name }">${name }</option>
 		</c:forEach>
-	</select>
+	</select >
 	<font size="3">关键字: </font><input name="title" style="width=20px;"  type="text"/>
 	<input type="submit" value="检索" style="width:40px;high:100%"/>
 	</form>
@@ -87,18 +87,19 @@ function metreturn(url){
               <tr>
 			    <td width="20" class="list" style="padding:0px; text-align:center;">选择</td>
 				<td width="20" class="list" style="padding:0px; text-align:center;">ID</td>
-                <td width="50" class="list" style="padding:0px; text-align:center;">所属学科</td>
                 <td width="100"class="list" >文件名称</td>
                 <td class="list" width="50" style="padding:0px; text-align:center;">文件类型</td>
+                <td width="50" class="list" style="padding:0px; text-align:center;">文件大小</td>
 				<td width="50" class="list" style="padding:0px; text-align:center;">查看</td>
 				<td width="50" class="list" style="padding:0px; text-align:center;">下载</td>
 				<td width="50" class="list" style="padding:0px; text-align:center;">浏览次数</td>
 				<td width="50" class="list" style="padding:0px; text-align:center;">下载次数</td>
-				<td width="50" class="list" style="padding:0px; text-align:center;">上传人</td>
+				<td width="50" class="list" style="padding:0px; text-align:center;">资源所有者</td>
 				<td width="50" class="list" style="padding:0px; text-align:center;">上传时间</td>
               </tr>
 			  <form name="myform" method="post" id="myform">
-			  <c:if test="${resources!=null}">
+            
+               <c:if test="${resources!=null}">
 			  <c:forEach var="resource" items="${ resources}">
                  <tr class="mouse click">
                 <td class="list-text"><input name="id[]" type='checkbox' id="id" value="${resource.id }" /></td>
@@ -120,19 +121,19 @@ function metreturn(url){
               </tr>
               </c:forEach>
               </c:if>
-   	  		 <tr> 
-			 <td class="all-submit" colspan="11" style="padding:5px 10px;">
+			 <td class="all-submit" colspan="12" style="padding:5px 10px;">
 			 <input type='submit' value='删除选定内容' class="submit li-submit" onclick="{if(confirm('确定删除吗?')){document.myform.action='index.php/admin/expand_ad/delsome?&page=1';return true;}return false;}"/>
 			 <input type='submit' value='下载全部内容' class="submit li-submit" onclick="{if(confirm('确定下载全部吗?')){document.myform.action='index.php/admin/expand_ad/delsome?&page=1';return true;}return false;}"/>
 			  <div class="li-submit">
 			  </div>
 			  <div class="li-submit">
 			 </div>
+
 			  </td>
           </tr>
 		  </form>
 		 <tr>
-		  <td class="page_list" colspan="12">
+		  <td class="page_list" colspan="11">
 		  <form method='post' action='index.php/admin/user/index?&page=1'>
 		  <style>.digg4 a{ border:1px solid #ccdbe4; padding:2px 8px 2px 8px; background:#fff; background-position:50%; margin:2px; color:#666; text-decoration:none;}
 			.digg4 a:hover { border:1px solid #999; color:#fff; background-color:#999;}

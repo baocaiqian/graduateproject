@@ -59,7 +59,7 @@ $("html",parent.document).find('.returnover').remove();
 <div style="width:86.5%;margin-left:3%;background:url(${ctx}/statics/base/images/bgs.png)">
 <br/><br/><br/><br/><br/><br/>
 	<div style="margin-left:8%;high:30px;border:1px;">
-	<form action="">
+	<form action="${ctx }/searched" method="post">
 	<font size="3">资源类型：</font>
 	<select name="type">
 		<option value="word文档">word文档</option>
@@ -92,12 +92,9 @@ $("html",parent.document).find('.returnover').remove();
 <div style="width:85.55%;margin-left:3.9%;margin-top:5px;">
 	<div style="display:inline;float:left;width:31%;margin-right:1%;">
 		<ol>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="#" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="login.html" class="remen1">类的继承</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_ad.html" class="remen1">多态</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_ad_add.html" class="remen1">数据挖掘</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="app_lists.html" class="remen1">多线程</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="app.html" class="remen1">数据分析</a></li>
+			<c:forEach items="${hotresearch }" var="hot">
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="${ctx }/hotsearched?hot=${hot.title}" class="remen1">${hot.title }</a></li>
+			</c:forEach>
 		</ol>
 	</div>
 	<div style="display:inline;float:left;width:31%;margin-right:1%;">
@@ -112,12 +109,9 @@ $("html",parent.document).find('.returnover').remove();
 	</div>
 		<div style="display:inline;float:left;width:31%;margin-right:1%;">
 	<ol>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="#3" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="content.html" class="remen1">类的继承</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_adcat_edit.html" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_book_add.html" class="remen1">类的继承</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_book.html" class="remen1">java基础语法</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_book_edit.html" class="remen1">类的继承</a></li>
+	<c:forEach items="${hotdown }" var="down">
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="${ctx }/hotsearched?hot=${down}" class="remen1">${down }</a></li>
+		</c:forEach>
 		</ol>
 	</div>
 </div>

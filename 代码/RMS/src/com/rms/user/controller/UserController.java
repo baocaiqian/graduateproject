@@ -28,6 +28,7 @@ public class UserController {
 	// 登录控制器
 	@RequestMapping(value = "/loginController", method = RequestMethod.POST)
 	public String getLoginPerson(Users users, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
+		
 		request.setCharacterEncoding("utf-8");
         String session_vcode=(String) request.getSession().getAttribute("text");    //从session中获取真正的验证码
         String form_vcode=request.getParameter("vcode"); //获取用户输入的验证码
@@ -37,7 +38,6 @@ public class UserController {
             request.setAttribute("msg", "验证码错误");   //如果错误就将错误信息发送给客户端
             
         }
-		
 		
 		
 		

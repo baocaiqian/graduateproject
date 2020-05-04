@@ -84,6 +84,14 @@ function metreturn(url){
 				</a>
 			</div>
 		</li>
+			<li class="contlist">
+			<div class="box">
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="音频"'>
+					<img src="${ctx}/statics/base/images/yinpin.png" width='64' height='64' />
+					<h2>音频</h2>
+				</a>
+			</div>
+		</li>
         		<li class="contlist">
 			<div class="box">
 				<a href='${ctx }/resource?courseid=${course.courseid}&type="图片"'>
@@ -108,22 +116,6 @@ function metreturn(url){
 				</a>
 			</div>
 		</li>
-				<li class="contlist">
-			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="课程作业"'>
-					<img src="${ctx}/statics/base/images/project.png" width='64' height='64' />
-					<h2>课程作业</h2>
-				</a>
-			</div>
-		</li>
-        		<li class="contlist">
-			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="消息通知"'>
-					<img src="${ctx}/statics/base/images/chat.png" width='64' height='64' />
-					<h2>消息通知</h2>
-				</a>
-			</div>
-		</li>
 		<li class="contlist">
 			<div class="box">
 				<a href='${ctx }/resource?courseid=${course.courseid}&type="练习demo"'>
@@ -132,7 +124,14 @@ function metreturn(url){
 				</a>
 			</div>
 		</li>
-
+			<li class="contlist">
+			<div class="box">
+				<a href='${ctx }/resource?courseid=${course.courseid}&type="其他"'>
+					<img src="${ctx}/statics/base/images/qita.png" width='64' height='64' />
+					<h2>其他</h2>
+				</a>
+			</div>
+		</li>
          
 </ul>
 </div>

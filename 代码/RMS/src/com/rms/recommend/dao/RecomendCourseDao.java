@@ -30,6 +30,9 @@ public class RecomendCourseDao {
 		//找到所有同系的老师
 		List<Users> alluser = ud.findUsersByMajor(u);
 		//获取同系老师id
+		if(!alluser.isEmpty()) {
+			
+		
 		String userids="(";
 		for(int i=0;i<alluser.size();i++) {
 			if(i==alluser.size()-1) {
@@ -40,6 +43,7 @@ public class RecomendCourseDao {
 			}
 		}
 		//在课程体系库中，找到属于当前用户同系老师并且名字与当前体系相同的体系。
+		System.out.println(system.getName());
 		Query sys= session.createQuery("from ClassSystem where owner in "+userids+" and name ='"+system.getName()
 				+"'");
 		List<ClassSystem> systems = sys.list();
@@ -72,13 +76,21 @@ public class RecomendCourseDao {
 		//按照课程重复率排序(冒泡排序)
 		for(int i = 0;i<repetitiverate.size()-1;i++) {
 			for(int j =0;j<repetitiverate.size()-i-1;j++) {
-				if(repetitiverate.get(j+1).getRate()>repetitiverate.get(i).getRate()) {
+				if(repetitiverate.get(j+1).getRate()>repetitiverate.get(j).getRate()) {
+					/*
+					System.out.println(repetitiverate.get(j).getSystemid()+":"+repetitiverate.get(j).getRate());
+					System.out.println(repetitiverate.get(j).getSystemid()+":"+repetitiverate.get(j).getRate());
+					*/
 					int t = repetitiverate.get(j+1).getRate();
 					int id = repetitiverate.get(j+1).getSystemid();
 					repetitiverate.get(j+1).setRate(repetitiverate.get(j).getRate());
 					repetitiverate.get(j+1).setSystemid(repetitiverate.get(j).getSystemid());
 					repetitiverate.get(j).setRate(t);
 					repetitiverate.get(j).setSystemid(id);
+					/*
+					System.out.println(repetitiverate.get(j).getSystemid()+":"+repetitiverate.get(j).getRate());
+					System.out.println(repetitiverate.get(j).getSystemid()+":"+repetitiverate.get(j).getRate());
+					*/
 				}
 			}
 		}
@@ -97,6 +109,7 @@ public class RecomendCourseDao {
 		recommendcourse.setFirstResult(0);
 		recommendcourse.setMaxResults(5);
 		return recommendcourse.list();
+		}
 		}
 		return null;
 	}

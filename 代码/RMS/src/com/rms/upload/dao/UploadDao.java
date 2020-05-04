@@ -125,17 +125,33 @@ public class UploadDao {
 		rs.setBrowselog(null);
 		rs.setCollectlog(null);
 		rs.setDownlog(null);
-        rs.setGroupfiles(null);	 
+        rs.setGroupfiles(null);	
         session.save(rs);
+        //session.merge(rs);
 	}
 	
 	//找到文件类型的函数
 	public String gettype(String postfix) {
-		if(postfix==".ppt") { //.pptx是什么后缀名
+		if(postfix=="ppt"|| postfix=="pptx") { //.pptx是什么后缀名
 			return "PPT";
 		}
-		else if(postfix==".mp3") {
-			return "vedio";
+		else if(postfix=="mp3") {
+			return "音频";
+		}
+		else if(postfix=="doc"||postfix=="docx"||postfix=="txt"||postfix=="pdf"){
+			return "文本文档";
+		}
+		else if(postfix=="mp4"){
+			return "视频";
+		}
+		else if(postfix=="exe"){
+			return "课程软件";
+		}
+		else if(postfix=="java"||postfix=="css"||postfix=="js"||postfix=="jsp"){
+			return "练习demo";
+		}
+		else if(postfix=="jpg"||postfix=="jpeg"||postfix=="png"||postfix=="gif"){
+			return "图片";
 		}
 		return "other";		
 	}
