@@ -155,7 +155,7 @@ public class ResourceDao {
 	//获取共享资源
 	public List<Resources> getshareresource(){
 		Session session = sf.getCurrentSession();
-		Query q = session.createQuery("from Resources r order by r.time desc");
+		Query q = session.createQuery("from Resources r where r.authority=0 order by r.time desc");
 		return q.list();
 	}
 	
