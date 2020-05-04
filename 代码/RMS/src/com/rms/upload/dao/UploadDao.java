@@ -89,7 +89,7 @@ public class UploadDao {
 		String fileName=file.getOriginalFilename();
 		//获取文件后缀名
 		String postfix = getPostfix(fileName);
-		//获取文件大小，没获取下来。再改改
+		//获取文件大小
 		Double size=(double) file.getSize();
         Double kbsize=size/1024.00;
 		//插入到数据库的时候，判断一下form的是否公开，因为resourse的公开属性是int类型，但是这获取下来是string，公开or不公开。判断一下再插入就行。
@@ -129,30 +129,27 @@ public class UploadDao {
         //session.merge(rs);
 	}
 	
-	//找到文件类型的函数
+//	//找到文件类型的函数
 	public String gettype(String postfix) {
-		if(postfix=="ppt"|| postfix=="pptx") { //.pptx是什么后缀名
+		if(postfix.equals("ppt") || postfix.equals("pptx")) { //.pptx是什么后缀名
 			return "PPT";
 		}
-		else if(postfix=="mp3") {
+		else if(postfix.equals("mp3")) {
 			return "音频";
 		}
-		else if(postfix=="doc"||postfix=="docx"||postfix=="txt"||postfix=="pdf"){
+		else if(postfix.equals("doc")||postfix.equals("docx")||postfix.equals("txt")||postfix.equals("pdf")){
 			return "文本文档";
 		}
-		else if(postfix=="mp4"){
+		else if(postfix.equals("mp4")){
 			return "视频";
 		}
-		else if(postfix=="exe"){
-			return "课程软件";
-		}
-		else if(postfix=="java"||postfix=="css"||postfix=="js"||postfix=="jsp"){
+		else if(postfix.equals("java")||postfix.equals("css")||postfix.equals("js")||postfix.equals("jsp")){
 			return "练习demo";
 		}
-		else if(postfix=="jpg"||postfix=="jpeg"||postfix=="png"||postfix=="gif"){
+		else if(postfix.equals("jpg")||postfix.equals("jpeg")||postfix.equals("png")||postfix.equals("gif")){
 			return "图片";
 		}
-		return "other";		
+		return "其他";		
 	}
 	
 		//获取后缀名

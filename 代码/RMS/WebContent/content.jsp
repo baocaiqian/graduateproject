@@ -68,8 +68,7 @@ function metreturn(url){
         
 				<li class="contlist">
 			<div class="box">
-			          <a href="${ctx }/contentdetail.jsp">
-				<!--  a href='${ctx }/resource?courseid=${course.courseid}&type="PPT"'-->
+			          <a href='${ctx }/getfiledetail?courseid=${course.courseid}&type=PPT'>
 					<img src="${ctx}/statics/base/images/PPT.png" width='64' height='64' />
 					<h2>PPT</h2>
 				</a>
@@ -78,7 +77,7 @@ function metreturn(url){
         		
         		<li class="contlist">
 			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="视频"'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type=视频'>
 					<img src="${ctx}/statics/base/images/video.png" width='64' height='64' />
 					<h2>视频</h2>
 				</a>
@@ -86,7 +85,7 @@ function metreturn(url){
 		</li>
 			<li class="contlist">
 			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="音频"'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type=音频'>
 					<img src="${ctx}/statics/base/images/yinpin.png" width='64' height='64' />
 					<h2>音频</h2>
 				</a>
@@ -94,7 +93,7 @@ function metreturn(url){
 		</li>
         		<li class="contlist">
 			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="图片"'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type=图片'>
 					<img src="${ctx}/statics/base/images/photo.png" width='64' height='64' />
 					<h2>图片</h2>
 				</a>
@@ -103,24 +102,25 @@ function metreturn(url){
 		
 				<li class="contlist">
 			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="文本文档"'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type=文本文档'>
 					<img src="${ctx}/statics/base/images/word.png" width='64' height='64' />
 					<h2>文本文档</h2>
 				</a>
 			</div>
 		</li>
+		
 		<li class="contlist">
-			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="压缩文件"'>
-					<img src="${ctx}/statics/base/images/zipfile.png" width='64' height='64' />
-					<h2>压缩文件</h2>
+		<div class="box">
+		  <a href='${ctx }/getfiledetail?courseid=${course.courseid}&type=练习demo'>
+					<img src="${ctx}/statics/base/images/demo.png" width='64' height='64' />
+					<h2>练习demo</h2>
 				</a>
 			</div>
 		</li>
 		
 		<li class="contlist">
 			<div class="box">
-				<a href='${ctx }/resource?courseid=${course.courseid}&type="其他"'>
+				<a href='${ctx }/resource?courseid=${course.courseid}&type=其他'>
 					<img src="${ctx}/statics/base/images/soft.png" width='64' height='64' />
 					<h2>其他</h2>
 				</a>
