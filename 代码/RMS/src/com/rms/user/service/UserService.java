@@ -27,11 +27,23 @@ public class UserService {
 		public Users UserCenter(String email) {
 			return this.userDao.findUserByEmail(email);
 		}
-		
+//	//根据邮箱查找用户密码。进入个人中心页
+//				public String UserPassCenter(String email) {
+//					return this.userDao.findPawordByEmail(email);
+//				}	
+//	
 	//注册
 		public boolean regist(Users user) throws SQLException {
             return this.userDao.saveUsers(user);
 		    
 
 		}
+		
+		
+		//注册
+				public void xiugaiUser(Users ubefore,Users uinput) throws SQLException {
+		            this.userDao.changeUsers(ubefore, uinput);
+				    
+
+				}
 }

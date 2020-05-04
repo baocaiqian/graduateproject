@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,28 +37,19 @@ $(document).ready(function(){
 
 
 
-
-<form method="post" name="myform" action="index.php/admin/admin/add">	
+<form action="${ctx }/changeController" method="post" name="myform" >	
 <div class="v52fmbx_tbmax">
 <div class="v52fmbx_tbbox">
 <div class="v52fmbx">
 		<div class="v52fmbx_dlbox">
 		<dl>
 			<dt>用户名：</dt>
-			<dd><input name="adminuser" type="text" class="text nonull"><span class="red"></span></dd>
+			<dd><input name="name" type="text" class="text nonull"><span class="red"></span></dd>
 		</dl>
 		</div>
 
 
 		
-	<div class="v52fmbx_dlbox">
-		<dl>
-			<dt>旧密码：</dt>
-			<dd>
-			<input name="adminpwd" type="password" class="text nonull" ><span id="pass1">
-			</dd>
-		</dl>
-		</div>
 
 
 
@@ -65,40 +58,20 @@ $(document).ready(function(){
 		<dl>
 			<dt>新密码：</dt>
 			<dd>
-			<input name="adminpwd" type="password" class="text nonull" ><span id="pass1">
+			<input name="password" type="password" class="text nonull" ><span id="pass1">
 			</dd>
 		</dl>
 		</div>
 
-
-		<div class="v52fmbx_dlbox">
-		<dl>
-			<dt>新密码：</dt>
-			<dd>
-			<input name="adminpwd" type="password" class="text nonull" ><span id="pass1">
-			</dd>
-		</dl>
-		</div>
 		
 
-	
-		
-		<div class="v52fmbx_dlbox">
-		<dl>
-			<dt>手　机：</dt>
-			<dd>
-			    <input name="mobile" type="text" class="text nonull" size="20" >
-			    <span class="tips">用于取回账号密码</span>
-			</dd>
-		</dl>
-		</div>
 
 		<div class="v52fmbx_dlbox">
 		<dl>
 			<dt>Email：</dt>
 			<dd>
 				<input name="email" type="text" class="text nonull" size="20" >
-				<span class="tips">用于取回账号密码</span>
+			
 			</dd>
 		</dl>
 		</div>

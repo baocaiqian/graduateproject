@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.rm.until.CipherUtil;
 import com.rms.classsystem.service.ClassSystemService;
 import com.rms.entity.ClassSystem;
 import com.rms.entity.Users;
@@ -24,6 +25,7 @@ public class UserController {
 	private Boolean issigned = false;
 	@Resource
 	private ClassSystemService css;
+	private CipherUtil cu;
 
 	// 登录控制器
 	@RequestMapping(value = "/loginController", method = RequestMethod.POST)
@@ -38,16 +40,14 @@ public class UserController {
             request.setAttribute("msg", "验证码错误");   //如果错误就将错误信息发送给客户端
             
         }
-		
-		
-		
-		
-		boolean iput = (users.getEmail().equals("用户名")) || (users.getEmail().contains(" "))
+	
+		boolean iput = (users.getEmail().equals("用户名")) || (users.getEmail().contains(" "))||(users.getPassword().equals("Password"))
 				|| (users.getPassword().contains(" "));
 		if (iput||(!trueVcode)) {
 			System.out.println("验证码错误啦啦啦啦啦");
 			return "mylogin";
 		} else {
+			users.setPassword(this.cu.generatePassword(users.getPassword()));
 			if (this.userService.getLoginPerson(users) == true) {
 				issigned = true;
 				Users user = this.userService.UserCenter(users.getEmail());
@@ -72,29 +72,16 @@ public class UserController {
 	//注册
 	@RequestMapping(value = "/RegisterController", method = RequestMethod.POST)
 	public String regist(Users user, HttpSession session, HttpServletRequest request) throws SQLException, UnsupportedEncodingException {
-		
-	
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		request.setCharacterEncoding("utf-8");
+        String session_vcode=(String) request.getSession().getAttribute("text");    //从session中获取真正的验证码
+        String form_vcode=request.getParameter("vcode"); //获取用户输入的验证码
+        boolean trueVcode=(session_vcode.equalsIgnoreCase(form_vcode));
+        if(!(session_vcode.equalsIgnoreCase(form_vcode))) //进行判断
+        {
+        	 request.setAttribute("msg11", "验证码错误");   //如果错误就将错误信息发送给客户端
+        	 System.out.println("注册的时候验证码错误");
+            
+        }
 		
 		
 		
@@ -120,11 +107,14 @@ public class UserController {
 		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 		System.out.println(uregister);
 		System.out.println(!isRegister);
-		if (iput || (!isRegister) ||(!emailStyle)) {
+		if (iput || (!isRegister) ||(!emailStyle)||(!trueVcode)) {
 
 			return "register";
 		} else {
-
+			System.out.println("执行到这里了");
+            user.setPassword(this.cu.generatePassword(user.getPassword()));
+            System.out.println("加密后的密码为————————————————————————");
+            System.out.println(user.getPassword());
 			boolean b = this.userService.regist(user);
 			if (b) {
 				session.setAttribute("user", user);
@@ -144,5 +134,31 @@ public class UserController {
 		
 		
 	}
+	
+	
+	@RequestMapping(value = "/changeController", method = RequestMethod.POST)
+	//修改密码
+	public void changeEmailPassword(Users user, HttpSession session, HttpServletRequest request) throws SQLException {
+		System.out.println("到修改的controller里面来了");
+		Users userbefore=(Users) session.getAttribute("user");
+		System.out.println(userbefore.getEmail());
+		
+		System.out.println("输入框中输入的用户的名字"+user.getName());
+		this.userService.xiugaiUser(userbefore, user);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
