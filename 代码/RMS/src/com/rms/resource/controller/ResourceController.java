@@ -63,7 +63,7 @@ public class ResourceController {
 		return "myresourceresearch";
 	}
 	//资源库检索
-		@RequestMapping(value="/searched",method=RequestMethod.GET)
+		@RequestMapping(value="/searched",method=RequestMethod.POST)
 		public String getallSearchresource(HttpSession session,HttpServletRequest request,Search s) {
 			Users u = (Users)session.getAttribute("user");
 			List<Resources> resources = rs.getallsearchResource(s, u);
