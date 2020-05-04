@@ -1,5 +1,6 @@
 package com.rms.resource.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -29,16 +30,20 @@ public class ResourceController {
 	private SearchService ss;
 	//进入资源检索页面，获取课程名称们
 	@RequestMapping(value="/research",method=RequestMethod.GET)
-	public String getallCourse(HttpSession session,HttpServletRequest request) {
+	public String getallCourse(HttpSession session,HttpServletRequest request) throws ParseException {
 		List<String> coursenames = cs.getallcoursename();
 		request.setAttribute("names", coursenames);
+		Users u = (Users)session.getAttribute("user");
 		List<HotResearch> hotresearch = ss.getHotSearch();
+		List<String> intrestedsearch = rs.getApriori(u);
 		List<String> hotdown = rs.findhotdown();
 		if(hotresearch.size()<=6) {
 			request.setAttribute("hotresearch", hotresearch);
+			request.setAttribute("intrestedsearch",intrestedsearch);
 		}else
 		{
 			request.setAttribute("hotresearch", hotresearch.subList(0,6));
+			request.setAttribute("intrestedsearch",intrestedsearch.subList(0, 6));
 		}
 		request.setAttribute("hotdown", hotdown);
 		return "research";
@@ -54,7 +59,7 @@ public class ResourceController {
 	}
 	//我的资源库检索
 	@RequestMapping(value="/mysearched",method=RequestMethod.POST)
-	public String getSearchresource(HttpSession session,HttpServletRequest request,Search s) {
+	public String getSearchresource(HttpSession session,HttpServletRequest request,Search s) throws ParseException {
 		Users u = (Users)session.getAttribute("user");
 		List<Resources> resources = rs.getsearchResource(s, u);
 		List<String> coursenames = cs.getmycoursename(u);
@@ -64,7 +69,7 @@ public class ResourceController {
 	}
 	//资源库检索
 		@RequestMapping(value="/searched",method=RequestMethod.POST)
-		public String getallSearchresource(HttpSession session,HttpServletRequest request,Search s) {
+		public String getallSearchresource(HttpSession session,HttpServletRequest request,Search s) throws ParseException {
 			Users u = (Users)session.getAttribute("user");
 			List<Resources> resources = rs.getallsearchResource(s, u);
 			List<String> coursenames = cs.getmycoursename(u);
@@ -75,7 +80,7 @@ public class ResourceController {
 		}
 		//热门词汇检索
 		@RequestMapping(value="/hotsearched",method=RequestMethod.GET)
-		public String getSearchresourcebyhot(HttpSession session,HttpServletRequest request,String hot) {
+		public String getSearchresourcebyhot(HttpSession session,HttpServletRequest request,String hot) throws ParseException {
 			Users u = (Users)session.getAttribute("user");
 			List<String> coursenames = cs.getmycoursename(u);
 			Search s = new Search();
@@ -91,5 +96,12 @@ public class ResourceController {
 			List<Resources> share = rs.getsharer();
 			request.setAttribute("share", share);
 			return "share";
+		}
+		@RequestMapping(value="/myshare",method=RequestMethod.GET)
+		public String getmyShareresource(HttpSession session,HttpServletRequest request) {
+			Users u = (Users)session.getAttribute("user");
+			List<Resources> share = rs.getmysharer(u);
+			request.setAttribute("share", share);
+			return "myshare";
 		}
 }

@@ -117,6 +117,7 @@ public class UploadDao {
 		rs.setTime(time);
 		rs.setDowntimes(0);
 		rs.setLooktimes(0);
+		rs.setCollecttimes(0);
 		rs.setPostfix(postfix);
 		rs.setOwner(user1);//找到User
 		//为空的值

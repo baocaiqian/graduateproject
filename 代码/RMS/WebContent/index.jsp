@@ -149,8 +149,8 @@ $(function() {
 			       					 
 			       			</ul>
                         <ul style="display:none;" id="ul_12">
-										<li ><a href="share.jsp" id="nav_12_54" target="main"  title="我的应用" hidefocus="true">资源库动态</a></li>
-			       					<li ><a href="myshare.jsp" id="nav_12_79" target="main"  title="应用市场" hidefocus="true">我的上传动态</a></li>
+										<li ><a href="${ctx }/share" id="nav_12_54" target="main"  hidefocus="true">资源库动态</a></li>
+			       					<li ><a href="${ctx }/myshare" id="nav_12_79" target="main" hidefocus="true">我的上传动态</a></li>
 			       			</ul>
                         <ul style="display:none;" id="ul_20">
 									<li ><a href="usercenter.jsp" id="nav_20_9" target="main"  title="栏目管理" hidefocus="true">个人资料</a></li>

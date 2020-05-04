@@ -74,12 +74,14 @@ $("html",parent.document).find('.returnover').remove();
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
 				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;${resource.name }&nbsp;&nbsp; </span><span id="mulu" style="font-weight: bold;font-size:15px;">${resource.time }</span></a>
 				<button style="float:right;=background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%border:#fff);margin-top:7px;margin-right:5px;height:25px;width:40px;font-size: 15px;"><img src="${ctx}/statics/base/images/chakan.png"/></button>
-				<p><span  id="tag" style="font-size:15px;color: #1a1a1a">&nbsp;&nbsp;&nbsp;&nbsp;大数据方向,Java基础</span></p>
-				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/class.png" />&nbsp;&nbsp;JAVA基础
+				<br/>
+				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/class.png" />&nbsp;&nbsp;${resource.course.name }
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/down.png" />&nbsp;&nbsp;${resource.downtimes }
+				<a href=""><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/down.png" /></a>&nbsp;&nbsp;${resource.downtimes }
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/kan.png" />&nbsp;&nbsp;${resource.looktimes }
+				<a href=""> <img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/kan.png" /></a>&nbsp;&nbsp;${resource.looktimes }
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href=""><img style="margin-bottom:-1px;" src="${ctx}/statics/base/images/shoucang.png" /></a>&nbsp;&nbsp;${resource.collecttimes }
 				<span style="float: right;">${resource.time }</span>
 				</div>
 			</div>

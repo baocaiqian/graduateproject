@@ -62,14 +62,13 @@ $("html",parent.document).find('.returnover').remove();
 	<form action="${ctx }/searched" method="post">
 	<font size="3">资源类型：</font>
 	<select name="type">
-		<option value="word文档">word文档</option>
+		<option value="文本文档">文本文档</option>
 		<option value="图片" >图片</option>
 		<option value="视频" >视频</option>
-		<option value="课程软件" >课程软件</option>
+		<option value="音频" >音频</option>
  		<option value="PPT" >PPT</option>
 		<option value="练习demo" >练习demo</option>
-		<option value="课程作业" >课程作业</option>
-		<option value="消息通知" >消息通知</option>
+		<option value="其他" >其他</option>
 	</select>
 	<font size="3">所属学科：</font>
 	<select name="course">
@@ -99,13 +98,11 @@ $("html",parent.document).find('.returnover').remove();
 	</div>
 	<div style="display:inline;float:left;width:31%;margin-right:1%;">
 	<ol>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="#1" class="remen1">数据分析</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="#2" class="remen1">数据挖掘</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_adcat.html" class="remen1">爬虫</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_adcad_add.html" class="remen1">Hadoop</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="app.html" class="remen1">spark</a></li>
-			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="case.html" class="remen1">协同过滤</a></li>
-		</ol>
+	
+	<c:forEach items="${intrestedsearch }" var="word">
+			<li style="font-size: 15px;color:#8a8a8a;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="#1" class="remen1">${word }</a></li>
+	</c:forEach>
+	</ol>
 	</div>
 		<div style="display:inline;float:left;width:31%;margin-right:1%;">
 	<ol>

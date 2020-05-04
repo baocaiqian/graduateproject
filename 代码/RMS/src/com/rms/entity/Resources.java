@@ -28,6 +28,7 @@ public class Resources {
 	private String time;//资源上传时间
 	private int downtimes;//下载次数
 	private int looktimes;//浏览次数
+	private int collecttimes;
 	private String postfix;//后缀名
 	private List<Down> downlog;//下载记录
 	//private Upload uploadlog;//所属上传记录
@@ -48,6 +49,12 @@ public class Resources {
 		this.size = size;
 	}
 	
+	public int getCollecttimes() {
+		return collecttimes;
+	}
+	public void setCollecttimes(int collecttimes) {
+		this.collecttimes = collecttimes;
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {

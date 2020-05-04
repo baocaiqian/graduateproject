@@ -63,15 +63,6 @@ $(document).ready(function(c) {
 			</li>
 			</ul>
 			
-		
-		
-		     
-		
-		    
-			
-			
-			
-			
 			<!-- <img src="VerificodeServlet" id="image"><a href="javascript:change()">看不清，换一张</a>    -->
 		      <!-- 请求Servlet获取验证码 -->
                      <!-- 点击即刷新 -->

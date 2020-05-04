@@ -1,5 +1,6 @@
 package com.rms.resource.dao;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,11 +32,13 @@ public class ResourceDao {
 		Query q = session.createQuery("from Resources where owner = "+u.getId());
 		return q.list();
 	}
-	public List<Resources> getallsearchResource(Search rc,Users u){
+	public List<Resources> getallsearchResource(Search rc,Users u) throws ParseException{
 		Session session = sf.getCurrentSession();
 		rc.setSearcher(u);
-		String dateDir = new SimpleDateFormat("yyyyMMdd").format(new Date());
-		rc.setTime(dateDir);
+		SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		String dateDir = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());
+		Date time = simpleFormat.parse(dateDir);
+		rc.setTime(time);
 		session.save(rc);
 		if(rc.getCourse()!=null) {
 			List<Course> courses=cd.getCourseByname(rc.getCourse());
@@ -85,11 +88,13 @@ public class ResourceDao {
 		}
 	}
 	//个人资源库的查找
-	public List<Resources> getsearchResource(Search rc,Users u){
+	public List<Resources> getsearchResource(Search rc,Users u) throws ParseException{
 		Session session = sf.getCurrentSession();
 		rc.setSearcher(u);
-		String dateDir = new SimpleDateFormat("yyyyMMdd").format(new Date());
-		rc.setTime(dateDir);
+		SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		String dateDir = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());
+		Date time = simpleFormat.parse(dateDir);
+		rc.setTime(time);
 		session.save(rc);
 		if(rc.getCourse()!=null&&rc.getTitle()==null&&rc.getType()==null) {
 			Course c=cd.getCourseBynameAndUser(rc.getCourse(), u);
@@ -131,11 +136,13 @@ public class ResourceDao {
 		return q.list();
 	}
 	//通过热门词汇搜索
-	public List<Resources> getsearchResourcebyhot(Search rc,Users u){
+	public List<Resources> getsearchResourcebyhot(Search rc,Users u) throws ParseException{
 		Session session = sf.getCurrentSession();
 		rc.setSearcher(u);
-		String dateDir = new SimpleDateFormat("yyyyMMdd").format(new Date());
-		rc.setTime(dateDir);
+		SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		String dateDir = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());
+		Date time = simpleFormat.parse(dateDir);
+		rc.setTime(time);
 		session.save(rc);
 		Query q = session.createQuery("from Resources where name like '%"+rc.getTitle()+"%'");
 		return q.list();
@@ -156,6 +163,11 @@ public class ResourceDao {
 	public List<Resources> getshareresource(){
 		Session session = sf.getCurrentSession();
 		Query q = session.createQuery("from Resources r where r.authority=0 order by r.time desc");
+		return q.list();
+	}
+	public List<Resources> getmyshareresource(Users u){
+		Session session = sf.getCurrentSession();
+		Query q = session.createQuery("from Resources r where r.authority=0 and r.owner="+u.getId()+" order by r.time desc");
 		return q.list();
 	}
 	

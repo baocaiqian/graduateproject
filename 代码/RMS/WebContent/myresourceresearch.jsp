@@ -60,13 +60,12 @@ function metreturn(url){
 	<form action="${ctx }/mysearched" method="post">
 	<font size="3">资源类型：</font>
 	<select name="type">
+		<option value="文本文档">文本文档</option>
 		<option value="图片" >图片</option>
 		<option value="视频" >视频</option>
-		<option value="课程软件" >课程软件</option>
- 		<option value="PPT" >PPT</option>
- 		<option value="文本文档" >文本文档</option>
-		<option value="练习demo" >练习demo</option>
 		<option value="音频" >音频</option>
+ 		<option value="PPT" >PPT</option>
+		<option value="练习demo" >练习demo</option>
 		<option value="其他" >其他</option>
 	</select>
 	<font size="3">所属学科：</font>

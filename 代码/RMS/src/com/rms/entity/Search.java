@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import java.util.Date;
 
 //查找表，记录搜索记录
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ public class Search {
 	private String title;//标题
 	private String course;//课程
 	private String type;//类型
-	private String time;//查找时间
+	private Date time;//查找时间
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
@@ -53,11 +54,12 @@ public class Search {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getTime() {
+	public Date getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
+	
 	
 }
