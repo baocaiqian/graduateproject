@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2020-05-04 13:36:39
+Date: 2020-05-05 07:50:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,7 +42,7 @@ CREATE TABLE `classsystem` (
   `owner` int(11) NOT NULL,
   `systemdescribe` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`systemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of classsystem
@@ -75,6 +75,9 @@ INSERT INTO `classsystem` VALUES ('25', 'R语言', '16', 'R是用于统计分析
 INSERT INTO `classsystem` VALUES ('26', 'Java', '13', 'java具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程');
 INSERT INTO `classsystem` VALUES ('27', 'c语言', '0', 'C语言是一门面向过程的、抽象化的通用程序设计语言，广泛应用于底层开发。');
 INSERT INTO `classsystem` VALUES ('28', 'Java', '0', 'java具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程');
+INSERT INTO `classsystem` VALUES ('39', '语言数学基础', '16', 'sfxc');
+INSERT INTO `classsystem` VALUES ('40', '数据分析报告的制作', '16', 'vhmn');
+INSERT INTO `classsystem` VALUES ('41', 'Java', '32', 'java具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程');
 
 -- ----------------------------
 -- Table structure for `collect`
@@ -105,7 +108,7 @@ CREATE TABLE `course` (
   `teacher` int(11) NOT NULL,
   `tag` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`courseid`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of course
@@ -239,15 +242,17 @@ CREATE TABLE `resources` (
   `downtimes` int(11) NOT NULL,
   `looktimes` int(11) NOT NULL,
   `postfix` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `collecttimes` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of resources
 -- ----------------------------
-INSERT INTO `resources` VALUES ('2', 'PPT', 'Hibernate框架.pptx', '14', '17', 'E://upload//16//Java//hibernate//Hibernate框架.pptx', '16', '0', '464117.00', '2020-05-03 20:41:02', '14', '13', 'pptx');
-INSERT INTO `resources` VALUES ('3', 'PPT', 'ch08_Hibernate高级配置.pptx', '14', '17', 'E://upload//16//Java//hibernate//ch08_Hibernate高级配置.pptx', '16', '0', '201292.00', '2020-05-03 20:44:12', '10', '11', 'pptx');
-INSERT INTO `resources` VALUES ('4', 'PPT', 'ch07-Hibernate检索.pptx', '14', '17', 'E://upload//16//Java//hibernate//ch07-Hibernate检索.pptx', '16', '0', '259359.00', '2020-05-03 20:45:10', '13', '12', 'pptx');
+INSERT INTO `resources` VALUES ('2', 'PPT', 'Hibernate框架.pptx', '14', '17', 'E://upload//16//Java//hibernate//Hibernate框架.pptx', '16', '0', '464117.00', '2020-05-03 20:41:02', '14', '13', 'pptx', '0');
+INSERT INTO `resources` VALUES ('3', 'PPT', 'ch08_Hibernate高级配置.pptx', '14', '17', 'E://upload//16//Java//hibernate//ch08_Hibernate高级配置.pptx', '16', '0', '201292.00', '2020-05-03 20:44:12', '10', '11', 'pptx', '0');
+INSERT INTO `resources` VALUES ('4', 'PPT', 'ch07-Hibernate检索.pptx', '14', '17', 'E://upload//16//Java//hibernate//ch07-Hibernate检索.pptx', '16', '0', '259359.00', '2020-05-03 20:45:10', '13', '12', 'pptx', '0');
+INSERT INTO `resources` VALUES ('5', 'PPT', '03 函数的区别及new和delete.pptx', '40', '21', 'E://upload//3//c语言//C语言进阶//03 函数的区别及new和delete.pptx', '3', '0', '227.85', '2020-05-04 23:21:14', '0', '0', 'pptx', '0');
 
 -- ----------------------------
 -- Table structure for `search`
@@ -255,30 +260,43 @@ INSERT INTO `resources` VALUES ('4', 'PPT', 'ch07-Hibernate检索.pptx', '14', '
 DROP TABLE IF EXISTS `search`;
 CREATE TABLE `search` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `searcher` int(11) DEFAULT NULL,
+  `searcher` int(11) NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `course` varchar(255) CHARACTER SET utf8 NOT NULL,
   `type` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `time` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of search
 -- ----------------------------
-INSERT INTO `search` VALUES ('1', '16', '', 'hibernate', 'PPT', '20200503');
-INSERT INTO `search` VALUES ('2', '16', '检索', 'hibernate', 'PPT', '20200503');
-INSERT INTO `search` VALUES ('3', '16', '一对一映射', 'hibernate', 'PPT', '20200503');
-INSERT INTO `search` VALUES ('4', '16', '一对一映射', 'hibernate', 'PPT', '20200504');
-INSERT INTO `search` VALUES ('5', '16', 'hibernate', 'hibernate', 'PPT', '20200504');
-INSERT INTO `search` VALUES ('6', '16', '映射', 'hibernate', 'PPT', '20200504');
-INSERT INTO `search` VALUES ('7', '16', '多对多', 'hibernate', 'PPT', '20200504');
-INSERT INTO `search` VALUES ('8', '16', 'hibernate', 'hibernate', 'PPT', '20200504');
-INSERT INTO `search` VALUES ('9', '16', 'hibernate', 'hibernate', 'PPT', '20200504');
-INSERT INTO `search` VALUES ('10', '16', '检索', 'java基础', 'PPT', '20200504');
-INSERT INTO `search` VALUES ('11', null, 'HBASE', 'Hadoop', '课程软件', '20200504');
-INSERT INTO `search` VALUES ('12', null, 'python', 'python自动办公', 'word文档', '20200504');
-INSERT INTO `search` VALUES ('13', null, '一对一映射', 'python自动办公', '图片', '20200504');
+INSERT INTO `search` VALUES ('1', '16', 'hibernate', 'hibernate', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('2', '16', '检索', 'hibernate', 'PPT', '2020-05-03 00:00:00');
+INSERT INTO `search` VALUES ('3', '16', '映射', 'hibernate', 'PPT', '2020-05-03 00:00:00');
+INSERT INTO `search` VALUES ('4', '16', '一对一映射', 'hibernate', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('5', '14', 'hibernate', 'hibernate', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('6', '16', '映射', 'hibernate', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('7', '16', '多对多', 'hibernate', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('8', '16', 'hibernate', 'hibernate', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('9', '14', 'hibernate', 'hibernate', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('10', '14', '检索', 'java基础', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('11', '14', 'HBASE', 'Hadoop', '课程软件', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('12', '16', 'python', 'python自动办公', 'word文档', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('13', '14', '一对一映射', 'python自动办公', '图片', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('14', '16', 'hibernate', 'django快速开发网站', 'word文档', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('15', '16', '多对多映射', 'hibernate', 'PPT', '2020-05-04 00:00:00');
+INSERT INTO `search` VALUES ('16', '16', 'GUI', 'pythonGUI编程', 'PPT', '2020-05-04 09:29:00');
+INSERT INTO `search` VALUES ('17', '3', '类', 'C语言进阶', 'PPT', '2020-05-04 09:31:00');
+INSERT INTO `search` VALUES ('18', '3', '一对一映射', 'C语言进阶', 'PPT', '2020-05-04 09:32:00');
+INSERT INTO `search` VALUES ('19', '3', '映射', 'python语言基础', 'word文档', '2020-05-04 09:32:00');
+INSERT INTO `search` VALUES ('20', '3', '高级配置', 'python语言基础', 'word文档', '2020-05-04 09:32:00');
+INSERT INTO `search` VALUES ('21', '3', '检索', 'python语言基础', '文本文档', '2020-05-04 09:32:00');
+INSERT INTO `search` VALUES ('22', '4', '高级配置', 'django快速开发网站', 'word文档', '2020-05-04 11:11:00');
+INSERT INTO `search` VALUES ('23', '4', 'hibernate', 'python基础', 'PPT', '2020-05-04 11:12:00');
+INSERT INTO `search` VALUES ('24', '4', '一对一映射', 'python基础', 'word文档', '2020-05-04 11:12:00');
+INSERT INTO `search` VALUES ('25', '4', '多对多', 'python基础', 'word文档', '2020-05-04 11:12:00');
+INSERT INTO `search` VALUES ('26', '4', '映射', 'python基础', 'word文档', '2020-05-04 11:12:00');
 
 -- ----------------------------
 -- Table structure for `upload`
@@ -313,7 +331,7 @@ CREATE TABLE `users` (
   `presondescribe` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
   `mainmajor` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of users
@@ -347,3 +365,4 @@ INSERT INTO `users` VALUES ('28', 'c语言', 'E10ADC3949BA59ABBE56E057F20F883E',
 INSERT INTO `users` VALUES ('29', '侯明辉', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'dhwis@163.com', '河北师范大学', '计算机科学与技术', null, null);
 INSERT INTO `users` VALUES ('30', 'sjdh', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'cz@163.com', '河北师范大学', '计算机科学与技术', null, null);
 INSERT INTO `users` VALUES ('31', 'sjdh', 'E10ADC3949BA59ABBE56E057F20F883E', 'statics/base/images/micon.png', 'cz@163.com', '河北师范大学', '计算机科学与技术', null, null);
+INSERT INTO `users` VALUES ('32', 'BCQ', '123456', null, '2952635041@qq.com', '河北师范大学', null, null, null);

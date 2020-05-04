@@ -36,6 +36,11 @@ public class ResourceController {
 		Users u = (Users)session.getAttribute("user");
 		List<HotResearch> hotresearch = ss.getHotSearch();
 		List<String> intrestedsearch = rs.getApriori(u);
+		if(intrestedsearch.isEmpty()) {
+			for(int i=0;i<hotresearch.size();i++) {
+				intrestedsearch.add(hotresearch.get(i).getTitle());
+			}
+		}
 		List<String> hotdown = rs.findhotdown();
 		
 		if(hotresearch.size()<=6) {
