@@ -63,7 +63,7 @@ function metreturn(url){
  	<li >
 		<div class="img"><a href="upfile.jsp" title="修改用户名和头像"><img src="statics/base/images/icon/yonghu.png"></a></div>
 		<div class="text">
-			<div class="name"><span class="title"><a href="reuser.jsp">修改用户名和头像</a></span></div>
+			<div class="name"><span class="title"><a href="video_add.jsp">修改用户名和头像</a></span></div>
 			<div class="info">
 				<dl>
 				<dd>更换用户名或头像</dd>
@@ -71,7 +71,7 @@ function metreturn(url){
 			</div>
 		</div>
 			<span class="downbox">
-				<a href="reuser.jsp"><img src='statics/base/images/open.png' /><p>打开</p></a>
+				<a href="video_add.jsp"><img src='statics/base/images/open.png' /><p>打开</p></a>
 			</span>
 	</li>
 
