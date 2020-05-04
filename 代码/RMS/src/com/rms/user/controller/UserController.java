@@ -112,7 +112,7 @@ public class UserController {
 			return "register";
 		} else {
 			System.out.println("执行到这里了");
-            user.setPassword(this.cu.generatePassword(user.getPassword()));
+//            user.setPassword(this.cu.generatePassword(user.getPassword()));
             System.out.println("加密后的密码为————————————————————————");
             System.out.println(user.getPassword());
 			boolean b = this.userService.regist(user);
@@ -142,7 +142,7 @@ public class UserController {
 		System.out.println("到修改的controller里面来了");
 		Users userbefore=(Users) session.getAttribute("user");
 		System.out.println(userbefore.getEmail());
-		
+		user.setPassword(this.cu.generatePassword(user.getPassword()));
 		System.out.println("输入框中输入的用户的名字"+user.getName());
 		this.userService.xiugaiUser(userbefore, user);
 		
