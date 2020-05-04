@@ -90,10 +90,8 @@ public class UploadDao {
 		//获取文件后缀名
 		String postfix = getPostfix(fileName);
 		//获取文件大小，没获取下来。再改改
-		//file.getSize()能够获取文件大小，但是单位是k好像是，底下这个转换有问题，所以变成了0
-		//Double size =(Double)(file.getSize()/Math.round(1048576.0*100)/100.0);
 		Double size=(double) file.getSize();
-		System.out.println("文件大小："+size);
+        Double kbsize=size/1024.00;
 		//插入到数据库的时候，判断一下form的是否公开，因为resourse的公开属性是int类型，但是这获取下来是string，公开or不公开。判断一下再插入就行。
 		 //根据文件后缀名找到文件类型
 		String filetype = gettype(postfix);
@@ -115,7 +113,7 @@ public class UploadDao {
 		rs.setClasssystem(classsystem1);
 		rs.setPath(filepath);
 		rs.setAuthority(ifopennum);
-		rs.setSize(size);
+		rs.setSize(kbsize);
 		rs.setTime(time);
 		rs.setDowntimes(0);
 		rs.setLooktimes(0);
