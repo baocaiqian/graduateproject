@@ -1,15 +1,19 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>文章管理</title>
+    <title>文件详情</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css?5202" />
     <link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
     <script type="text/javascript">var basepath = 'statics/base/images';</script>
-    <script type="text/javascript" src="statics/base/js/metvar.js"></script>
-    <script type="text/javascript" src="statics/base/js/jQuery1.7.2.js"></script>
-    <script type="text/javascript" src="statics/base/js/iframes.js"></script>
-    <script type="text/javascript" src="statics/base/js/cookie.js"></script>
+    <script type="text/javascript" src="${ctx}/statics/base/js/metvar.js"></script>
+    <script type="text/javascript" src="${ctx}statics/base/js/jQuery1.7.2.js"></script>
+    <script type="text/javascript" src="${ctx}statics/base/js/iframes.js"></script>
+    <script type="text/javascript" src="${ctx}statics/base/js/cookie.js"></script>
     <script type="text/javascript">
         /*ajax执行*/
         var lang = 'cn';
@@ -93,17 +97,21 @@
                         <input name="data[id][]" type="hidden" value="30" />
                     </td>
 
-                    <td class="list-text alignleft">&nbsp;&nbsp;<a href="show-30" title='预览：测试' target="_blank">JavaEE第二章</a></td>
-                    <td class="list-text"><a href="index.php/admin/news/doset?act=isnice&id=30&&page=1">PPT文件</a></td>
-                    <td class="list-text"><a href="index.php/admin/news/doset?act=istop&id=30&&page=1">937KB</a></td>
+                    <c:forEach items="${resourcelist }" var="rst">
+                    <td class="list-text alignleft">&nbsp;&nbsp;<a href="show-30" title='预览：测试' target="_blank">${rst.name }</a></td>
+                    <td class="list-text"><a href="index.php/admin/news/doset?act=isnice&id=30&&page=1">${rst.type }文件</a></td>
+                    <td class="list-text"><a href="index.php/admin/news/doset?act=istop&id=30&&page=1">${rst.size }KB</a></td>
                     <td class="list-text"><a href="index.php/admin/news/doset?act=nostatus&id=30&&page=1"><img src="statics/base/images/ok_1.gif" /></a></td>
-                    <td class="list-text color999">2019-11-27 15:40:25</td>
+                    <td class="list-text color999">${rst.time }</td>
                     <td class="list-text color999"><a href="#">软件学院组</a></td>
                     <td class="list-text">
                         <a href="news_edit.html">编辑</a>&nbsp;&nbsp;
                         <a href="news_edit.html">下载</a>&nbsp;&nbsp;
                         <a href="javascript:;" onclick="{if(confirm('确定删除吗?')){window.location='index.php/admin/news/del?id=30&page=1';return true;}return false;}">删除</a>
                     </td>
+                    </c:forEach>
+                    
+                    
                 </tr>
 
                 <tr>
