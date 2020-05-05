@@ -112,7 +112,7 @@ public class UserController {
 			return "register";
 		} else {
 			System.out.println("执行到这里了");
-//            user.setPassword(this.cu.generatePassword(user.getPassword()));
+            user.setPassword(this.cu.generatePassword(user.getPassword()));
             System.out.println("加密后的密码为————————————————————————");
             System.out.println(user.getPassword());
 			boolean b = this.userService.regist(user);
@@ -145,6 +145,25 @@ public class UserController {
 		user.setPassword(this.cu.generatePassword(user.getPassword()));
 		System.out.println("输入框中输入的用户的名字"+user.getName());
 		this.userService.xiugaiUser(userbefore, user);
+		
+	}
+	
+	
+	
+	
+	@RequestMapping(value = "/changeInfoController", method = RequestMethod.POST)
+	//修改个人信息
+	public void changePersoninfo( Users user,HttpSession session, HttpServletRequest request) throws SQLException {
+//		String school=request.getParameter("school");
+//		String major=request.getParameter("major");
+//		String mainmajor=request.getParameter("mainmajor");
+//		String presondescribe=request.getParameter("presondescribe");
+		System.out.println("到修改个人信息的controller里面来了");
+		Users userbefore=(Users) session.getAttribute("user");
+		System.out.println(userbefore.getEmail());
+//		System.out.println(school+major);
+		
+        this.userService.xiugaiUserInfo(userbefore, user);
 		
 	}
 	
