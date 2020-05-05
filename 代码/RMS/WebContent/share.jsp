@@ -77,11 +77,11 @@ $("html",parent.document).find('.returnover').remove();
 				<br/>
 				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/class.png" />&nbsp;&nbsp;${resource.course.name }
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href=""><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/down.png" /></a>&nbsp;&nbsp;${resource.downtimes }
+				<a href="${ctx }/filedownload?filepath=${resource.path }&filename=${resource.name }&resourceid=${resource.id }" rel="external nofollow"><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/down.png" /></a>&nbsp;&nbsp;${resource.downtimes }
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href=""> <img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/kan.png" /></a>&nbsp;&nbsp;${resource.looktimes }
+				<a href="${ctx }/lookController?resourceid=${resource.id }"> <img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/kan.png" /></a>&nbsp;&nbsp;${resource.looktimes }
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href=""><img style="margin-bottom:-1px;" src="${ctx}/statics/base/images/shoucang.png" /></a>&nbsp;&nbsp;${resource.collecttimes }
+				<a href="${ctx }/collectController?resourceid=${resource.id }"><img style="margin-bottom:-1px;" src="${ctx}/statics/base/images/shoucang.png" /></a>&nbsp;&nbsp;${resource.collecttimes }
 				<span style="float: right;">${resource.time }</span>
 				</div>
 			</div>

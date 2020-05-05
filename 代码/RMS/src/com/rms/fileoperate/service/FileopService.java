@@ -34,6 +34,14 @@ public class FileopService {
 	public void insertDownfir(int resourcesid,Users user) {
 		fdo.insertDown(resourcesid,user);
 	}
+	public void insertCollectfir(int resourceid,Users user) {
+		fdo.insertCollect(resourceid,user);
+	}
+	
+	public void insertBrowsefer(int resourceid,Users user) {
+		fdo.insertBrowse(resourceid,user);
+	}
+	
 	
 	
 

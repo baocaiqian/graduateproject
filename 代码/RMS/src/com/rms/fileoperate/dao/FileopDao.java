@@ -16,6 +16,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.rms.entity.Browse;
+import com.rms.entity.Collect;
 import com.rms.entity.Down;
 import com.rms.entity.Resources;
 import com.rms.entity.Users;
@@ -68,4 +70,42 @@ public class FileopDao {
 		Query q=session.createQuery("update Resources set downtimes=downtimes+1 where id="+resourcesid);
 		q.executeUpdate();	
 	}
+	
+	//实现文件收藏功能，并且将resource表中的收藏次数进行更改
+	public void insertCollect(int resourceid,Users user) {
+		Session session = this.sf.getCurrentSession();
+		//根据resourceid找到resources
+		Resources res=(Resources) session.createQuery("from Resources where id="+resourceid).uniqueResult();	
+		Collect collect = new Collect();
+		collect.setCollecter(user);
+		collect.setResource(res);
+		session.save(collect);
+		//更改Resources表
+		Query q=session.createQuery("update Resources set collecttimes=collecttimes+1 where id="+resourceid);
+		q.executeUpdate();
+	}
+	
+	//将预览次数插入预览表
+	public void insertBrowse(int resourceid,Users user) {
+		Session session = this.sf.getCurrentSession();
+		//根据resourceid找到resources
+		Resources res=(Resources) session.createQuery("from Resources where id="+resourceid).uniqueResult();
+		//获取当前系统时间
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		String time = df.format(new Date());
+		Browse browse=new Browse();
+		browse.setTime(time);
+		browse.setLooker(user);
+		browse.setResource(res);
+		session.save(browse);
+		//更改resources表
+		Query q=session.createQuery("update Resources set looktimes=looktimes+1 where id="+resourceid);
+		q.executeUpdate();
+		
+	}
+	
+	
+	
+	
+	
 }

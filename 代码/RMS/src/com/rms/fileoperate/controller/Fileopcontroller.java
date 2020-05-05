@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.rms.entity.Resources;
 import com.rms.entity.Users;
 import com.rms.fileoperate.service.FileopService;
+import com.rms.resource.service.ResourceService;
 
 
 @Controller
@@ -31,6 +32,9 @@ public class Fileopcontroller {
 	
 	@Resource
 	private FileopService fileopservice;
+	
+	@Resource
+	private ResourceService rs;
 	
 	//文件查询控制器
 	@RequestMapping(value="getfiledetail",method=RequestMethod.GET)
@@ -93,7 +97,7 @@ public class Fileopcontroller {
 		Object obj=session.getAttribute("user");
 		Users myuser=(Users)obj;
 		fileopservice.insertDownfir(resourceid, myuser);
-		
+		//实现文件下载
 		File file=new File(filepath);
 		HttpHeaders headers=new HttpHeaders();		//防止文件名乱码
 		String downloadFileName;
@@ -113,10 +117,38 @@ public class Fileopcontroller {
 	}
 	
 	//文件预览控制器
+	@RequestMapping(value="/lookController",method=RequestMethod.GET)
+	public String lookController(HttpSession session,HttpServletRequest request,@RequestParam("resourceid") int resourceid) {
+		Object obj=session.getAttribute("user");
+		Users myuser=(Users)obj;	
+	    fileopservice.insertBrowsefer(resourceid,myuser);
+	    //页面资源重新获取
+	    List<Resources> share = rs.getsharer();
+		List<Resources> hotlook = rs.getlooktimesmax();
+		System.out.println("controller"+hotlook.size());
+		request.setAttribute("hotlook", hotlook);
+		request.setAttribute("share", share);  
+		return "share";
+	}
 	
 	
 	
 	
+	
+	//文件收藏控制
+	@RequestMapping(value="/collectController",method=RequestMethod.GET)
+	public String collectcontroller(HttpSession session,HttpServletRequest request,@RequestParam("resourceid") int resourceid) {
+		Object obj=session.getAttribute("user");
+		Users myuser=(Users)obj;
+	    fileopservice.insertCollectfir(resourceid,myuser);
+	    //页面资源重新获取
+	    List<Resources> share = rs.getsharer();
+		List<Resources> hotlook = rs.getlooktimesmax();
+		System.out.println("controller"+hotlook.size());
+		request.setAttribute("hotlook", hotlook);
+		request.setAttribute("share", share);  
+		return "share";
+	}
 	
 	
 
