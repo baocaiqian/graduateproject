@@ -1,11 +1,21 @@
 package com.rms.fileoperate.controller;
 
+import java.io.File;
+import java.io.IOException;
+
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -70,18 +80,33 @@ public class Fileopcontroller {
 		request.setAttribute("resourcelist", resourceslist);
 		//将courseid与type再存入request中，便于查询
 		request.setAttribute("courseid", courseid);
-		request.setAttribute("filetype", filetype);
-		
-		
+		request.setAttribute("filetype", filetype);	
 		return "contentdetail";
 	}
 	
-	
-	
 	//文件下载控制器
-	
+	@RequestMapping(value="filedownload",method=RequestMethod.GET)
+	public ResponseEntity<byte[]> filedownload(HttpSession session,HttpServletResponse response,@RequestParam("filepath") String filepath,@RequestParam("filename") String filename) throws IOException{
+		File file=new File(filepath);
+		HttpHeaders headers=new HttpHeaders();		//防止文件名乱码
+		String downloadFileName;
+		try {
+			downloadFileName = new String(filename.getBytes("UTF-8"),"iso-8859-1");
+			//让电脑显示apach下载方式
+			headers.setContentDispositionFormData("attachment", downloadFileName);
+			//设置传输利用二进制传输
+			headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+			//返回一个数据字节流，就是一个文件
+			return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),headers,HttpStatus.CREATED);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  //此处的filename即为文件名
+		return null;
+	}
 	
 	//文件预览控制器
+	
 	
 	
 	

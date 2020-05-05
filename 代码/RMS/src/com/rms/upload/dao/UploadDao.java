@@ -39,7 +39,6 @@ public class UploadDao {
 				String postfix = getPostfix(fileName);
 				//根据文件后缀名找到文件类型
 				String filetype = gettype(postfix);
-				
 				//创建文件实例
 				File filePath=new File(path+filetype);
 				if(!filePath.exists()) {

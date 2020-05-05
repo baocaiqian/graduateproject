@@ -1,6 +1,10 @@
 package com.rms.fileoperate.dao;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -42,6 +46,7 @@ public class FileopDao {
 		Query q=session.createQuery("delete from Resources where id="+resid);
 		q.executeUpdate();
 	}
+	
 	
 	
 	
