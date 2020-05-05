@@ -1,22 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="statics/base/css/metinfo.css" />
-<link rel="stylesheet" type="text/css" href="statics/base/css/newstyle.css" />
-<link rel="stylesheet" type="text/css" href="statics/base/css/mycss.css" />
-<script type="text/javascript" src="statics/base/js/myjs.js"></script>
-<script type="text/javascript">var basepath='statics/base/images';</script>
-<script type="text/javascript" src="statics/base/js/metvar.js"></script>
-<script type="text/javascript" src="statics/base/js/jQuery1.7.2.js"></script>
-<script type="text/javascript" src="statics/base/js/iframes.js"></script>
-<script type="text/javascript" src="statics/base/js/cookie.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/base/css/metinfo.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/base/css/newstyle.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/statics/base/css/mycss.css" />
+<script type="text/javascript" src="${ctx}/statics/base/js/myjs.js"></script>
+<script type="text/javascript">var basepath='${ctx}/statics/base/images';</script>
+<script type="text/javascript" src="${ctx}/statics/base/js/metvar.js"></script>
+<script type="text/javascript" src="${ctx}/statics/base/js/jQuery1.7.2.js"></script>
+<script type="text/javascript" src="${ctx}/statics/base/js/iframes.js"></script>
+<script type="text/javascript" src="${ctx}/statics/base/js/cookie.js"></script>
 <script type="text/javascript">
 /*ajax执行*/
 var lang = 'cn';
-var metimgurl='statics/base/images/';
+var metimgurl='${ctx}/statics/base/images/';
 var depth='../';
 $(document).ready(function(){
 	ifreme_methei();
@@ -59,127 +61,34 @@ $("html",parent.document).find('.returnover').remove();
 	<!-- 动态块 -->
 	<div style="width:65%;margin-left:30px;margin-top:20px;display:inline;float:left">
 		<!-- 一个动态 -->
+		<c:forEach items="${share }" var="resource">
 		<div style="width:95%;margin:20px;border-top:#d3d3d3 solid 1px;padding:10px;">
 			<!-- 个人信息 -->
 			<div>
 			<div style="display:inline;float:left;">
-			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
+			<img src="${ctx}/${resource.owner.icon}" style="width:40px;height:40px;"/>
 			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
-			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
-			<button class="deleteshare" style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
+			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;"><span id="user" style="font-weight: bold;">${resource.owner.name }</span>
+			上传文件<span id="name" style="font-weight: bold;">${resource.name }</span>到<span id="mulu" style="font-weight: bold;">${resource.path } </span> 
 			</div>
 			</div>
 			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
-				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;&nbsp;&nbsp;Java的基础语法.pptx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span id="mulu" style="font-weight: bold;font-size:15px;"> work/course_java </span></a>
-				<button style="float:right;=background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%border:#fff);margin-top:7px;margin-right:5px;height:25px;width:40px;font-size: 15px;"><img src="statics/base/images/chakan.png"/></button>
-				<p><span  id="tag" style="font-size:15px;color: #1a1a1a">&nbsp;&nbsp;&nbsp;&nbsp;大数据方向,Java基础</span></p>
-				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="statics/base/images/class.png" />&nbsp;&nbsp;JAVA基础
+				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;${resource.name }&nbsp;&nbsp; </span><span id="mulu" style="font-weight: bold;font-size:15px;">${resource.time }</span></a>
+				<button style="float:right;=background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%border:#fff);margin-top:7px;margin-right:5px;height:25px;width:40px;font-size: 15px;"><img src="${ctx}/statics/base/images/chakan.png"/></button>
+				<br/>
+				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/class.png" />&nbsp;&nbsp;${resource.course.name }
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/down.png" />&nbsp;&nbsp;25
+				<a href=""><img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/down.png" /></a>&nbsp;&nbsp;${resource.downtimes }
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/kan.png" />&nbsp;&nbsp;25
-				<span style="float: right;">2020/2/10</span>
+				<a href=""> <img style="margin-bottom:-5px;" src="${ctx}/statics/base/images/kan.png" /> </a>&nbsp;&nbsp;${resource.looktimes }
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href=""><img style="margin-bottom:-1px;" src="${ctx}/statics/base/images/shoucang.png" /></a>&nbsp;&nbsp;${resource.collecttimes }
+				<span style="float: right;">${resource.time }</span>
 				</div>
 			</div>
 		</div>
+		</c:forEach>
 		<!-- 一个动态结束 -->
-		<div style="width:95%;margin:20px;border-top:#d3d3d3 solid 1px;padding:10px;">
-			<!-- 个人信息 -->
-			<div>
-			<div style="display:inline;float:left;">
-			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
-			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
-			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
-			<button style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
-			</div>
-			</div>
-			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
-				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;&nbsp;&nbsp;Java的基础语法.pptx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span id="mulu" style="font-weight: bold;font-size:15px;"> work/course_java </span></a>
-				<button style="float:right;=background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%border:#fff);margin-top:7px;margin-right:5px;height:25px;width:40px;font-size: 15px;"><img src="statics/base/images/chakan.png"/></button>
-				<p><span  id="tag" style="font-size:15px;color: #1a1a1a">&nbsp;&nbsp;&nbsp;&nbsp;大数据方向,Java基础</span></p>
-				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="statics/base/images/class.png" />&nbsp;&nbsp;JAVA基础
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/down.png" />&nbsp;&nbsp;25
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/kan.png" />&nbsp;&nbsp;25
-				<span style="float: right;">2020/2/10</span>
-				</div>
-			</div>
-		</div>
-		<div style="width:95%;margin:20px;border-top:#d3d3d3 solid 1px;padding:10px;">
-			<!-- 个人信息 -->
-			<div>
-			<div style="display:inline;float:left;">
-			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
-			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
-			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
-			<button style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
-			</div>
-			</div>
-			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
-				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;&nbsp;&nbsp;Java的基础语法.pptx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="mulu" style="font-weight: bold;font-size:15px;"> work/course_java </span></a>
-				<button style="float:right;=background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%border:#fff);margin-top:7px;margin-right:5px;height:25px;width:40px;font-size: 15px;"><img src="statics/base/images/chakan.png"/></button>
-				<p><span  id="tag" style="font-size:15px;color: #1a1a1a">&nbsp;&nbsp;&nbsp;&nbsp;大数据方向,Java基础</span></p>
-				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="statics/base/images/class.png" />&nbsp;&nbsp;JAVA基础
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/down.png" />&nbsp;&nbsp;25
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/kan.png" />&nbsp;&nbsp;25
-				<span style="float: right;">2020/2/10</span>
-				</div>
-			</div>
-		</div>
-		<div style="width:95%;margin:20px;border-top:#d3d3d3 solid 1px;padding:10px;">
-			<!-- 个人信息 -->
-			<div>
-			<div style="display:inline;float:left;">
-			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
-			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
-			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
-			<button style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
-			</div>
-			</div>
-			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
-				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;&nbsp;&nbsp;Java的基础语法.pptx &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="mulu" style="font-weight: bold;font-size:15px;"> work/course_java </span></a>
-				<button style="float:right;=background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%border:#fff);margin-top:7px;margin-right:5px;height:25px;width:40px;font-size: 15px;"><img src="statics/base/images/chakan.png"/></button>
-				<p><span  id="tag" style="font-size:15px;color: #1a1a1a">&nbsp;&nbsp;&nbsp;&nbsp;大数据方向,Java基础</span></p>
-				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="statics/base/images/class.png" />&nbsp;&nbsp;JAVA基础
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/down.png" />&nbsp;&nbsp;25
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/kan.png" />&nbsp;&nbsp;25
-				<span style="float: right;">2020/2/10</span>
-				</div>
-			</div>
-		</div>
-		<div style="width:95%;margin:20px;border-top:#d3d3d3 solid 1px;padding:10px;">
-			<!-- 个人信息 -->
-			<div>
-			<div style="display:inline;float:left;">
-			<img src="statics/base/images/touxiang.jpg" style="width:40px;height:40px;"/>
-			</div>
-			<div style="display:inline;float:left;margin-left:2.5%;margin-top:7px;width: 90%;"><span id="user" style="font-weight: bold;">baocaiqian</span>
-			上传文件<span id="name" style="font-weight: bold;">Java的基础语法.pptx</span>到<span id="mulu" style="font-weight: bold;"> work/course_java </span> on <span id="date">2020/2/10</span>
-			<button id="deleteshare" style="clear:both;float:right;border:#fff;margin-top: 5px;" title="删除共享"><img alt="删除" src="statics/base/images/delete.png"></button>
-			</div>
-			</div>
-			<div style="width:90%;margin-left:7.5%;margin-top:15px;border:#d3d3d3 solid 1px;background:#fff;clear: both;">
-				<a class="name"><span id="name" style="font-weight: bold;font-size:15px;">&nbsp;&nbsp;&nbsp;&nbsp;Java的基础语法.pptx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="mulu" style="font-weight: bold;font-size:15px;"> work/course_java </span></a>
-				<button style="float:right;=background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%border:#fff);margin-top:7px;margin-right:5px;height:25px;width:40px;font-size: 15px;"><img src="statics/base/images/chakan.png"/></button>
-				<p><span  id="tag" style="font-size:15px;color: #1a1a1a">&nbsp;&nbsp;&nbsp;&nbsp;大数据方向,Java基础</span></p>
-				<div style="margin-left: 12px;margin-top: 12px;font-size: 15px; padding-right:10px;"><img style="margin-bottom:-5px;" src="statics/base/images/class.png" />&nbsp;&nbsp;JAVA基础
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/down.png" />&nbsp;&nbsp;25
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img style="margin-bottom:-5px;" src="statics/base/images/kan.png" />&nbsp;&nbsp;25
-				<span style="float: right;">2020/2/10</span>
-				</div>
-			</div>
-		</div>
 	</div>
 	<!-- 左侧推荐 -->
 	<div style="width:25%;margin-left:20px;border-left:#d3d3d3 solid 1px;margin-top:40px;display:inline;float:left">
