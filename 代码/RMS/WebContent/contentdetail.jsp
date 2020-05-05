@@ -61,21 +61,15 @@
                 <tr>
                     <td colspan="8" class="centle" style=" height:20px; line-height:30px; font-weight:normal; padding-left:10px;">
                         <div style="float:left;">
-                            <a href="news_add.html">+添加</a>
+                            <a href="${ctx }/combobox">+添加</a>
                             <span style="font-weight:normal; color:#999; padding-left:10px;">排序数值越大越靠前</span>
                         </div>
                         <div class="formright">
-                            <form method="post" name="search" action="index.php/admin/news/index" target="_self">
-
-                                <select name="new" id="new" onchange="changes($(this));">
-                                    <option value="index.php/admin/news/index">JavaEE</option>
-                                    <option value="index.php/admin/news/index?cid=45">艺术品展示</option>
-                                    <option value="index.php/admin/news/index?cid=55">企业形象网站</option>
-                                    <option value="index.php/admin/news/index?cid=74">品牌网站设计</option>
-                                    <option value="index.php/admin/news/index?cid=96">互动专题设计</option>
-                                </select>
-
-                                <input name="keyword" type="text" class="text100" value="" />
+                            <!-- 文件搜索 -->
+                            <form method="post" name="search" action="${ctx }/fileserarch" target="_self">
+                                <input type="hidden" name="courseid" value="${courseid }"></input> <!-- 将课程参数再次传入 -->
+                                <input type="hidden" name="filetype" value="${filetype }"></input>
+                                <input name="keyword" type="text" class="text100" placeholder="请输入搜索词" value="" />
                                 <input type="submit" name="searchsubmit" value="搜索" class="bnt_pinyin" />
                             </form>
                         </div>
@@ -91,15 +85,15 @@
                     <td width="70" style="padding:0px; text-align:center;" class="list">分享小组</td>
                     <td width="70" class="list" style="padding:0px; text-align:center;">操作</td>
                 </tr>
+                
+                <c:forEach items="${resourcelist }" var="rst">
                 <tr class="mouse click">
                     <td class="list-text">
                         <input name='id[]' type='checkbox' id="id" value='30' />
                         <input name="data[id][]" type="hidden" value="30" />
                     </td>
-
-                    <c:forEach items="${resourcelist }" var="rst">
-                    <td class="list-text alignleft">&nbsp;&nbsp;<a href="show-30" title='预览：测试' target="_blank">${rst.name }</a></td>
-                    <td class="list-text"><a href="index.php/admin/news/doset?act=isnice&id=30&&page=1">${rst.type }文件</a></td>
+               <td class="list-text alignleft">&nbsp;&nbsp;<a href="show-30" title='预览：测试' target="_blank">${rst.name }</a></td>
+                    <td class="list-text"><a href="index.php/admin/news/doset?act=isnice&id=30&&page=1">${rst.type }</a></td>
                     <td class="list-text"><a href="index.php/admin/news/doset?act=istop&id=30&&page=1">${rst.size }KB</a></td>
                     <td class="list-text"><a href="index.php/admin/news/doset?act=nostatus&id=30&&page=1"><img src="statics/base/images/ok_1.gif" /></a></td>
                     <td class="list-text color999">${rst.time }</td>
@@ -107,12 +101,10 @@
                     <td class="list-text">
                         <a href="news_edit.html">编辑</a>&nbsp;&nbsp;
                         <a href="news_edit.html">下载</a>&nbsp;&nbsp;
-                        <a href="javascript:;" onclick="{if(confirm('确定删除吗?')){window.location='index.php/admin/news/del?id=30&page=1';return true;}return false;}">删除</a>
-                    </td>
-                    </c:forEach>
-                    
-                    
+                        <a href="javascript:;" onclick="{if(confirm('确定删除吗?')){window.location='${ctx }/filedeleteController?resourcesid=${rst.id }&resourcespath=${rst.path }&courseid=${courseid }&filetype=${filetype }';return true;}return false;}">删除</a>
+                    </td>                  
                 </tr>
+                 </c:forEach>
 
                 <tr>
                     <td class="all"><input name="chkAll" type="checkbox" id="chkAll" onclick=CheckAll(this.form) value="checkbox" /></td>
@@ -172,7 +164,7 @@
                                 }
                             </style>
                             <div class='digg4'>
-                                <span class="disabled" style="font-family: Tahoma, Verdana;"><b>«</b></span><span class="disabled" style="font-family: Tahoma, Verdana;">‹</span><span class="current">1</span><span class="disabled" style="font-family: Tahoma, Verdana;">›</span><span class="disabled" style="font-family: Tahoma, Verdana;"><b>»</b></span>  共1条 		 转到
+                                <span class="disabled" style="font-family: Tahoma, Verdana;"><b>«</b></span><span class="disabled" style="font-family: Tahoma, Verdana;">‹</span><span class="current">1</span><span class="disabled" style="font-family: Tahoma, Verdana;">›</span><span class="disabled" style="font-family: Tahoma, Verdana;"><b>»</b></span>  共${filecount }条 		 转到
                                 <input name='page' class='page_input' value="1" />页
                                 <input type='submit' value=' go ' class="bnt_pinyin" />
                             </div>

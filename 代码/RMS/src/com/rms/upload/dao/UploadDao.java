@@ -36,12 +36,16 @@ public class UploadDao {
 			try {
 				//获取原文件名
 				String fileName=file.getOriginalFilename();
+				String postfix = getPostfix(fileName);
+				//根据文件后缀名找到文件类型
+				String filetype = gettype(postfix);
+				
 				//创建文件实例
-				File filePath=new File(path);
+				File filePath=new File(path+filetype);
 				if(!filePath.exists()) {
 					filePath.mkdirs();
 				}
-				String finalname = path+fileName;
+				String finalname = path+filetype+"//"+fileName;
 				//转存文件
 				file.transferTo(new File(finalname));
 				return true;
@@ -95,7 +99,7 @@ public class UploadDao {
 		//插入到数据库的时候，判断一下form的是否公开，因为resourse的公开属性是int类型，但是这获取下来是string，公开or不公开。判断一下再插入就行。
 		 //根据文件后缀名找到文件类型
 		String filetype = gettype(postfix);
-		String filepath=path+fileName;
+		String filepath=path+filetype+"//"+fileName;
 		//获取当前系统时间
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 		String time = df.format(new Date());

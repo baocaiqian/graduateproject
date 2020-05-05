@@ -21,5 +21,15 @@ public class FileopService {
 	public List<Resources> getAllTypeFilefir(String type,int courseid,int owner){
 		return fdo.getAllTypeFile(type,courseid,owner);
 	}
+	
+	public List<Resources> getAllSearchFilefir(String type,int courseid,int owner,String keyword){
+		return fdo.getSearchTypeFile(type,courseid,owner,keyword);
+	}
+	
+	public void deleteFilefir(int resid,String path) {
+		fdo.deleteFile(resid,path);
+	}
+	
+	
 
 }

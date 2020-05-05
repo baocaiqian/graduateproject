@@ -1,5 +1,6 @@
 package com.rms.fileoperate.dao;
 
+import java.io.File;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -20,16 +21,29 @@ public class FileopDao {
 	//根据条件：用户名+课程名+文件类型获得查询出这些文件
 	public List<Resources> getAllTypeFile(String type,int courseid,int owner){
 		Session session = this.sf.getCurrentSession();
-//		Query q=session.createQuery("from Resources where type=?0 and course=?1 and owner=?2");
-//		q.setParameter(0, type);
-//		q.setParameter(1, courseid);
-//		q.setParameter(2, owner);
 		Query q=session.createQuery("from Resources where type='"+type+"'and course="+courseid+"and owner="+owner);
-		
-		System.out.println(type+courseid+owner+"-------------------");
-		System.out.println("哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈或或"+q.list());
-		
 		return q.list();	
 	}
+	
+	//根据条件：用户名+课程名+文件类型+搜索内容查询出这些文件
+	public List<Resources> getSearchTypeFile(String type,int courseid,int owner,String keyword){
+		Session session=this.sf.getCurrentSession();
+		Query q=session.createQuery("from Resources where type='"+type+"'and course="+courseid+"and owner="+owner+"and name like '%"+keyword+"%'");
+		return q.list();
+	}
+	
+	//根据资源id以及路径删除该资源和数据库该条数据，然后再在控制器中查询出剩余的文件并返回
+	public void deleteFile(int resid,String filepath) {
+		//删除文件
+		File file=new File(filepath);
+		file.delete();
+		//根据id删除数据库中值
+		Session session=this.sf.getCurrentSession();
+		Query q=session.createQuery("delete from Resources where id="+resid);
+		q.executeUpdate();
+	}
+	
+	
+	
 
 }
