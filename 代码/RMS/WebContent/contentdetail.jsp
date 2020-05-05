@@ -100,7 +100,7 @@
                     <td class="list-text color999"><a href="#">软件学院组</a></td>
                     <td class="list-text">
                         <a href="news_edit.html">编辑</a>&nbsp;&nbsp;
-                        <a href="${ctx }/filedownload?filepath=${rst.path }&filename=${rst.name }" rel="external nofollow">下载</a>&nbsp;&nbsp;
+                        <a href="${ctx }/filedownload?filepath=${rst.path }&filename=${rst.name }&resourceid=${rst.id }" rel="external nofollow">下载</a>&nbsp;&nbsp;
                         <a href="javascript:;" onclick="{if(confirm('确定删除吗?')){window.location='${ctx }/filedeleteController?resourcesid=${rst.id }&resourcespath=${rst.path }&courseid=${courseid }&filetype=${filetype }';return true;}return false;}">删除</a>
                     </td>                  
                 </tr>

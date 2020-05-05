@@ -86,7 +86,14 @@ public class Fileopcontroller {
 	
 	//文件下载控制器
 	@RequestMapping(value="filedownload",method=RequestMethod.GET)
-	public ResponseEntity<byte[]> filedownload(HttpSession session,HttpServletResponse response,@RequestParam("filepath") String filepath,@RequestParam("filename") String filename) throws IOException{
+	public ResponseEntity<byte[]> filedownload(HttpSession session,HttpServletResponse response,@RequestParam("filepath") String filepath,@RequestParam("filename") String filename,@RequestParam("resourceid") int resourceid) throws IOException{
+		
+		//将有关信息插入down表中
+		//获得登录者
+		Object obj=session.getAttribute("user");
+		Users myuser=(Users)obj;
+		fileopservice.insertDownfir(resourceid, myuser);
+		
 		File file=new File(filepath);
 		HttpHeaders headers=new HttpHeaders();		//防止文件名乱码
 		String downloadFileName;

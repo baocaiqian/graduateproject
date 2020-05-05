@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rms.entity.Resources;
+import com.rms.entity.Users;
 import com.rms.fileoperate.dao.FileopDao;
 
 @Service
@@ -28,6 +29,10 @@ public class FileopService {
 	
 	public void deleteFilefir(int resid,String path) {
 		fdo.deleteFile(resid,path);
+	}
+	
+	public void insertDownfir(int resourcesid,Users user) {
+		fdo.insertDown(resourcesid,user);
 	}
 	
 	

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -14,7 +16,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.rms.entity.Down;
 import com.rms.entity.Resources;
+import com.rms.entity.Users;
 
 @Repository
 public class FileopDao {
@@ -47,8 +51,21 @@ public class FileopDao {
 		q.executeUpdate();
 	}
 	
-	
-	
-	
-
+	//将文件下载信息插入down表中，并在文件下载时将resource表中的文件下载次数加一
+	public void insertDown(int resourcesid,Users user) {
+		Session session = this.sf.getCurrentSession();
+		Down down=new Down();
+		//获取当前系统时间
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		String time = df.format(new Date());	
+		down.setTime(time);
+		//根据resourcesid找到当前resource实体
+		Resources res=(Resources) session.createQuery("from Resources where id="+resourcesid).uniqueResult();
+		down.setResource(res);
+		down.setDownuser(user);
+		session.save(down);
+		//根据resourcesid将文件resources表的下载次数改了
+		Query q=session.createQuery("update Resources set downtimes=downtimes+1 where id="+resourcesid);
+		q.executeUpdate();	
+	}
 }
