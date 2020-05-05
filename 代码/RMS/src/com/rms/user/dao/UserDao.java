@@ -88,6 +88,19 @@ public class UserDao {
 				}
 					
 				
+				//修改用户密码或邮箱
+				public void updatePersoninfo(Users ubefore,Users uinput) {
+					Session session = sessionFactory.getCurrentSession();
+					Query query = session.createSQLQuery("update users set school=?,major=?,mainmajor=?,presondescribe=? where email=?	");
+					query.setString(1, uinput.getSchool());
+					query.setString(2, uinput.getMajor());
+					query.setString(3, uinput.getMainmajor());
+					query.setString(4, uinput.getPresondescribe());
+					query.setString(5, ubefore.getEmail());
+
+					query.executeUpdate();
+				}
+				
 				
 				
 				

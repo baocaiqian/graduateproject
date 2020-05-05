@@ -40,9 +40,15 @@ public class UserService {
 		}
 		
 		
-		//注册
+		//修改密码
 				public void xiugaiUser(Users ubefore,Users uinput) throws SQLException {
 		            this.userDao.changeUsers(ubefore, uinput);
+				    
+
+				}
+				//修改用户信息
+				public void xiugaiUserInfo(Users ubefore,Users uinput) throws SQLException {
+		            this.userDao.updatePersoninfo(ubefore, uinput);
 				    
 
 				}
