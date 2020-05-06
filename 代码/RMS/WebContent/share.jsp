@@ -94,12 +94,17 @@ $("html",parent.document).find('.returnover').remove();
 		<div style="width:80%;margin-left:20px;">
 			<h1 style="font-size: 20px;color: #1e71b1;border-left:#1e71b1 solid 2px;">&nbsp;猜你喜欢</h1>
 			<ol style="margin-left:5px;">
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png);"><a href="#" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="login.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_ad.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="expand_ad_add.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="app_lists.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
-				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png)"><a href="app.html" class="remen1"><span id="name">java基础语法.pptx</span>&nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">wuyongliang</span></a></li>
+			<c:if test="${recommendresource!=null }">
+			<c:forEach items="${recommendresource }" var="recommendresource">
+				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png);"><a href="#" class="remen1"><span id="name">${recommendresource.name }</span></a></li>
+			</c:forEach>
+			</c:if>
+			<c:if test="${recommendresource==null }">
+			recommendresourc==null
+			<c:forEach items="${hotlook}" var="look">
+				<li style="font-size: 15px;color:#8a8a8a;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;list-style-image: url(${ctx}/statics/base/images/jiantou.png);"><a href="#" class="remen1"><span id="name">${look.name }</span><!--  &nbsp;shared&nbsp;by&nbsp;<span id="zuozhe">${look.owner.name }</span></a></li>-->
+			</c:forEach>
+			</c:if>
 			</ol>
 		</div>
 		<!-- 最热浏览 -->

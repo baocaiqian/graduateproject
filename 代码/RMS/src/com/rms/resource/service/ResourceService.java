@@ -8,9 +8,11 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.rms.entity.RecommendResource;
 import com.rms.entity.Resources;
 import com.rms.entity.Search;
 import com.rms.entity.Users;
+import com.rms.recommend.CollaborativeFiltering;
 import com.rms.recommend.dao.AprioMySelf;
 import com.rms.resource.dao.ResourceDao;
 
@@ -21,6 +23,8 @@ public class ResourceService {
 	private ResourceDao rd;
 	@Resource
 	private AprioMySelf am;
+	@Resource
+	private CollaborativeFiltering cf;
 	public List<Resources> getmyresource(Users u) {
 		return rd.getallResource(u);
 	}
@@ -49,5 +53,8 @@ public class ResourceService {
 	}
 	public List<Resources> getlooktimesmax(){
 		return rd.getlooktimesmax();
+	}
+	public List<RecommendResource> getrecommendResource(Users u) {
+		return cf.getRecommendResources(u);
 	}
 }
