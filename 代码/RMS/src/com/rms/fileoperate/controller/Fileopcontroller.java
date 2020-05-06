@@ -37,7 +37,7 @@ public class Fileopcontroller {
 	private ResourceService rs;
 	
 	//文件查询控制器
-	@RequestMapping(value="getfiledetail",method=RequestMethod.GET)
+	@RequestMapping(value="/getfiledetail",method=RequestMethod.GET)
 	public String getfiledetail(HttpSession session,HttpServletRequest request,@RequestParam("courseid") int courseid , @RequestParam("type") String filetype) {
 		//获得登录者的id
 		Object obj=session.getAttribute("user");
@@ -54,7 +54,7 @@ public class Fileopcontroller {
 	}
 	
 	//文件搜索控制器
-	@RequestMapping(value="fileserarch",method=RequestMethod.POST)
+	@RequestMapping(value="/fileserarch",method=RequestMethod.POST)
 	public String filesearch(HttpSession session,HttpServletRequest request,@RequestParam("courseid") int courseid,@RequestParam("filetype") String filetype,@RequestParam("keyword") String namekeyword) {
 		//获得登录者的id
 		Object obj=session.getAttribute("user");
@@ -72,7 +72,7 @@ public class Fileopcontroller {
 	}
 	
 	//文件删除控制器
-	@RequestMapping(value="filedeleteController",method=RequestMethod.GET)
+	@RequestMapping(value="/filedeleteController",method=RequestMethod.GET)
 	public String filedelete(HttpSession session,HttpServletRequest request,@RequestParam("resourcesid") int resid,@RequestParam("resourcespath") String path,@RequestParam("courseid") int courseid , @RequestParam("filetype") String filetype) {	
 		//删除文件以及数据库内容
 		fileopservice.deleteFilefir(resid,path);
@@ -89,7 +89,7 @@ public class Fileopcontroller {
 	}
 	
 	//文件下载控制器
-	@RequestMapping(value="filedownload",method=RequestMethod.GET)
+	@RequestMapping(value="/filedownload",method=RequestMethod.GET)
 	public ResponseEntity<byte[]> filedownload(HttpSession session,HttpServletResponse response,@RequestParam("filepath") String filepath,@RequestParam("filename") String filename,@RequestParam("resourceid") int resourceid) throws IOException{
 		
 		//将有关信息插入down表中
@@ -116,7 +116,22 @@ public class Fileopcontroller {
 		return null;
 	}
 	
-	//文件预览控制器
+	
+	//contentdetail中的文件预览控制器
+	@RequestMapping(value="/previewController",method=RequestMethod.GET)
+	public String previewController(HttpSession session,HttpServletRequest request,@RequestParam("filepath") String filepath,@RequestParam("filename") String filename,@RequestParam("resourceid") int resourceid) {
+		//存放位置是filepath
+		//DocConverter d=new DocConverter(filepath);
+		
+		
+		
+		
+		return "contentdetail";
+	}
+	
+	
+	
+	//share中文件预览控制器
 	@RequestMapping(value="/lookController",method=RequestMethod.GET)
 	public String lookController(HttpSession session,HttpServletRequest request,@RequestParam("resourceid") int resourceid) {
 		Object obj=session.getAttribute("user");
