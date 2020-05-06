@@ -8,10 +8,12 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.rm.until.CipherUtil;
 import com.rms.classsystem.service.ClassSystemService;
 import com.rms.entity.ClassSystem;
@@ -27,6 +29,9 @@ public class UserController {
 	private ClassSystemService css;
 	private CipherUtil cu;
 
+	
+	private static Logger log = LoggerFactory.getLogger(UserController.class);
+	
 	// 登录控制器
 	@RequestMapping(value = "/loginController", method = RequestMethod.POST)
 	public String getLoginPerson(Users users, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
@@ -57,6 +62,8 @@ public class UserController {
 				user.setClasssystem(system);
 				session.setAttribute("isSigned", issigned);// 定义一个是否已登录的接口
 				session.setAttribute("user", user);
+
+			log.info("this is log"+":   "+user.getEmail()+"  "+user.getId());
 				return "index";
 			} else {
 				issigned = false;
