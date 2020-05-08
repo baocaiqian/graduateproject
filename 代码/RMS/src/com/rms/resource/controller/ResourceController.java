@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rms.course.service.CourseService;
 import com.rms.entity.HotResearch;
+import com.rms.entity.RecommendResource;
 import com.rms.entity.Resources;
 import com.rms.entity.Search;
 import com.rms.entity.Users;
@@ -45,13 +46,16 @@ public class ResourceController {
 		
 		if(hotresearch.size()<=6) {
 			request.setAttribute("hotresearch", hotresearch);
-			request.setAttribute("intrestedsearch",intrestedsearch);
 		}else
 		{
 			request.setAttribute("hotresearch", hotresearch.subList(0,6));
+		}
+		if(intrestedsearch.size()<=6) {
+			request.setAttribute("intrestedsearch",intrestedsearch);
+		}else
+		{
 			request.setAttribute("intrestedsearch",intrestedsearch.subList(0, 6));
 		}
-		
 		request.setAttribute("hotdown", hotdown);
 		return "research";
 	}
@@ -100,11 +104,28 @@ public class ResourceController {
 		}
 		@RequestMapping(value="/share",method=RequestMethod.GET)
 		public String getShareresource(HttpSession session,HttpServletRequest request) {
+			Users u = (Users)session.getAttribute("user");
 			List<Resources> share = rs.getsharer();
 			List<Resources> hotlook = rs.getlooktimesmax();
 			System.out.println("controller"+hotlook.size());
 			request.setAttribute("hotlook", hotlook);
 			request.setAttribute("share", share);
+			System.out.println("获取资源推荐：");
+			List<RecommendResource>  recommendresource;
+			if(rs.getrecommendResource(u)!=null) {
+				System.out.println("rs.getrecommendResource(u)不空");
+				recommendresource= rs.getrecommendResource(u);
+				if(recommendresource.size()<=6) {
+					request.setAttribute("recommendresource", recommendresource);
+				}else
+				{
+					request.setAttribute("recommendresource", recommendresource.subList(0,6));
+				}
+			}else {
+				System.out.println("rs.getrecommendResource(u)空");
+				recommendresource=null;
+				request.setAttribute("recommendresource", recommendresource);
+			}
 			return "share";
 		}
 		@RequestMapping(value="/myshare",method=RequestMethod.GET)
