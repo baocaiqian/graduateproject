@@ -56,7 +56,7 @@ function metreturn(url){
 
 <div class="clear"></div>
 
-
+ <div style="margin-left:10px;margin-top:10px"><a href="upphoto.jsp"><font style="font-size:30px">上传文件</font></a></div>
 <div class="v52fmbx_tbmax v52fmbx_tbmaxmt">
 <div class="v52fmbx_tbbox">
 
@@ -79,26 +79,59 @@ function metreturn(url){
 
 	
 	
-        <tr class="mouse click">
+
+    
+    
+      <tr class="mouse click">
         <td class="list-text alignleft">
 		        				    &nbsp;<img class="small" src="statics/base/images/botton/Filey.png" />
-					<a href="index.php/admin/theme/lists?path=./data/themes/cn/css" title="查看详细">css</a>
+					<a href="index.php/admin/theme/lists?path=./data/themes/cn/css" title="查看详细">business</a>
 						</td>
-		<td class="list-text">样式文件夹</td>
-        <td class="list-text">0 Bytes</td>
-		<td class="list-text">2014-10-21 17:22:19</td>
+		<td class="list-text">商务英语</td>
+        <td class="list-text">2000 Bytes</td>
+		<td class="list-text">2020-5-6 17:22:19</td>
 		<td class="list-text">
 		    				    <a href="index.php/admin/theme/lists?path=./data/themes/cn/css">查看</a>
 						</td>
     </tr> 
+    
+    
+      <tr class="mouse click">
+        <td class="list-text alignleft">
+		        				    &nbsp;<img class="small" src="statics/base/images/botton/Filey.png" />
+					<a href="index.php/admin/theme/lists?path=./data/themes/cn/css" title="查看详细">spoken</a>
+						</td>
+		<td class="list-text">英语口语</td>
+        <td class="list-text">2000 Bytes</td>
+		<td class="list-text">2020-5-6 17:22:19</td>
+		<td class="list-text">
+		    				    <a href="index.php/admin/theme/lists?path=./data/themes/cn/css">查看</a>
+						</td>
+    </tr> 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
         <tr class="mouse click">
         <td class="list-text alignleft">
 		        				    &nbsp;<img class="small" src="statics/base/images/botton/Filey.png" />
 					<a href="index.php/admin/theme/lists?path=./data/themes/cn/flash" title="查看详细">flash</a>
 						</td>
 		<td class="list-text"></td>
-        <td class="list-text">0 Bytes</td>
-		<td class="list-text">2014-10-21 17:22:19</td>
+        <td class="list-text">1000 Bytes</td>
+		<td class="list-text">2020-5-7 12:22:19</td>
 		<td class="list-text">
 		    				    <a href="index.php/admin/theme/lists?path=./data/themes/cn/flash">查看</a>
 						</td>
@@ -106,11 +139,11 @@ function metreturn(url){
         <tr class="mouse click">
         <td class="list-text alignleft">
 		        				    						&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="theme_edit_show.html" title="查看详细">foot.php</a>
+						<a href="theme_edit_show.html" title="查看详细">footer</a>
 											</td>
 		<td class="list-text">底部</td>
         <td class="list-text">3.6 KB</td>
-		<td class="list-text">2014-07-02 16:55:54</td>
+		<td class="list-text">2020-05-08 16:55:54</td>
 		<td class="list-text">
 		    				    					    <a href="theme_edit_show.html">查看</a> 
 											</td>

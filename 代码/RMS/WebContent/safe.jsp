@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -153,9 +155,9 @@ function metreturn(url){
     <div style="width:500px;height:40px;">
               <h1 style="margin-left:10px;">  添加用户</h1>               
         <hr>
-        <form style=" margin-left: 100px;">
-            用户名<br />
-    <input type="text" value="" name="" ><br>
+        <form   action="${ctx }/addGroupputongmember" method="post"   style=" margin-left: 100px;">
+            用户邮箱<br />
+    <input type="text" value="" name="member" ><br>
     <br></br>
             <input type="submit" value="确认添加">
         </form>
@@ -174,8 +176,7 @@ function metreturn(url){
 	<form name="myform" method="post" id="myform">
 	      <tr> 
 			 <td class="all-submit" colspan="12" style="padding:5px 10px;">
-			 <input type='submit' value='删除成员' class="submit li-submit" onclick="{if(confirm('确定删除吗?')){document.myform.action='index.php/admin/expand_ad/delsome?&page=1';return true;}return false;}"/>
-			 <input type='submit' value='设为管理员' class="submit li-submit" onclick="{if(confirm('确定下载全部吗?')){document.myform.action='index.php/admin/expand_ad/delsome?&page=1';return true;}return false;}"/>
+			 
 
 			 
 			 <div class="submit li-submit" style="width: 30px;height: 30px;margin-left:70%">
@@ -194,17 +195,84 @@ function metreturn(url){
           </tr>
 	
               <tr>
-			    <td width="20" class="list" style="padding:0px; text-align:center;">选择</td>
+			    
 				<td width="20" class="list" style="padding:0px; text-align:center;">名称</td>
                 <td width="50" class="list" style="padding:0px; text-align:center;">头像</td>
                 <td width="50"class="list" >角色</td>
  
                 <td width="50" class="list" style="padding:0px; text-align:center;">邮箱</td>
-				<td width="50" class="list" style="padding:0px; text-align:center;">入群时间</td>
-				
+				<td width="20" class="list" style="padding:0px; text-align:center;">选择</td>
               </tr>
 
-              <tr class="mouse click">
+
+<c:forEach  items="${lgoupmember}" var="gm">
+
+
+
+
+  <tr class="mouse click">
+                
+                <td class="list-text">${gm.member.name}</td>
+				<td class="list-text"><img  class="small" style="width: 30px;height: 30px;"   src="${gm.member.icon}" /></td>
+				<td class="list-text">${gm.role}</td>
+				<td class="list-text">${gm.member.email}</td>  
+                <td class="list-text"><a href="addGadminmember?memrid=${gm.member.id}">设为管理</a></td>     	
+			
+    </tr>
+
+
+
+
+
+
+<!--	<div class="cart-header">
+				<div class="cart-sec simpleCart_shelfItem">
+					<div class="cart-item cyc">
+						 <img src="${carts.cartcake.bigimg}" class="img-responsive" alt="">
+					</div>
+					<div class="cart-item-info">
+						<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+						<ul class="qty">
+							<li><p>Min. order value:</p></li>
+							<li><p>FREE delivery</p></li>
+						</ul>
+						<div class="delivery">
+						    <h3><p>price: ${carts.cartcake.price}  ${carts.cartcake.id}</p><br></h3>
+							<h3><p>count:${carts.count}</p></h3><br>
+							<a href="cartconaddtroller?id=${carts.cartcake.id}"><font   size="7">+</font></a>&nbsp&nbsp&nbsp
+							 <a href="cartconreducetroller?id=${carts.cartcake.id}"><font   size="7">-</font></a>
+							<span>Delivered in 1-1:30 hours</span>
+							<div class="clearfix"></div>
+						</div>	
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>  -->
+
+
+
+
+
+
+
+		
+			
+		</c:forEach>
+
+
+
+
+
+
+
+
+
+
+
+            
+               
+              <!--  
+                <tr class="mouse click">
                 <td class="list-text"><input name="id[]" type='checkbox' id="id" value="3" /></td>
                 <td class="list-text">lalalla</td>
 				<td class="list-text"><img  class="small" style="width: 30px;height: 30px;"   src="statics/base/images/people.jpg" /></td>
@@ -231,7 +299,15 @@ function metreturn(url){
                 <td class="list-text">2014-10-21 17:22:19</td>      	
 			
               </tr>
-                 <tr class="mouse click">
+              
+              
+              
+              
+              
+              
+              
+              
+                <tr class="mouse click">
                 <td class="list-text"><input name="id[]" type='checkbox' id="id" value="3" /></td>
                 <td class="list-text">lalalla</td>
 				<td class="list-text"><img  class="small" style="width: 30px;height: 30px;"   src="statics/base/images/people.jpg" /></td>
@@ -239,8 +315,10 @@ function metreturn(url){
 				<td class="list-text">3726374897@qq.com</td>
                 <td class="list-text">2014-10-21 17:22:19</td>      	
 			
-              </tr>
-                 <tr class="mouse click">
+              </tr>  -->
+             
+              
+              <!--     <tr class="mouse click">
                 <td class="list-text"><input name="id[]" type='checkbox' id="id" value="3" /></td>
                 <td class="list-text">lalalla</td>
 				<td class="list-text"><img  class="small" style="width: 30px;height: 30px;"   src="statics/base/images/people.jpg" /></td>
@@ -248,16 +326,8 @@ function metreturn(url){
 				<td class="list-text">3726374897@qq.com</td>
                 <td class="list-text">2014-10-21 17:22:19</td>      	
 			
-              </tr>
-                 <tr class="mouse click">
-                <td class="list-text"><input name="id[]" type='checkbox' id="id" value="3" /></td>
-                <td class="list-text">lalalla</td>
-				<td class="list-text"><img  class="small" style="width: 30px;height: 30px;"   src="statics/base/images/people.jpg" /></td>
-				<td class="list-text">管理员</td>
-				<td class="list-text">3726374897@qq.com</td>
-                <td class="list-text">2014-10-21 17:22:19</td>      	
-			
-              </tr>
+              </tr> -->
+             
 	  
 	 
  

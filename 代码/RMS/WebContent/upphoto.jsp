@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="mysesisgn">
-<form action="${ctx }/photo/up" method="POST" enctype="multipart/form-data" id="myformid">
+<form action="${ctx }/photoup" method="POST" enctype="multipart/form-data" id="myformid">
 <div style="position: relative;">
 	<section role="main" class="l-main" style="margin-top:50px;margin-bottom:50px;">
 		<div class="uploader__box js-uploader__box l-center-box">
