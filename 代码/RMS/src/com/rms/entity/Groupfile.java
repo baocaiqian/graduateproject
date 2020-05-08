@@ -18,7 +18,7 @@ public class Groupfile {
 	private String uptime;//上传时间
 	private int downstimes;//下载次数
 	private Users uplorder;//上传人id
-	private Group group;
+	private Groups groups;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
@@ -56,12 +56,12 @@ public class Groupfile {
 		this.uplorder = uplorder;
 	}
 	@ManyToOne
-	@JoinColumn(name="group")
-	public Group getGroup() {
-		return group;
+	@JoinColumn(name="groups")
+	public Groups getGroups() {
+		return groups;
 	}
-	public void setGroup(Group group) {
-		this.group = group;
+	public void setGroups(Groups groups) {
+		this.groups = groups;
 	}
 	
 	

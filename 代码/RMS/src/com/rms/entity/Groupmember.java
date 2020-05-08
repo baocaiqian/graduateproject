@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Groupmember {
 	private int id;
 	private Users member;//小组成员id
-	private Group group;//小组id
+	private Groups groups;//小组id
 	private String mail;//邮件
 	private String time;//入组时间
 	private String role;//组内角色
@@ -35,12 +35,12 @@ public class Groupmember {
 		this.member = member;
 	}
 	@ManyToOne
-	@JoinColumn(name="group")
-	public Group getGroup() {
-		return group;
+	@JoinColumn(name="groups")
+	public Groups getGroups() {
+		return groups;
 	}
-	public void setGroup(Group group) {
-		this.group = group;
+	public void setGroups(Groups groups) {
+		this.groups = groups;
 	}
 	public String getMail() {
 		return mail;

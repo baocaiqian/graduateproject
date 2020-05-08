@@ -17,7 +17,10 @@ import org.slf4j.LoggerFactory;
 import com.rm.until.CipherUtil;
 import com.rms.classsystem.service.ClassSystemService;
 import com.rms.entity.ClassSystem;
+import com.rms.entity.Groups;
 import com.rms.entity.Users;
+import com.rms.group.dao.GroupDao;
+import com.rms.group.service.GroupService;
 import com.rms.user.service.UserService;
 
 @Controller
@@ -28,13 +31,14 @@ public class UserController {
 	@Resource
 	private ClassSystemService css;
 	private CipherUtil cu;
+	private GroupService gs;
 
 	
 	private static Logger log = LoggerFactory.getLogger(UserController.class);
 	
 	// 登录控制器
 	@RequestMapping(value = "/loginController", method = RequestMethod.POST)
-	public String getLoginPerson(Users users, HttpSession session, HttpServletRequest request) throws UnsupportedEncodingException {
+	public String getLoginPerson(Users users, HttpSession session, HttpServletRequest request) throws Exception {
 		
 		request.setCharacterEncoding("utf-8");
         String session_vcode=(String) request.getSession().getAttribute("text");    //从session中获取真正的验证码
@@ -60,8 +64,27 @@ public class UserController {
 
 				List<ClassSystem> system = css.getSystem(user);
 				user.setClasssystem(system);
+				System.out.println("判断是不是空");
+				System.out.println(user==null);
+				
+				
+				
+				System.out.println(user.getGroups().isEmpty()+"jkafiigfjdkl;'lkjhgfdsdfghjkl;dfghjk");
+                List<Groups> listgroupsetter=user.getGroups();
+
+                for (Groups gp : user.getGroups()) {
+				System.out.println(gp.getId()+"hahahakuaichulaiba");
+
+				}
+				
+				
+				
 				session.setAttribute("isSigned", issigned);// 定义一个是否已登录的接口
 				session.setAttribute("user", user);
+				session.setAttribute("listgroupsetter", listgroupsetter);
+//				System.out.println(user.getId()+"fhkajshfkashdfkjasdddddddddddddddddddddddddddddddddddddddddddddddd");
+//				this.gs.findchuangjangroup((Users)session.getAttribute("user"));
+//				session.setAttribute("listsettergrop", listsettergrop);
 
 			log.info("this is log"+":   "+user.getEmail()+"  "+user.getId());
 				return "index";

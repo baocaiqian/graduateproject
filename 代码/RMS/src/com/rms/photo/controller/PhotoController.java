@@ -14,12 +14,12 @@ import com.rms.entity.Users;
 import com.rms.photo.service.PhotoService;
 
 @Controller
-@RequestMapping("/photo")
+//@RequestMapping("/photo")
 public class PhotoController {
 	@Resource
 	private PhotoService ps;
 
-	@RequestMapping(value="/up",method=RequestMethod.POST)
+	@RequestMapping(value="/photoup",method=RequestMethod.POST)
 	public String upPhoto(@RequestParam(value="files")MultipartFile []files,HttpServletRequest request,HttpSession session) {
 		String path= session.getServletContext().getRealPath("/");
 		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");

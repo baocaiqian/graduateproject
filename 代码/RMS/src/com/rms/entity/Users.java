@@ -31,7 +31,7 @@ public class Users {
 	private List<Collect> collectlog;//收藏记录
 	private List<Browse> browselog;//浏览记录
 	private List<Resources> resource;//资源列表
-	private List<Group> groups;//所创建小组列表
+	private List<Groups> groups;//所创建小组列表
 	private List<Groupfile> groupfiles;//在组内上传记录
 	private List<ClassSystem> classsystem;//课程体系
 	private List<Course> course;//课程
@@ -137,12 +137,12 @@ public class Users {
 	public void setResource(List<Resources> resource) {
 		this.resource = resource;
 	}
-	@OneToMany(mappedBy="owner", targetEntity=Group.class, 
+	@OneToMany(mappedBy="owner", targetEntity=Groups.class, 
 	        cascade=CascadeType.ALL)
-	public List<Group> getGroups() {
+	public List<Groups> getGroups() {
 		return groups;
 	}
-	public void setGroups(List<Group> groups) {
+	public void setGroups(List<Groups> groups) {
 		this.groups = groups;
 	}
 	@OneToMany(mappedBy="uplorder", targetEntity=Groupfile.class, 
